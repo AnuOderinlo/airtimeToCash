@@ -11,7 +11,7 @@ const InputField = ({
                 {props.label}
             </div >
             <div >
-                <input type={props.type} className={props.class} placeholder={props.placeholder} />
+                <input name={props.name} type={props.type} className={props.class} placeholder={props.placeholder} />
             </div>
         </div >
 

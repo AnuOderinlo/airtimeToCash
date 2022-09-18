@@ -16,10 +16,10 @@ export const Login = ({
                             <Logo />
                         </div>
                         <div className="">
-                            <InputField type="input" class="input" label="Login" placeholder="Enter your email" />
+                            <InputField name="email" type="input" class="input" label="Login" placeholder="Enter your email" />
                         </div>
                         <div className="">
-                            <InputField type="password" class="input" label="Password" placeholder="Enter your password" />
+                            <InputField name="password" type="password" class="input" label="Password" placeholder="Enter your password" />
                         </div>
 
                         <div className="">
