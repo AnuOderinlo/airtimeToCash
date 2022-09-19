@@ -12,7 +12,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path='/forgot-password' element={<ForgotPassword />} />
         <Route path='/verification' element={<EmailVerification />} />
-        <Route path='/reset-password' element={<ResetPassword />} />
+        <Route path='/users/change-password/:id' element={<ResetPassword />} />
       </Routes>
     </BrowserRouter>
   );
