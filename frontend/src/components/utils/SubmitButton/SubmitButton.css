@@ -16,6 +16,10 @@
     height: 48px;
     position: relative;
     text-decoration: none;
+    color: #ffffff;
+    border: none;
+    font: bolder 14px 'Inter';
+    cursor: pointer;
 }
 
 .button-text {
