@@ -5,8 +5,9 @@ import SubmitButton from "../utils/SubmitButton/SubmitButton";
 import styled from "styled-components";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 const DivPara = styled.div`
   width: 100%;
   margin-top: -11px;
@@ -122,7 +123,7 @@ export const Login = ({ ...props }) => {
               </div>
               <DivPara>
                 <p>
-                  <a href="http://">Forgot password?</a>
+                  <Link to="/forgot-password">Forgot password?</Link>
                 </p>
               </DivPara>
 
@@ -133,7 +134,7 @@ export const Login = ({ ...props }) => {
 
             <BtnContainer>
               <p>
-                Don't have an account? <a href="http://">Create Account</a>{" "}
+                Don't have an account? <Link to="/signup">Create Account</Link>
               </p>
             </BtnContainer>
           </div>

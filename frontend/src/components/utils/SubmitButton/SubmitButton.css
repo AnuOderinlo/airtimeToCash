@@ -28,3 +28,11 @@
     font: 600 12px 'Inter';
     position: relative;
 }
+
+
+@media only screen and (max-width: 600px) {
+    
+    form .button {
+        width: 100%;
+    }
+}
