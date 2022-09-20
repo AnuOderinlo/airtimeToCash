@@ -1,8 +1,9 @@
 
 import './Login.css';
-import Logo from '../utils/Logo/Logo';
-import InputField from '../utils/Input/Input';
-import { Button } from '../utils/Button/Button';
+import Logo from '../Utils/Logo/Logo';
+import InputField from '../Utils/Input/Input';
+import { Button } from '../Utils/Button/Button';
+
 export const Login = ({
     ...props
 }) => {

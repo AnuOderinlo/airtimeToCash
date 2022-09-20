@@ -23,9 +23,9 @@
         flex-shrink: 0;
         position: relative;
 }
+
 .input-label {
         color: #21334f;
         text-align: left;
-        font: 400 12px 'Inter';
         position: relative;
 }

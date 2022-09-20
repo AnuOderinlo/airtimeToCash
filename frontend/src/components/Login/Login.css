@@ -17,7 +17,7 @@
         gap: 40px;
         align-items: center;
         justify-content: flex-start;
-        position: absolute;
+        /* position: absolute; */
         left: 347px;
         top: 184px;
 }
@@ -32,16 +32,25 @@
         justify-content: center;
         flex-shrink: 0;
         width: 745px;
-        position: relative;
+        position: absolute;
+        top: 120px;
+
+
 }
 
-.login-box {
+/* .login-box {
         display: flex;
         flex-direction: column;
         gap: 40px;
         align-items: center;
         justify-content: center;
         flex-shrink: 0;
+        position: relative;
+} */
+.login-box {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
         position: relative;
 }
 

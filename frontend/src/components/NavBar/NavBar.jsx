@@ -13,7 +13,7 @@ export const NavBar = ({
             <div className="frame-8591">
                 <div className="frame-8589">
                     <svg className="larkef-x-rareblocks-_-logo--31-1" width="40" height="70" viewBox="0 0 40 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g clip-path="url(#clip0_3_395)">
+                        <g clipPath="url(#clip0_3_395)">
                             <path d="M38.125 14.595L24.865 0L0 27.7H26.36L38.125 14.595Z" fill="url(#paint0_linear_3_395)" />
                             <path d="M13.255 42.3L1.48999 55.4L14.75 70L39.615 42.3H13.255Z" fill="url(#paint1_linear_3_395)" />
                             <path d="M13.255 42.3L25.445 28.715L26.36 27.7H0L13.255 42.3Z" fill="url(#paint2_linear_3_395)" />

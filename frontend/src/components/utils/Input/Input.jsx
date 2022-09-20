@@ -1,17 +1,17 @@
 import './Input.css';
 
 const InputField = ({
-    ...props
+    label, childDefaultValue, name, type, childClass, placeholder, handleChange
 }) => {
 
     return (
 
         <div className="input-group">
             <div className="input-label">
-                {props.label}
+                {label}
             </div >
             <div >
-                <input name={props.name} type={props.type} className={props.class} placeholder={props.placeholder} />
+                <input onChange={handleChange} defaultValue={childDefaultValue} name={name} type={type} className={childClass} placeholder={placeholder} />
             </div>
         </div >
 
