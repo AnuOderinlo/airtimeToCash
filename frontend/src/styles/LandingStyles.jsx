@@ -1,6 +1,8 @@
 import styled from "styled-components";
+import Logo from "../utils/Logo/Logo";
 
-// NAV BAR SECTION
+// Nav bar section
+
 export const Wrapper = styled.div`
   position: absolute;
   position: fixed;
@@ -137,6 +139,7 @@ export const Hero = styled.div`
 `;
 
 // ABOUT SECTION========================================
+
 export const AboutSection = styled.div`
   display: flex;
   padding: 60px 10%;
@@ -373,6 +376,3 @@ export const LowerFooter = styled.div`
     }
   }
 `;
-
-
-// 1024px
