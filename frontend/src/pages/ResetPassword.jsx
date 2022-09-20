@@ -38,7 +38,6 @@ const ResetPassword = () => {
       toast.error('Error, Please try again')
     }
   }
-  
 
   return (
     <Bg>
@@ -80,12 +79,10 @@ const ResetPassword = () => {
       <form className='l-form' onSubmit={handleReset}>
         <p className='l-header'>Reset Password</p>
         <label>New Password</label>
-        <input type={'password'} placeholder={'Enter new password'} name={'password'} onChange={handlePasswordInput} value={password.password || ''} pattern={'^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{4,}$'} required/>
-        <span className={'errorMsg'}>{'Password must have '}</span>
+        <input type={'password'} placeholder={'Enter new password'} name={'password'} onChange={handlePasswordInput} value={password.password || ''} pattern={'/^[a-zA-Z]{3,}$/'} required/>
 
         <label className='cp-login'>Confirm Password</label>
-        <input type={'password'} placeholder={'Confirm password'} className='cp-btn' name={'confirmPassword'} onChange={handlePasswordInput} value={password.confirmPassword || ''} required/>
-        <span className={'errorMsg'}>{'Password does not match'}</span>
+        <input type={'password'} placeholder={'Confirm password'} className='cp-btn' name={'confirmPassword'} onChange={handlePasswordInput} value={password.confirmPassword || ''}  required/>
 
         <Button text={'Reset Password'} radius={0} clickHandle={handleReset}/>
       </form>

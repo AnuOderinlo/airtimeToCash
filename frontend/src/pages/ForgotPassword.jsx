@@ -9,7 +9,7 @@ import axios from '../api/axios';
 import ProgressBar from '../components/ProgressBar';
 
 const ForgotPassword = () => {
-  // const [focused, setFocused] = useState(false)
+  const [focused, setFocused] = useState(false)
   const [email, setEmail] = useState({ email: '' })
   const [loading, setLoading] = useState(false)
   const [completed, setCompleted] = useState(0);
@@ -24,7 +24,7 @@ const ForgotPassword = () => {
 
   const handleSubmit = async () => {
     setLoading((prev)=> !prev)
-    setInterval(() => setCompleted(Math.floor(Math.random() * 100) + 1), 2000); 
+    setInterval(() => setCompleted(Math.floor(Math.random() * 100) + 1), 1000); 
     try{
       const response = await axios.post('/users/forgot-password', {
         ...email
@@ -37,7 +37,7 @@ const ForgotPassword = () => {
         
         setTimeout(()=> {
           navigate('/verification')
-        }, 5000)
+        }, 3000)
       }
       clearTimeout()
       clearInterval()
@@ -53,6 +53,11 @@ const ForgotPassword = () => {
     navigate('/login')
   }
 
+  const handleFocus = (e) => {
+    e.preventDefault()
+    setFocused((prev) => !prev)
+  }
+
   return (
     <Bg>
     <ToastContainer/>
@@ -62,7 +67,7 @@ const ForgotPassword = () => {
           <p className='f-header'>Enter the email associated with your account and we’ll send an email with instruction to reset your password</p>
           <form className='f-form' onSubmit={handleSubmit}>
             <label className='f-label'>Email</label>
-            <input type={'email'} name={'email'} placeholder={'Enter your email'} value={email.email || ''} onChange={handleEmail} required/>
+            <input type={'email'} name={'email'} placeholder={'Enter your email'} value={email.email || ''} onChange={handleEmail} onBlur={handleFocus} focused={`${focused.toString()}`} required/>
             <span className='errorMsg'>{'Enter a valid Email'}</span>
             <Button text={'Reset password'} type={'submit'} clickHandle={handleSubmit}/>
           {

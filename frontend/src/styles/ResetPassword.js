@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { Device } from './Device';
 
 export const Bg = styled.div`
   display: flex;
@@ -85,17 +84,6 @@ export const Container = styled.div`
         Button{
             width: 100%;
             background: linear-gradient(92.1deg, #DE3D6D 55.67%, #F5844C 101.51%);
-        }
-
-        .errorMsg{
-            font-size: 12px;
-            padding: 3px;
-            color: red;
-            display: none;
-        }
-
-        input:invalid ~ span {
-            display: block;
         }
 
     }

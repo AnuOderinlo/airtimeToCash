@@ -16,12 +16,12 @@ const ProgressBar = (props) => {
       backgroundColor: bgcolor,
       borderRadius: 'inherit',
       textAlign: 'right',
-      fontSize: 8
+      fontSize: 1
     }
   
     const labelStyles = {
       padding: 5,
-      color: 'white',
+      color: '#DE3D6D',
       fontWeight: 'bold'
     }
   

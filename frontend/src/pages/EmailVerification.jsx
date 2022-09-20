@@ -27,7 +27,7 @@ const EmailVerification = () => {
   }
 
   const handleCancel = () => {
-    navigate('/forgot-password')
+    navigate('/login')
   }
 
   return (

@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { Device } from './Device';
 
 export const Bg = styled.div`
   display: flex;
@@ -96,7 +95,7 @@ export const Container = styled.div`
             display: none;
         }
 
-        input:invalid ~ span {
+        input:invalid[focused="true"] ~ span {
             display: block;
         }
     }
