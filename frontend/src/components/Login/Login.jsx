@@ -4,7 +4,7 @@ import InputField from "../utils/Input/Input";
 import SubmitButton from "../utils/SubmitButton/SubmitButton";
 import styled from "styled-components";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import "react-toastify/dist/ReactToastify.css"; /*eslint-disable-next-line*/ 
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 const DivPara = styled.div`
