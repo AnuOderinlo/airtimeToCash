@@ -3,7 +3,7 @@ import logo from '../../assets/icon/logo2.svg'
 // import { NavLink } from 'react-router-dom'
 import {useState} from 'react'
 import {Wrapper, Nav, Logo,Hamburger,Menu,MenuLinks } from '../../styles/LandingStyles'
-import StyleButton from '../../styles/Button.styles.js'
+import {Button }from '../utils/Button/Button'
 import UserProfileNav from './UserProfileNav'
 import { Link } from 'react-router-dom'
 
@@ -30,7 +30,7 @@ export const Navbar=({landing, dashboard})=> {
          <MenuLinks onClick={()=> setOpen(!open)}><a  href='/#about'>About Us</a></MenuLinks>
         <MenuLinks onClick={()=> setOpen(!open)}><a href='/#product'>Products</a></MenuLinks>
         <MenuLinks onClick={()=> setOpen(!open)}><a href='/#contactUs'>Contact Us</a></MenuLinks>
-      {isLogin ? <UserProfileNav setLogout={setIsLogin}/> : <StyleButton onClick={()=>setIsLogin(true)} width='20%'><Link to="/login">Login</Link></StyleButton>}
+      {isLogin ? <UserProfileNav setLogout={setIsLogin}/> : <Button onClick={()=>setIsLogin(true)} width='20%'><Link to="/login">Login</Link></Button>}
     </Menu>}
     </Nav>
     </Wrapper>

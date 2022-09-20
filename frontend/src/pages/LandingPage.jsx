@@ -5,10 +5,10 @@ import rechargeImage from '../assets/images/Recharge.png'
 import loginIcon from '../assets/icon/Login.svg'
 import DashboardIcon from '../assets/icon/Dashboard.svg'
 import Spinning from '../assets/icon/Spinning.svg'
-import StyleButton from '../styles/Button.styles.js'
-import SliderItem from '../components/Landing/SliderItem.jsx'
-import { Navbar} from '../components/Landing/Navbar'
-import { Footer } from '../components/Landing/Footer'
+import {Button} from '../components/utils/Button/Button'
+import SliderItem from '../components/Landingpage/SliderItem.jsx'
+import { Navbar} from '../components/Landingpage/Navbar'
+import { Footer } from '../components/Landingpage/Footer'
 import { Link } from 'react-router-dom'
 
 export const LandingPage = () => {
@@ -39,7 +39,7 @@ export const LandingPage = () => {
       <div className='heroText'>
         <p><b>Surplus Airtime? Don’t worry we got you covered</b></p>
         <small>Excess recharge!, this is usually heartbreaking, worry no more.  Now you can exchange your excess airtime for cash value via this platform</small>
-        <Link to='/register'><StyleButton height='48px' width='185px'>Get Started</StyleButton></Link>
+        <Link to='/register'><Button height='48px' width='185px'>Get Started</Button></Link>
       </div>
       <div className='heroImage'><img src={heroImage} alt="" /></div>
     </Hero>
@@ -76,7 +76,7 @@ export const LandingPage = () => {
       <div className='productDescription'>
         <h2>The best platform for your convenient airtime exchange</h2>
         <p>You can also sell and buy recharge cards via this platform. The basis you need to do is verify you email </p>
-        <Link to='/register'><StyleButton height='48px' width='185px'>Get Started</StyleButton></Link>
+        <Link to='/register'><Button height='48px' width='185px'>Get Started</Button></Link>
       </div>
       <div className='productImage'><img src={rechargeImage} alt=""/></div>
     </ProductSection>
@@ -95,5 +95,4 @@ export const LandingPage = () => {
     </div>
   )
 }
-
 export default LandingPage

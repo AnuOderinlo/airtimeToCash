@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import UserImg from '../../assets/images/user.jpeg'
+import UserImg from '../../assets/images/user.png'
 import { FiChevronDown } from 'react-icons/fi';
 import  ProfileIcon  from '../../assets/icon/UserIcon.svg'
 import  SettingsIcon  from '../../assets/icon/settings.svg'

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Logo from "../utils/Logo/Logo";
 
 // Nav bar section
 
