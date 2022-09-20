@@ -1,6 +1,14 @@
 import styled from 'styled-components'
 import { Device } from './Device';
 
+export const Bg = styled.div`
+  display: flex;
+  align-items: center;
+  background: #F5F5F5;
+  height: 100vh;
+  width: 100vw;
+`
+
 export const Container = styled.div`
     background: #FFFFFF;
     width: 860px;
@@ -10,11 +18,6 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 
     .v-header{
         margin-top: 32px 0 21px 0;
@@ -53,6 +56,75 @@ export const Container = styled.div`
         span:hover{
             cursor: pointer;
             user-select: none;
+        }
+    }
+
+    @media (max-width: 860px){
+        width: 600px;
+    }
+
+    @media (max-width: 600px){
+        width: 400px;
+    }
+
+    @media (max-width: 400px){
+        width: 330px;
+
+        .content{
+            width: 200px;
+        }
+
+        .v-header{
+            margin-top: 14px;
+            font-size: 25px;
+            line-height: 12px;
+        }
+
+        .v-message{
+            font-size: 14px;
+            line-height: 20px;
+            width: 319px;
+        }
+
+        .v-link{
+            font-size: 14px;
+            line-height: 16px;
+            width: 190px;
+        }
+
+        Button{
+            font-size: 12px;
+        }
+
+    }
+
+    @media (max-width: 330px){
+        width: 250px;
+
+        .content{
+            width: 200px;
+        }
+
+        .v-header{
+            margin-top: 14px;
+            font-size: 16px;
+            line-height: 12px;
+        }
+
+        .v-message{
+            font-size: 12px;
+            line-height: 16px;
+            width: 219px;
+        }
+
+        .v-link{
+            font-size: 12px;
+            line-height: 16px;
+            width: 150px;
+        }
+
+        Button{
+            font-size: 10px;
         }
     }
 `

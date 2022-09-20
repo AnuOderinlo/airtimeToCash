@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import Button from '../components/Button'
-import { Container } from '../styles/ResetPassword'
+import { Bg, Container } from '../styles/ResetPassword'
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast, ToastContainer} from 'react-toastify'
 import 'react-toastify/ReactToastify.css'
@@ -41,7 +41,7 @@ const ResetPassword = () => {
   
 
   return (
-    <>
+    <Bg>
     <ToastContainer />
     <Container>
       <div className='logo'>
@@ -80,15 +80,17 @@ const ResetPassword = () => {
       <form className='l-form' onSubmit={handleReset}>
         <p className='l-header'>Reset Password</p>
         <label>New Password</label>
-        <input type={'password'} placeholder={'Enter new password'} name={'password'} onChange={handlePasswordInput} value={password.password || ''} required/>
+        <input type={'password'} placeholder={'Enter new password'} name={'password'} onChange={handlePasswordInput} value={password.password || ''} pattern={'^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{4,}$'} required/>
+        <span className={'errorMsg'}>{'Password must have '}</span>
 
         <label className='cp-login'>Confirm Password</label>
         <input type={'password'} placeholder={'Confirm password'} className='cp-btn' name={'confirmPassword'} onChange={handlePasswordInput} value={password.confirmPassword || ''} required/>
+        <span className={'errorMsg'}>{'Password does not match'}</span>
 
         <Button text={'Reset Password'} radius={0} clickHandle={handleReset}/>
       </form>
     </Container>
-    </>
+    </Bg>
   )
 }
 

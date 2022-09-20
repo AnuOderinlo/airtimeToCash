@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container } from '../styles/EmailVerification'
+import { Bg, Container } from '../styles/EmailVerification'
 import { MdOutlineMarkEmailRead } from 'react-icons/md'
 import Button from '../components/Button'
 import { toast, ToastContainer} from 'react-toastify'
@@ -31,7 +31,7 @@ const EmailVerification = () => {
   }
 
   return (
-    <>
+    <Bg>
     <ToastContainer />
     <Container>
       <MdOutlineMarkEmailRead size={'100px'} color={'#03435F'}/>
@@ -41,7 +41,7 @@ const EmailVerification = () => {
       <Button text={'Back to Login'} radius={0} clickHandle={handleCancel}/>
 
     </Container>
-    </>
+    </Bg>
   )
 }
 

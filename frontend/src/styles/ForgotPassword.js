@@ -1,6 +1,15 @@
 import styled from 'styled-components'
 import { Device } from './Device';
 
+export const Bg = styled.div`
+  display: flex;
+  align-items: center;
+  background: #F5F5F5;
+  height: 100vh;
+  width: 100vw;
+`
+
+
 export const Container = styled.div`
     background: #FFFFFF;
     width: 860px;
@@ -10,11 +19,6 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 
     .content {
         margin: auto;
@@ -51,6 +55,7 @@ export const Container = styled.div`
         display: flex;
         flex-direction: column;
         align-items: left;
+        width: 320px;
         padding: 0px;
 
         .f-label{
@@ -83,81 +88,99 @@ export const Container = styled.div`
             font-size: 16px;
             color: #C4C4C4;
         }
+
+        .errorMsg{
+            font-size: 12px;
+            padding: 3px;
+            color: red;
+            display: none;
+        }
+
+        input:invalid ~ span {
+            display: block;
+        }
     }
 
+    @media (max-width: 860px){
+        width: 600px;
+    }
+
+    @media (max-width: 600px){
+        width: 400px;
+
+        .content{
+            width: 350px;
+        }
+    }
+
+    @media (max-width: 400px){
+        width: 330px;
+
+        .content{
+            width: 300px;
+        }
+
+        .f-form{
+            width: 250px;
+            /* margin-bottom: -25px; */
+        }
+
+        .f-password{
+            font-size: 20px;
+        }
+
+        .f-header{
+            margin-top: 14px;
+            font-size: 14px;
+            line-height: 18px;
+        }
+
+    }
+
+    @media (max-width: 330px){
+        width: 250px;
+
+        .content{
+            width: 200px;
+        }
+
+        .f-form{
+            width: 150px;
+            margin-bottom: -25px;
+
+            .errorMsg{
+                font-size: 10px;
+                margin-top: 10px;
+                margin-bottom: -10px;
+                color: red;
+                display: none;
+            }
+        }
+
+        .f-password{
+            font-size: 20px;
+        }
+
+        .f-header{
+            margin-top: 14px;
+            font-size: 10px;
+            line-height: 12px;
+        }
+
+        label, Button{
+            font-size: 10px;
+            height: 18px;
+        }
+
+        .f-label{
+            font-size: 10px !important;
+        }
+
+        input{
+            height: 32px !important;
+            margin-bottom: -12px;
+
+        }
+    }
 
 `
-
-// @media only screen and (min-width: 375px) { 
-//     width: 100vw;
-//     height: 100vh;
-//     margin: 0; 
-//     overflow: hidden;
-//     /* background: rebeccapurple; */
-
-//     .f-header{
-//         width: 350px;
-//         margin-left: -55px;
-//     }
-
-//    .f-form, .f-password, .backtologin{
-//        /* border: 1px solid red; */
-//         margin-left: -55px;
-//     }
-// }
-
-// @media only screen and (min-width: 414px) {
-
-//     .f-header{
-//         width: 350px;
-//         margin-left: -10px;
-//     }
-
-//     .f-form, .f-password, .backtologin{
-//         margin-left: -10px;
-//     }
-// }
-
-// @media only screen and (min-width: 393px) {
-//     .f-header{
-//         width: 350px;
-//         margin-left: -40px;
-//     }
-
-//     .f-form, .f-password, .backtologin{
-//         margin-left: -40px;
-//     }
-// }
-
-// @media only screen and (min-width: 360px) {
-//     .f-header{
-//         width: 350px;
-//         margin-left: 50%;
-//     }
-
-//     .f-form, .f-password, .backtologin{
-//         margin-left: 50%;
-//     }
-
-//     .f-password{
-//         width: 300px;
-//     }
-// }
-
-// @media only screen and (min-width: 412px) {
-//     .f-header{
-//         width: 350px;
-//         margin-left: -10px;
-//     }
-
-//     .f-form, .f-password, .backtologin{
-//         margin-left: -10px;
-//     }
-// }
-
-// @media only screen and (min-width: 768px) {
-//     .f-header{
-//         width: 650px;
-//         margin-bottom: 30px;
-//     }
-// }

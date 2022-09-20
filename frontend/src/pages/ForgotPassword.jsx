@@ -1,13 +1,19 @@
 import React, { useState } from 'react'
 import Button from '../components/Button'
-import { Container } from '../styles/ForgotPassword'
+import { Bg, Container } from '../styles/ForgotPassword'
 import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer} from 'react-toastify'
 import 'react-toastify/ReactToastify.css'
+import '../styles/Responsive.css'
 import axios from '../api/axios';
+import ProgressBar from '../components/ProgressBar';
 
 const ForgotPassword = () => {
+  // const [focused, setFocused] = useState(false)
   const [email, setEmail] = useState({ email: '' })
+  const [loading, setLoading] = useState(false)
+  const [completed, setCompleted] = useState(0);
+
   const navigate = useNavigate()
 
   const handleEmail = (e) => {
@@ -17,12 +23,15 @@ const ForgotPassword = () => {
   }
 
   const handleSubmit = async () => {
+    setLoading((prev)=> !prev)
+    setInterval(() => setCompleted(Math.floor(Math.random() * 100) + 1), 2000); 
     try{
       const response = await axios.post('/users/forgot-password', {
         ...email
       })
 
       if(response.status === 200){
+        setLoading((prev)=> !prev)
         localStorage.setItem('userEmail', JSON.stringify({...email}))
         toast.success(response.data.message);
         
@@ -31,7 +40,10 @@ const ForgotPassword = () => {
         }, 5000)
       }
       clearTimeout()
-    } catch (error) {
+      clearInterval()
+    } 
+    catch (error) {
+      setLoading((prev)=> !prev)
       toast.error('Invalid Email')
     }
 
@@ -42,7 +54,7 @@ const ForgotPassword = () => {
   }
 
   return (
-    <>
+    <Bg>
     <ToastContainer/>
     <Container>
       <div className='content'>
@@ -51,14 +63,18 @@ const ForgotPassword = () => {
           <form className='f-form' onSubmit={handleSubmit}>
             <label className='f-label'>Email</label>
             <input type={'email'} name={'email'} placeholder={'Enter your email'} value={email.email || ''} onChange={handleEmail} required/>
+            <span className='errorMsg'>{'Enter a valid Email'}</span>
             <Button text={'Reset password'} type={'submit'} clickHandle={handleSubmit}/>
+          {
+            loading ? <ProgressBar bgcolor={"#DE3D6D"} completed={completed}/> : ''
+          }
           </form>
           <div  className='backtologin'>
             <Button flag={'primary'} text={'Back to Login'} clickHandle={handleBack}/>
           </div>
       </div>
     </Container>
-    </>
+    </Bg>
   )
 }
 

@@ -1,6 +1,14 @@
 import styled from 'styled-components'
 import { Device } from './Device';
 
+export const Bg = styled.div`
+  display: flex;
+  align-items: center;
+  background: #F5F5F5;
+  height: 100vh;
+  width: 100vw;
+`
+
 export const Container = styled.div`
     background: #FFFFFF;
     width: 860px;
@@ -11,10 +19,6 @@ export const Container = styled.div`
     justify-content: center;
     align-items: center;
 
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 
     .logo{
         display: flex;
@@ -39,6 +43,7 @@ export const Container = styled.div`
         flex-direction: column;
         align-items: left;
         padding: 0px;
+        width: 320px;
 
         .l-header{
             font-family: 'Inter';
@@ -63,10 +68,7 @@ export const Container = styled.div`
             align-items: center;
             padding: 8px 16px;
             gap: 10px;
-
-            width: 320px;
             height: 38px;
-
             background: #FFFFFF;
             border: 1px solid #D9D9D9;
             margin-top: 8px;
@@ -85,6 +87,88 @@ export const Container = styled.div`
             background: linear-gradient(92.1deg, #DE3D6D 55.67%, #F5844C 101.51%);
         }
 
+        .errorMsg{
+            font-size: 12px;
+            padding: 3px;
+            color: red;
+            display: none;
+        }
+
+        input:invalid ~ span {
+            display: block;
+        }
+
+    }
+
+    @media (max-width: 860px){
+        width: 600px;
+    }
+
+    @media (max-width: 600px){
+        width: 400px;
+    }
+
+    @media (max-width: 400px){
+        width: 330px;
+
+        .l-form{
+           width: 300px;   
+
+           .l-header{
+                font-size: 16px;
+            }
+
+            label, input {
+                font-size: 12px;
+                height: 20px;
+            }
+       }
+
+        Button{
+            font-size: 12px;
+            margin-top: -4px;
+            height: 45px;
+        }
+
+        .logo{
+            gap: 11px;
+
+            h3{
+                font-size: 16px;
+            }
+        }
+
+    }
+
+    @media (max-width: 330px){
+        width: 250px;
+
+       .l-form{
+           width: 220px;   
+
+           .l-header{
+                font-size: 14px;
+            }
+
+            label, input {
+                font-size: 10px;
+                height: 18px;
+            }
+       }
+
+        Button{
+            font-size: 10px;
+            margin-top: -8px;
+            height: 40px;
+        }
+
+        .logo{
+            gap: 10px;
+
+            h3{
+                font-size: 14px;
+            }
+        }
     }
 
 
