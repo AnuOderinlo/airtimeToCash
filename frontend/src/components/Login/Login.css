@@ -9,12 +9,13 @@
         height: 1024px;
         position: relative;
         overflow: hidden;
+        
 }
 
 .login-card {
         display: flex;
         flex-direction: column;
-        gap: 40px;
+        /* gap: 20px; */
         align-items: center;
         justify-content: flex-start;
         position: absolute;
@@ -26,8 +27,8 @@
         background: #ffffff;
         padding: 80px 80px 80px 80px;
         display: flex;
-        flex-direction: column;
-        gap: 40px;
+        /* flex-direction: column; */
+        /* gap: 40px; */
         align-items: center;
         justify-content: center;
         flex-shrink: 0;
@@ -36,11 +37,11 @@
 }
 
 .login-box {
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
-        align-items: center;
-        justify-content: center;
+        /* display: flex;
+        flex-direction: column; */
+        /* gap: 20px; */
+        /* align-items: flex-start;
+        justify-content: center; */
         flex-shrink: 0;
         position: relative;
 }
