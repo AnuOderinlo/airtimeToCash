@@ -4,7 +4,6 @@ import { Bg, Container } from '../styles/ForgotPassword'
 import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer} from 'react-toastify'
 import 'react-toastify/ReactToastify.css'
-import '../styles/Responsive.css'
 import axios from '../api/axios';
 import ProgressBar from '../components/ProgressBar';
 
