@@ -12,24 +12,19 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    width: 100%;
+    width: 320px;
     height: 48px;
     position: relative;
     text-decoration: none;
-    border: 0px;
+    color: #ffffff;
+    border: none;
+    font: bolder 14px 'Inter';
     cursor: pointer;
 }
 
 .button-text {
     color: #ffffff;
     text-align: left;
+    font: 600 12px 'Inter';
     position: relative;
-    font-weight: bold;
-    font: 600 16px 'Manrope';
-}
-
-.button:disabled {
-    background: #c3c3c3;
-    color: #21334f;
-    font-weight: bold;
 }

@@ -23,24 +23,24 @@ export const Update = () => {
     const preset = process.env.REACT_APP_UPLOAD_PRESET;
 
     const fakeDetails = {
-        firstname: "Chidi",
-        lastname: "Okeke",
-        phoneNumber: "0803677652",
-        username: "cio",
-        id: "1857a304-93c7-4e93-95db-8e6a56c3937a",
-        avatar: "https://res.cloudinary.com/dmwycbibg/image/upload/v1663631634/logo_g3tmuq.png"
+        firstname: localStorage.getItem("firstname"),
+        lastname: localStorage.getItem("lastname"),
+        phoneNumber: localStorage.getItem("phoneNumber"),
+        username: localStorage.getItem("username"),
+        id: localStorage.getItem("id"),
+        avatar: localStorage.getItem("avatar")
     }
     const fakeDetailsObj = {
-        firstname: "Chidi",
-        lastname: "Okeke",
-        phoneNumber: "0803677652",
-        username: "cio"
+        firstname: localStorage.getItem("firstname"),
+        lastname: localStorage.getItem("lastname"),
+        phoneNumber: localStorage.getItem("phoneNumber"),
+        username: localStorage.getItem("username"),
     }
 
     const [uploadUrl, setUploadUrl] = useState(fakeDetails.avatar)
     const [userData, setUserData] = useState(fakeDetailsObj);
     const [toggleModal, setToggleModal] = useState(false);
-
+    const [fieldsEmpty, setFieldsEmpty] = useState(false);
 
     const toastSuccessMessage = (message) => {
         toast.success(message, {
@@ -53,13 +53,21 @@ export const Update = () => {
         });
     };
 
+    const checkEmpty = (element) => {
+        return element === '';
+    }
 
     const handleChange = (e) => {
         const { name, value } = e.target
         setUserData({ ...userData, [name]: value })
         console.log(userData);
+
     }
 
+    useEffect(() => {
+        const empty = Object.values(userData).every(checkEmpty)
+        setFieldsEmpty(empty)
+    }, [userData])
 
     const handleUpload = async (e) => {
 
@@ -78,6 +86,7 @@ export const Update = () => {
                 .then(data => {
                     if (data.secure_url !== '') {
                         setUploadUrl(data.secure_url);
+                        localStorage.setItem("avatar", data.secure_url)
                         mainAxios.patch(`users/users/${fakeDetails.id}`, {
                             avatar: data.secure_url
                         }).then(res => {
@@ -102,13 +111,10 @@ export const Update = () => {
 
         e.preventDefault();
 
-        const checkEmpty = (element) => {
-            return element === '';
-        }
-
         try {
 
-            const empty = Object.values(userData).every(checkEmpty)
+            let empty = Object.values(userData).every(checkEmpty)
+            setFieldsEmpty(empty)
 
             if (empty) {
                 toastErrorMessage('Fields empty... please enter a value');
@@ -164,7 +170,7 @@ export const Update = () => {
                                     <ModalUtil form={FileUpload} handleChange={handleChange} toggleModal={toggleModal} setToggleModal={setToggleModal} handleUpload={handleUpload} />
                                 </div>
                                 <div className="">
-                                    <Button type={"submit"} text="Update" />
+                                    <Button type={"submit"} text="Update" empty={fieldsEmpty} />
                                 </div>
                             </form>
                         </div>
