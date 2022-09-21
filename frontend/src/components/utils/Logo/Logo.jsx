@@ -4,7 +4,9 @@ import "./Logo.css";
 function Logo() {
   return (
     <div className="logo">
-      <img src={LogoPNG} alt="logo" />
+      <a href="/">
+        <img src={LogoPNG} alt="logo" />
+      </a>
     </div>
   );
 }

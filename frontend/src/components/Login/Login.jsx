@@ -1,13 +1,14 @@
 import "./Login.css";
-import Logo from "../utils/Logo/Logo";
-import InputField from "../utils/Input/Input";
-import SubmitButton from "../utils/SubmitButton/SubmitButton";
+import Logo from "../Utils/Logo/Logo";
+import Input from "../Utils/Input/Input";
+import SubmitButton from "../Utils/SubmitButton/SubmitButton";
 import styled from "styled-components";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import React, { useState } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { mainAxios } from "../Axios/Axios";
+import { useNavigate } from "react-router-dom";
+
 const DivPara = styled.div`
   width: 100%;
   margin-top: -11px;
@@ -37,16 +38,12 @@ const BtnContainer = styled.div`
   }
 `;
 
-const client = axios.create({
-  baseURL: "http://127.0.0.1:4000/users/",
-});
 export const Login = ({ ...props }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const navigate = useNavigate();
   const loginUser = async (email, password) => {
     try {
-      console.log(`email: ${email}, password: ${password}`);
       const emailRegex = new RegExp(
         /^[A-Za-z0-9_!#$%&'*+\/=?`{|}~^.-]+@[A-Za-z0-9.-]+$/,
         "gm"
@@ -57,26 +54,31 @@ export const Login = ({ ...props }) => {
         return toast.error("Email or password cannot be empty");
       } else {
         if (isValidEmail) {
-          res = await client.post("/login", {
+          res = await mainAxios.post("/users/login", {
             email: email,
             password: password,
           });
         } else {
-          res = await client.post("/login", {
+          res = await mainAxios.post("/users/login", {
             username: email,
             password: password,
           });
         }
       }
 
-      localStorage.setItem("Email", res.data.User.email);
-      localStorage.setItem("Token", res.data.token);
-      localStorage.setItem("Firstname", res.data.User.firstname);
-      localStorage.setItem("Lastname", res.data.User.lastname);
+      localStorage.setItem("email", res.data.User.email);
+      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("firstname", res.data.User.firstname);
+      localStorage.setItem("lastname", res.data.User.lastname);
       localStorage.setItem("avatar", res.data.User.avatar);
       localStorage.setItem("phoneNumber", res.data.User.phoneNumber);
+      localStorage.setItem("username", res.data.User.username);
+      localStorage.setItem("id", res.data.User.id);
 
       toast.success(res.data.message);
+      setTimeout(() => {
+        navigate("/dashboard");
+      }, 3000);
     } catch (error) {
       toast.error(error.response.data.message);
     }
@@ -101,30 +103,30 @@ export const Login = ({ ...props }) => {
             </DivLogin>
             <form onSubmit={handleSubmit}>
               <div className="">
-                <InputField
+                <Input
                   type="input"
-                  class="input"
+                  childClass="input"
                   label="Email"
                   placeholder="Enter your email or username"
                   name="email"
-                  value={email}
-                  change={(e) => setEmail(e.target.value)}
+                  defaultValue={email}
+                  handleChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div className="">
-                <InputField
+                <Input
                   type="password"
-                  class="input"
+                  childClass="input"
                   label="Password"
                   placeholder="Enter your password"
                   name="password"
-                  change={(e) => setPassword(e.target.value)}
-                  value={password}
+                  handleChange={(e) => setPassword(e.target.value)}
+                  defaultValue={password}
                 />
               </div>
               <DivPara>
                 <p>
-                  <Link to="/forgot-password">Forgot password?</Link>
+                  <a href="/forgot-password">Forgot password?</a>
                 </p>
               </DivPara>
 
@@ -135,7 +137,7 @@ export const Login = ({ ...props }) => {
 
             <BtnContainer>
               <p>
-                Don't have an account? <Link to="/signup">Create Account</Link>
+                Don't have an account? <a href="/signup">Create Account</a>{" "}
               </p>
             </BtnContainer>
           </div>
@@ -143,5 +145,6 @@ export const Login = ({ ...props }) => {
       </div>
       <ToastContainer />
     </div>
+    // </ToastContainer>
   );
 };

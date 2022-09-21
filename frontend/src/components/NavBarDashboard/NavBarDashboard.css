@@ -4,6 +4,7 @@
 }
 
 .navbar {
+    background: #ffffff;
     width: 1440px;
     height: 96px;
     position: relative;
@@ -21,15 +22,27 @@
 }
 
 .frame-8591 {
+    width: 91px;
+    height: 36px;
+    position: absolute;
+    left: 1199px;
+    top: 30px;
+}
+
+.frame-8590 {
     display: flex;
     flex-direction: row;
-    gap: 342px;
+    gap: 8px;
     align-items: center;
     justify-content: flex-start;
     position: absolute;
-    left: 149px;
-    top: 13px;
+    left: 0px;
+    top: 0px;
 }
+
+
+
+
 
 .frame-8589 {
     display: flex;
@@ -37,8 +50,9 @@
     gap: 16px;
     align-items: center;
     justify-content: flex-start;
-    flex-shrink: 0;
-    position: relative;
+    position: absolute;
+    left: 150px;
+    top: 13px;
 }
 
 .larkef-x-rareblocks-_-logo--31-1 {
@@ -61,63 +75,69 @@
 .airtime2cash-span2 {
     color: #f5844c;
     font: 600 32px 'Inter';
-}
+} */
 
-.frame-8590 {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+.ellipse-25 {
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.04));
+    border-radius: 50%;
     flex-shrink: 0;
-    width: 490px;
+    width: 36px;
+    height: 36px;
     position: relative;
 }
 
-.home {
-    color: #de3d6d;
-    text-align: center;
-    font: 700 16px 'Inter';
-    position: relative;
-}
-
-.about-us {
-    color: #012a4a;
-    text-align: left;
-    font: 400 16px 'Inter';
-    position: relative;
-}
-
-.products {
+.user-name {
     color: #012a4a;
     text-align: center;
-    font: 400 16px 'Inter';
     position: relative;
 }
 
-.contact-us {
-    color: #012a4a;
-    text-align: center;
-    font: 400 16px 'Inter';
-    position: relative;
-}
-
-.frame-8560 {
-    background: linear-gradient(101.31deg, rgba(222, 61, 109, 1.00) 0%, rgba(245, 132, 76, 1.00) 100%);
-    border-radius: 4px;
-    padding: 10px 10px 10px 10px;
+.user {
     display: flex;
     flex-direction: row;
-    gap: 10px;
+    gap: 20px;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
-    width: 100px;
-    position: relative;
+    align-content: center;
 }
 
-.login {
-    color: #ffffff;
-    text-align: left;
-    font: 600 16px 'Inter';
-    position: relative;
-} */
+.user-thumb {
+    border-radius: 50%;
+}
+
+.user-thumb img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.nav-link {
+    font-family: 'Inter';
+    font-style: normal;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #012A4A;
+}
+
+.navlink-active {
+    color: #DE3D6D;
+    font-weight: 700;
+}
+
+.nav-right-items {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.mr-6 {
+    margin-right: 6rem;
+}
+
+.navbar {
+    box-shadow: 0px 4px 15px 0px rgb(0 0 0 /5%)
+}
