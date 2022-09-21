@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import { mainAxios } from "../Axios/Axios";
 
 const DivPara = styled.div`
   width: 100%;
@@ -37,9 +37,7 @@ const BtnContainer = styled.div`
   }
 `;
 
-const client = axios.create({
-    baseURL: "http://127.0.0.1:4000/users/",
-});
+
 export const Login = ({ ...props }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -51,7 +49,7 @@ export const Login = ({ ...props }) => {
                 return toast.error("Email or password cannot be empty");
             }
             console.log(email, password)
-            const res = await client.post("/login", {
+            const res = await mainAxios.post("/users/login", {
                 email: email,
                 username: email,
                 password: password,
