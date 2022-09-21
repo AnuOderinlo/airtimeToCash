@@ -46,25 +46,40 @@ export const Login = ({ ...props }) => {
 
   const loginUser = async (email, password) => {
     try {
-      // console.log(`email: ${email}, password: ${password}`);
-      // const emailRegex = new RegExp(
-      //   /^[A-Za-z0-9_!#$%&'*+\/=?`{|}~^.-]+@[A-Za-z0-9.-]+$/,
-      //   "gm"
-      // );
-      // const isValidEmail = emailRegex.test(email);
+      console.log(`email: ${email}, password: ${password}`);
+      const emailRegex = new RegExp(
+        /^[A-Za-z0-9_!#$%&'*+\/=?`{|}~^.-]+@[A-Za-z0-9.-]+$/,
+        "gm"
+      );
+      const isValidEmail = emailRegex.test(email);
+      let res;
       if (email === "" || password === "") {
         return toast.error("Email or password cannot be empty");
+      } else {
+        if (isValidEmail) {
+          res = await client.post("/login", {
+            email: email,
+            // username: email,
+            password: password,
+          });
+        } else {
+          res = await client.post("/login", {
+            // email: email,
+            username: email,
+            password: password,
+          });
+        }
       }
       // else if (!isValidEmail) {
       //   return toast.error("Please provide a valid email", {
       //     position: toast.POSITION.TOP_CENTER,
       //   });
       // }
-      const res = await client.post("/login", {
-        email: email,
-        username: email,
-        password: password,
-      });
+      // const res = await client.post("/login", {
+      //   email: email,
+      //   username: email,
+      //   password: password,
+      // });
 
       localStorage.setItem("Email", res.data.User.email);
       localStorage.setItem("Token", res.data.token);
