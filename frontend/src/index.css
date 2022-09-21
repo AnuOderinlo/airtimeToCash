@@ -1,3 +1,4 @@
+/* body {
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;600&family=Mulish:wght@700&display=swap');
 
 body {
@@ -12,4 +13,17 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+} */
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Open+Sans&display=swap');
+*{
+  font-family: 'Inter', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
+

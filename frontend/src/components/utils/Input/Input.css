@@ -24,9 +24,9 @@
         position: relative;
         margin-bottom: 20px;
 }
-
 .input-label {
         color: #21334f;
         text-align: left;
+        font: 400 16px 'Inter';
         position: relative;
 }

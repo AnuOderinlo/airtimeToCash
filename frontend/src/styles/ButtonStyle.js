@@ -47,5 +47,4 @@ export const ButtonStyle = styled.button`
         background: #bebebe;
         }
     `}
-
 `

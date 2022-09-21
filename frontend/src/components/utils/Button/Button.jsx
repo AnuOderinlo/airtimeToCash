@@ -2,14 +2,14 @@
 import './Button.css';
 import { Link } from 'react-router-dom';
 export const Button = ({
-    type, text, clickFunction, empty
+    ...props
 }) => {
 
     return (
-        <button onClick={clickFunction} type={type} className="button" disabled={empty}>
+        <Link to='/#' className="button">
             <div className="button-text">
-                {text}
+                {props.text}
             </div>
-        </button>
+        </Link>
     )
 }

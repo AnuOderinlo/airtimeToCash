@@ -1,9 +1,3 @@
 {
-    "cSpell.words": [
-        "confirmpassword",
-        "firstname",
-        "lastname",
-        "phonenumber",
-        "signup"
-    ]
+    "indentRainbow.colorOnWhiteSpaceOnly": true
 }
