@@ -126,7 +126,7 @@ export const Login = ({ ...props }) => {
 
                         <BtnContainer>
                             <p>
-                                Don't have an account? <a href="http://">Create Account</a>{" "}
+                                Don't have an account? <a href="/signup">Create Account</a>{" "}
                             </p>
                         </BtnContainer>
                     </div>

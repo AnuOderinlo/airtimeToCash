@@ -1,0 +1,22 @@
+.rounded-button{
+    background: rgba(0, 0, 0, 0.05);
+    border: none;
+    padding: 10px;
+    
+}
+.rounded-button a{
+    text-decoration: none;
+}
+.sign_container{
+    color: #21334F;
+    width: 189px;
+    height: 15px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+}
+.sign_in{
+    color: #DE3D6D;
+    text-decoration: none;
+    font-weight: 600;
+} 
