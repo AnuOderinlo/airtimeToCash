@@ -110,3 +110,34 @@
     height: 50px;
     border-radius: 50%;
 }
+
+.nav-link {
+    font-family: 'Inter';
+    font-style: normal;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #012A4A;
+}
+
+.navlink-active {
+    color: #DE3D6D;
+    font-weight: 700;
+}
+
+.nav-right-items {
+    display: flex;
+    align-content: center;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.mr-6 {
+    margin-right: 6rem;
+}
+
+.navbar {
+    box-shadow: 0px 4px 15px 0px rgb(0 0 0 /5%)
+}

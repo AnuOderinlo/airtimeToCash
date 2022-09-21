@@ -128,6 +128,7 @@ export const Update = () => {
                 });
                 if (res.data.status === "Success") {
                     toastSuccessMessage('Successfully updated!');
+                    setToggleModal(false)
                 } else {
                     toastErrorMessage('Update failed!');
                 }

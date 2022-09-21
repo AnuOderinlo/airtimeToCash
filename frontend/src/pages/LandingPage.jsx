@@ -10,7 +10,7 @@ import SliderItem from '../components/Landingpage/SliderItem.jsx'
 // import  {Navbar} from '../components/Landingpage/Navbar'
 import { Footer } from '../components/Landingpage/Footer'
 import { Link, useNavigate } from 'react-router-dom'
-import { NavBar } from '../components/NavBar/NavBar';
+import { NavBarDashboard } from '../components/NavBarDashboard/NavBarDashboard';
 
 export const LandingPage = () => {
   const navigate = useNavigate()
@@ -40,7 +40,7 @@ export const LandingPage = () => {
   return (
     <div>
       {/* HERO SECTION  */}
-      <NavBar landing />
+      <NavBarDashboard />
     <Hero> 
       <div className='heroText'>
         <p><b>Surplus Airtime? Don’t worry we got you covered</b></p>
