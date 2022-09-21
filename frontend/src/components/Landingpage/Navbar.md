@@ -7,8 +7,8 @@ import {Button }from '../utils/Button/Button';
 import UserProfileNav from './UserProfileNav';
 import { Link } from 'react-router-dom';
 
-export const Navbar=({landing, dashboard})=> {
 
+export const Navbar=({landing, dashboard})=> {
     const [open, setOpen] = useState(false) 
     const [isLogin, setIsLogin] = useState(false)
   return ( 
