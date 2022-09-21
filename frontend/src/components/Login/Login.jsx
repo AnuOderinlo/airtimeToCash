@@ -4,9 +4,10 @@ import InputField from "../utils/Input/Input";
 import SubmitButton from "../utils/SubmitButton/SubmitButton";
 import styled from "styled-components";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css"; /*eslint-disable-next-line*/ 
+import "react-toastify/dist/ReactToastify.css"; /*eslint-disable-next-line*/
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import { mainAxios } from "../Axios/Axios";
+
 const DivPara = styled.div`
   width: 100%;
   margin-top: -11px;
@@ -36,111 +37,103 @@ const BtnContainer = styled.div`
   }
 `;
 
-const client = axios.create({
-  baseURL: "http://127.0.0.1:4000/users/",
-});
+
 export const Login = ({ ...props }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const loginUser = async (email, password) => {
-    try {
-      // console.log(`email: ${email}, password: ${password}`);
-      // const emailRegex = new RegExp(
-      //   /^[A-Za-z0-9_!#$%&'*+\/=?`{|}~^.-]+@[A-Za-z0-9.-]+$/,
-      //   "gm"
-      // );
-      // const isValidEmail = emailRegex.test(email);
-      if (email === "" || password === "") {
-        return toast.error("Email or password cannot be empty");
-      }
-      // else if (!isValidEmail) {
-      //   return toast.error("Please provide a valid email", {
-      //     position: toast.POSITION.TOP_CENTER,
-      //   });
-      // }
-      const res = await client.post("/login", {
-        email: email,
-        username: email,
-        password: password,
-      });
+   
+      const loginUser = async (email, password) => {
+        try {
 
-      localStorage.setItem("Email", res.data.User.email);
-      localStorage.setItem("Token", res.data.token);
-      localStorage.setItem("Firstname", res.data.User.firstname);
-      localStorage.setItem("Lastname", res.data.User.lastname);
-      localStorage.setItem("avatar", res.data.User.avatar);
-      localStorage.setItem("phoneNumber", res.data.User.phoneNumber);
-      // console.log(res.data.User);
+          if (email === "" || password === "") {
+            return toast.error("Email or password cannot be empty");
+          }
 
-      toast.success(res.data.message);
-    } catch (error) {
-      toast.error(error.response.data.message);
-    }
-  };
+          const res = await mainAxios.post("/login", {
+            email: email,
+            username: email,
+            password: password,
+          });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+          localStorage.setItem("Email", res.data.User.email);
+          localStorage.setItem("Token", res.data.token);
+          localStorage.setItem("Firstname", res.data.User.firstname);
+          localStorage.setItem("Lastname", res.data.User.lastname);
+          localStorage.setItem("avatar", res.data.User.avatar);
+          localStorage.setItem("phoneNumber", res.data.User.phoneNumber);
+          // console.log(res.data.User);
 
-    loginUser(email, password);
-  };
+          toast.success(res.data.message);
+        } catch (error) {
+          toast.error(error.response.data.message);
+        }
+      };
 
-  return (
-    // <ToastContainer>
-    <div className="login">
-      <div className="login-card">
-        <div className="login-card-padding">
-          <div className="login-box">
-            <div className="login-heading">
-              <Logo />
+      const handleSubmit = (e) => {
+        e.preventDefault();
+
+        loginUser(email, password);
+      };
+
+      return (
+        // <ToastContainer>
+        <div className="login">
+          <div className="login-card">
+            <div className="login-card-padding">
+              <div className="login-box">
+                <div className="login-heading">
+                  <Logo />
+                </div>
+                <DivLogin>
+                  <h2>Login</h2>
+                </DivLogin>
+                <form onSubmit={handleSubmit}>
+                  <div className="">
+                    <InputField
+                      type="input"
+                      class="input"
+                      label="Email"
+                      placeholder="Enter your email or username"
+                      name="email"
+                      value={email}
+                      change={(e) => setEmail(e.target.value)}
+                    />
+                  </div>
+                  <div className="">
+                    <InputField
+                      type="password"
+                      class="input"
+                      label="Password"
+                      placeholder="Enter your password"
+                      name="password"
+                      change={(e) => setPassword(e.target.value)}
+                      value={password}
+                    />
+                  </div>
+                  <DivPara>
+                    <p>
+                      <a href="http://">Forgot password?</a>
+                    </p>
+                  </DivPara>
+
+                  <div className="">
+                    <SubmitButton text="Login" onClick={handleSubmit} />
+                  </div>
+                </form>
+
+                <BtnContainer>
+                  <p>
+                    Don't have an account? <a href="http://">Create Account</a>{" "}
+                  </p>
+                </BtnContainer>
+              </div>
             </div>
-            <DivLogin>
-              <h2>Login</h2>
-            </DivLogin>
-            <form onSubmit={handleSubmit}>
-              <div className="">
-                <InputField
-                  type="input"
-                  class="input"
-                  label="Email"
-                  placeholder="Enter your email or username"
-                  name="email"
-                  value={email}
-                  change={(e) => setEmail(e.target.value)}
-                />
-              </div>
-              <div className="">
-                <InputField
-                  type="password"
-                  class="input"
-                  label="Password"
-                  placeholder="Enter your password"
-                  name="password"
-                  change={(e) => setPassword(e.target.value)}
-                  value={password}
-                />
-              </div>
-              <DivPara>
-                <p>
-                  <a href="http://">Forgot password?</a>
-                </p>
-              </DivPara>
-
-              <div className="">
-                <SubmitButton text="Login" onClick={handleSubmit} />
-              </div>
-            </form>
-
-            <BtnContainer>
-              <p>
-                Don't have an account? <a href="http://">Create Account</a>{" "}
-              </p>
-            </BtnContainer>
           </div>
+          <ToastContainer />
         </div>
-      </div>
-      <ToastContainer />
-    </div>
-    // </ToastContainer>
-  );
-};
+        // </ToastContainer>
+      );
+    };
+  }
