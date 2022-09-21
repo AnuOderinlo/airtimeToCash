@@ -1,0 +1,21 @@
+.update-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+}
+
+.mt-3 {
+    margin-top: 3rem;
+}
+
+.backdrop,
+.backdrop * {
+    box-sizing: border-box;
+}
+
+.backdrop {
+    background: rgba(222, 61, 109, 0.10);
+    width: 1440px;
+    height: 271px;
+    position: relative;
+}

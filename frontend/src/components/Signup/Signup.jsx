@@ -1,12 +1,14 @@
 import './Signup.css';
-import Logo from '../utils/Logo/Logo';
-import InputField from '../utils/Input/Input';
+import Logo from '../Utils/Logo/Logo';
+import InputField from '../Utils/Input/Input';
 import { IoIosArrowRoundBack } from 'react-icons/io';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import SubmitButton from "../utils/SubmitButton/SubmitButton";
+import SubmitButton from "../Utils/SubmitButton/SubmitButton";
 import axios from 'axios';
 import { useState } from 'react';
+import { Button } from '../Utils/Button/Button';
+import 'bootstrap/dist/css/bootstrap.css';
 
 
 export const Signup = ({
@@ -29,7 +31,7 @@ export const Signup = ({
         e.preventDefault();
         if (user.firstname === "" || user.lastname === "" || user.username === "" || user.email === "" || user.phoneNumber === "" || user.password === "" || user.confirm_password === "") {
             toast.error("All fields are required", {
-                position: "top-center",
+                position: "top-right",
             });
         }
         try {
@@ -44,13 +46,13 @@ export const Signup = ({
             });
             console.log("RESPONSE", res);
             toast.success("User created successfully", {
-                position: "top-center",
+                position: "top-right",
             });
 
 
         } catch (error) {
-            toast.error("All fields are required", {
-                position: "top-center",
+            toast.error(error.response.data.message, {
+                position: "top-right",
             });
         }
 
@@ -58,108 +60,53 @@ export const Signup = ({
 
     return (
 
-        <div className="signup">
-            <div className="signup-card">
-                    <div className="logo-heading">
-                        <center>  <Logo /> </center>
-                       
-                    </div>
-                    <button href='/' className=''>
-                        <IoIosArrowRoundBack /> Go back
-                    </button>
+        <div className="login container-fluid">
+            <div className="row login-card mt-3">
+                <div className=" col-xs-12 col-md-8 login-card-padding">
+                    <div className="login-box">
+                        <div className="login-heading">
+                            <Logo />
+                        </div>
+                        <a href="/" className='col-md-6 rounded-button btn rounded-pill'>   
+                            <IoIosArrowRoundBack /> Go back
+                        </a>
 
-                    <div className=" frame9">
-                        <ToastContainer />
-                        <span>Create an account</span>
-                    </div>
-
-                    <div className="frame10">
-                        <form onSubmit={handleSubmit}>
+                        <div className=" frame9">
+                            <ToastContainer />
+                            <span>Create an account</span>
+                        </div>
+                        <form onSubmit={handleSubmit} className="update-form" >
                             <div className="">
-                                <InputField 
-                                name="firstname" 
-                                type="text" 
-                                class="input" 
-                                label="firstname"
-                                value={user.firstname} change={handleChange}
-                                    pattern="^[A-Za-z0-9]{3,16}$" 
-                                    placeholder="Enter your first name" />
+                                <InputField  childDefaultValue={user.firstname} handleChange={handleChange} name="firstname" type="text" childClass="input" label="Firstname" placeholder="Enter your first name" />
                             </div>
                             <div className="">
-                                <InputField 
-                                name="lastname" 
-                                type="text" 
-                                class="input" 
-                                label="lastname"
-                                    value={user.lastname} 
-                                    change={handleChange}
-                                    pattern="^[A-Za-z0-9]{3,16}$" 
-                                    placeholder="Enter your last name" />
+                                <InputField childDefaultValue={user.lastname} handleChange={handleChange} name="lastname" type="text" childClass="input" label="Lastname" placeholder="Enter your last name" />
                             </div>
                             <div className="">
-                                <InputField 
-                                name="username" 
-                                type="text" 
-                                class="input" 
-                                label="username"
-                                    value={user.username} 
-                                    change={handleChange} 
-                                    placeholder="Enter your user name" />
+                                <InputField childDefaultValue={user.username} handleChange={handleChange} name="username" type="text" childClass="input" label="Username" placeholder="Enter your username" />
                             </div>
                             <div className="">
-                                <InputField 
-                                name="email" 
-                                type="email" 
-                                class="input" 
-                                label="Email"
-                                    value={user.email} 
-                                    change={handleChange}
-                                    placeholder="Enter your email" />
+                                <InputField childDefaultValue={user.email} handleChange={handleChange} name="email" type="email" childClass="input" label="Email" placeholder="Enter your email" />
                             </div>
                             <div className="">
-                                <InputField 
-                                name="phoneNumber" 
-                                type="text" 
-                                class="input" 
-                                label="Phone Number"
-                                    value={user.phoneNumber} 
-                                    change={handleChange}
-                                    placeholder="Enter your Phone number" />
+                                <InputField childDefaultValue={user.phoneNumber} handleChange={handleChange} name="phoneNumber" type="text" childClass="input" label="Phone number" placeholder="Enter your phone number" />
                             </div>
                             <div className="">
-                                <InputField 
-                                name="password" 
-                                type="password" 
-                                class="input" 
-                                label="Password"
-                                    value={user.password}
-                                     change={handleChange}
-                                    placeholder="Enter your password" />
+                                 <InputField name="password" type="password" childClass="input" label="Password" childDefaultValue={user.password} handleChange={handleChange} placeholder="Enter your password" />
                             </div>
                             <div className="">
-                                <InputField 
-                                name="confirm_password" 
-                                type="password" 
-                                class="input" 
-                                label="Confirm Password"
-                                    value={user.confirm_password} 
-                                    change={handleChange}
-                                    placeholder="Confirm password" />
+                                <InputField name="confirm_password" type="password" childClass="input" label="Confirm Password" childDefaultValue={user.confirmpassword} handleChange={handleChange} placeholder="Confirm password" />
                             </div>
-
                             <div className="">
-                                <SubmitButton text="Login" onClick={handleSubmit} />
+                                <Button type={"submit"} text="Signup" />
                             </div>
-                                {/* <button type='submit'>Signup</button> */}
-
                         </form>
                         <div className='sign_container'>
-                            Already have an account?<a href='/' className='sign_in'> Sign in</a>
-                        </div>
+                             Already have an account?<a href='/login' className='sign_in'> Sign in</a>
+                         </div>
                     </div>
-
-
                 </div>
+            </div>
         </div>
 
     )
