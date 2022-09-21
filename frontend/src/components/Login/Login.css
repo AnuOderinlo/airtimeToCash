@@ -9,7 +9,7 @@
         height: 1024px;
         position: relative;
         overflow: hidden;
-        
+
 }
 
 .login-card {
@@ -18,7 +18,7 @@
         /* gap: 20px; */
         align-items: center;
         justify-content: flex-start;
-        position: absolute;
+        /* position: absolute; */
         left: 347px;
         top: 184px;
 }
@@ -33,16 +33,18 @@
         justify-content: center;
         flex-shrink: 0;
         width: 745px;
-        position: relative;
+        position: absolute;
+        top: 120px;
+
+
 }
 
 .login-box {
-        /* display: flex;
-        flex-direction: column; */
-        /* gap: 20px; */
-        /* align-items: flex-start;
-        justify-content: center; */
         flex-shrink: 0;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
         position: relative;
 }
 
