@@ -44,7 +44,8 @@ export const Signup = ({
                 password: user.password,
                 confirm_password: user.confirm_password
             });
-            console.log("RESPONSE", res);
+            // console.log("RESPONSE", res);
+            console.log("TOKEN", res.data.token);
             toast.success("User created successfully", {
                 position: "top-right",
             });
