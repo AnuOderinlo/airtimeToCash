@@ -11,7 +11,6 @@ import { Button } from '../Utils/Button/Button';
 import 'bootstrap/dist/css/bootstrap.css';
 import { mainAxios } from '../Axios/Axios';
 
-
 export const Signup = ({
     ...props
 }) => {
@@ -22,7 +21,7 @@ export const Signup = ({
         email: "",
         phoneNumber: "",
         password: "",
-        confirmpassword: ""
+        confirmPassword: ""
     })
     const handleChange = (e) => {
         setUser({ ...user, [e.target.name]: e.target.value })
@@ -30,7 +29,7 @@ export const Signup = ({
     }
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (user.firstname === "" || user.lastname === "" || user.username === "" || user.email === "" || user.phoneNumber === "" || user.password === "" || user.confirmpassword === "") {
+        if (user.firstname === "" || user.lastname === "" || user.username === "" || user.email === "" || user.phoneNumber === "" || user.password === "" || user.confirm_password === "") {
             toast.error("All fields are required", {
                 position: "top-right",
             });
@@ -43,17 +42,19 @@ export const Signup = ({
                 email: user.email,
                 phoneNumber: user.phoneNumber,
                 password: user.password,
-                confirmPassword: user.confirmpassword
-            });
-            console.log("RESPONSE", res);
-            toast.success("User created successfully", {
-                position: "top-right",
+                confirmPassword: user.confirmPassword
             });
 
+            console.log("TOKEN", res);
+            if (res.data.status === "Success") {
+                toast.success("User created successfully", {
+                    position: "top-right",
+                });
+            }
 
         } catch (error) {
-            console.log(error)
-            toast.error(error.response.data.message, {
+
+            toast.error(error.response.data.error, {
                 position: "top-right",
             });
         }
@@ -62,11 +63,11 @@ export const Signup = ({
 
     return (
 
-        <div className="login container-fluid">
-            <div className="row login-card mt-3">
-                <div className=" col-xs-12 col-md-8 login-card-padding">
-                    <div className="login-box">
-                        <div className="login-heading">
+        <div className="signup container-fluid">
+            <div className="row signup-card mt-3">
+                <div className=" col-xs-12 col-md-8 signup-card-padding">
+                    <div className="signup-box">
+                        <div className="signup-heading">
                             <Logo />
                         </div>
                         <a href="/" className='col-md-6 rounded-button btn rounded-pill'>
@@ -97,7 +98,7 @@ export const Signup = ({
                                 <InputField name="password" type="password" childClass="input" label="Password" childDefaultValue={user.password} handleChange={handleChange} placeholder="Enter your password" />
                             </div>
                             <div className="">
-                                <InputField name="confirmpassword" type="password" childClass="input" label="Confirm Password" childDefaultValue={user.confirmpassword} handleChange={handleChange} placeholder="Confirm password" />
+                                <InputField name="confirmPassword" type="password" childClass="input" label="Confirm Password" childDefaultValue={user.confirmpassword} handleChange={handleChange} placeholder="Confirm password" />
                             </div>
                             <div className="">
                                 <Button type={"submit"} text="Signup" />

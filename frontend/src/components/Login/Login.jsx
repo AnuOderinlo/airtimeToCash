@@ -1,12 +1,14 @@
 import "./Login.css";
-import Logo from "../utils/Logo/Logo";
-import InputField from "../utils/Input/Input";
-import SubmitButton from "../utils/SubmitButton/SubmitButton";
+import Logo from "../Utils/Logo/Logo";
+import Input from "../Utils/Input/Input";
+import SubmitButton from "../Utils/SubmitButton/SubmitButton";
 import styled from "styled-components";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css"; /*eslint-disable-next-line*/
+import "react-toastify/dist/ReactToastify.css";
 import React, { useState, useEffect } from "react";
 import { mainAxios } from "../Axios/Axios";
+import { useNavigate } from "react-router-dom";
+
 
 const DivPara = styled.div`
   width: 100%;
@@ -39,101 +41,114 @@ const BtnContainer = styled.div`
 
 
 export const Login = ({ ...props }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-   
-      const loginUser = async (email, password) => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const navigate = useNavigate();
+    const loginUser = async (email, password) => {
         try {
 
-          if (email === "" || password === "") {
-            return toast.error("Email or password cannot be empty");
-          }
+            const emailRegex = new RegExp(
+                /^[A-Za-z0-9_!#$%&'*+\/=?`{|}~^.-]+@[A-Za-z0-9.-]+$/,
+                "gm"
+            );
+            const isValidEmail = emailRegex.test(email);
+            let res;
+            if (email === "" || password === "") {
+                return toast.error("Email or password cannot be empty");
+            } else {
+                if (isValidEmail) {
+                    res = await mainAxios.post("/users/login", {
+                        email: email,
+                        password: password,
+                    });
+                } else {
+                    res = await mainAxios.post("/users/login", {
+                        username: email,
+                        password: password,
+                    });
+                }
+            }
 
-          const res = await mainAxios.post("/login", {
-            email: email,
-            username: email,
-            password: password,
-          });
+            localStorage.setItem("email", res.data.User.email);
+            localStorage.setItem("token", res.data.token);
+            localStorage.setItem("firstname", res.data.User.firstname);
+            localStorage.setItem("lastname", res.data.User.lastname);
+            localStorage.setItem("avatar", res.data.User.avatar);
+            localStorage.setItem("phoneNumber", res.data.User.phoneNumber);
+            localStorage.setItem("username", res.data.User.username);
+            localStorage.setItem("id", res.data.User.id);
 
-          localStorage.setItem("email", res.data.User.email);
-          localStorage.setItem("token", res.data.token);
-          localStorage.setItem("firstname", res.data.User.firstname);
-          localStorage.setItem("lastname", res.data.User.lastname);
-          localStorage.setItem("avatar", res.data.User.avatar);
-          localStorage.setItem("phoneNumber", res.data.User.phoneNumber);
-          localStorage.setItem("username", res.data.User.username);
-          localStorage.setItem("id", res.data.User.id);
-          // console.log(res.data.User);
-
-          toast.success(res.data.message);
+            toast.success(res.data.message);
+            setTimeout(() => {
+                navigate('/dashboard')
+            }, 3000)
         } catch (error) {
-          toast.error(error.response.data.message);
+            toast.error(error.response.data.message);
         }
-      };
+    };
 
-      const handleSubmit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
 
         loginUser(email, password);
-      };
+    };
 
-      return (
-        // <ToastContainer>
+    return (
+
         <div className="login">
-          <div className="login-card">
-            <div className="login-card-padding">
-              <div className="login-box">
-                <div className="login-heading">
-                  <Logo />
+            <div className="login-card">
+                <div className="login-card-padding">
+                    <div className="login-box">
+                        <div className="login-heading">
+                            <Logo />
+                        </div>
+                        <DivLogin>
+                            <h2>Login</h2>
+                        </DivLogin>
+                        <form onSubmit={handleSubmit}>
+                            <div className="">
+                                <Input
+                                    type="input"
+                                    childClass="input"
+                                    label="Email"
+                                    placeholder="Enter your email or username"
+                                    name="email"
+                                    defaultValue={email}
+                                    handleChange={(e) => setEmail(e.target.value)}
+                                />
+                            </div>
+                            <div className="">
+                                <Input
+                                    type="password"
+                                    childClass="input"
+                                    label="Password"
+                                    placeholder="Enter your password"
+                                    name="password"
+                                    handleChange={(e) => setPassword(e.target.value)}
+                                    defaultValue={password}
+                                />
+                            </div>
+                            <DivPara>
+                                <p>
+                                    <a href="/forgot-password">Forgot password?</a>
+                                </p>
+                            </DivPara>
+
+                            <div className="">
+                                <SubmitButton text="Login" onClick={handleSubmit} />
+                            </div>
+                        </form>
+
+                        <BtnContainer>
+                            <p>
+                                Don't have an account? <a href="/signup">Create Account</a>{" "}
+                            </p>
+                        </BtnContainer>
+                    </div>
                 </div>
-                <DivLogin>
-                  <h2>Login</h2>
-                </DivLogin>
-                <form onSubmit={handleSubmit}>
-                  <div className="">
-                    <InputField
-                      type="input"
-                      class="input"
-                      label="Email"
-                      placeholder="Enter your email or username"
-                      name="email"
-                      value={email}
-                      change={(e) => setEmail(e.target.value)}
-                    />
-                  </div>
-                  <div className="">
-                    <InputField
-                      type="password"
-                      class="input"
-                      label="Password"
-                      placeholder="Enter your password"
-                      name="password"
-                      change={(e) => setPassword(e.target.value)}
-                      value={password}
-                    />
-                  </div>
-                  <DivPara>
-                    <p>
-                      <a href="http://">Forgot password?</a>
-                    </p>
-                  </DivPara>
-
-                  <div className="">
-                    <SubmitButton text="Login" onClick={handleSubmit} />
-                  </div>
-                </form>
-
-                <BtnContainer>
-                  <p>
-                    Don't have an account? <a href="http://">Create Account</a>{" "}
-                  </p>
-                </BtnContainer>
-              </div>
             </div>
-          </div>
-          <ToastContainer />
+            <ToastContainer />
         </div>
         // </ToastContainer>
-      );
-    };
+    );
+};
