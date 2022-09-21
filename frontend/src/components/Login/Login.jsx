@@ -42,7 +42,6 @@ export const Login = ({ ...props }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const loginUser = async (email, password) => {
    
       const loginUser = async (email, password) => {
         try {
@@ -57,12 +56,14 @@ export const Login = ({ ...props }) => {
             password: password,
           });
 
-          localStorage.setItem("Email", res.data.User.email);
-          localStorage.setItem("Token", res.data.token);
-          localStorage.setItem("Firstname", res.data.User.firstname);
-          localStorage.setItem("Lastname", res.data.User.lastname);
+          localStorage.setItem("email", res.data.User.email);
+          localStorage.setItem("token", res.data.token);
+          localStorage.setItem("firstname", res.data.User.firstname);
+          localStorage.setItem("lastname", res.data.User.lastname);
           localStorage.setItem("avatar", res.data.User.avatar);
           localStorage.setItem("phoneNumber", res.data.User.phoneNumber);
+          localStorage.setItem("username", res.data.User.username);
+          localStorage.setItem("id", res.data.User.id);
           // console.log(res.data.User);
 
           toast.success(res.data.message);
@@ -136,4 +137,3 @@ export const Login = ({ ...props }) => {
         // </ToastContainer>
       );
     };
-  }
