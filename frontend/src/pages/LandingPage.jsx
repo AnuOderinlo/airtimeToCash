@@ -39,14 +39,14 @@ export const LandingPage = () => {
 
   return (
     <div>
-      {/* HEOR SECTION  */}
+      {/* HERO SECTION  */}
       <NavBar landing />
     <Hero> 
       <div className='heroText'>
         <p><b>Surplus Airtime? Don’t worry we got you covered</b></p>
         <small>Excess recharge!, this is usually heartbreaking, worry no more.  Now you can exchange your excess airtime for cash value via this platform</small>
         {/* <Link to='/register'><button height='48px' width='185px'>Get Started</button></Link> */}
-        <Button text={'Get Started'} radius={0} clickHandle={handleGetStarted}/>
+        <Button text={'Get Started'} radius={4} clickHandle={handleGetStarted}/>
       </div>
       <div className='heroImage'><img src={heroImage} alt="" /></div>
     </Hero>

@@ -1,6 +1,7 @@
 .navbar,
 .navbar * {
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .navbar {

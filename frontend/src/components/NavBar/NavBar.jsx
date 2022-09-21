@@ -79,8 +79,8 @@ export const NavBar = ({
                 Contact Us
             </div>
             <div className="frame-8560">
-                <div className="login-btn">
-                    Login
+                <div className="login-btn" ><a href='/login'></a> 
+                   Login
                 </div>
             </div>
         </div>

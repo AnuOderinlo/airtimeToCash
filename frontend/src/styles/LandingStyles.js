@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-// Nav bar section
+// NAVBAR SECTION
 
 export const Wrapper = styled.div`
   position: absolute;
@@ -74,7 +74,7 @@ export const Logo = styled.img`
   padding: 1rem 0;
 `;
 
-// HERO BANNER========================================
+// HERO BANNER
 export const Hero = styled.div`
   padding: 7rem 5% 0 10%;
   min-height: 70vh;
@@ -142,7 +142,7 @@ export const Hero = styled.div`
   }
 `;
 
-// ABOUT SECTION========================================
+// ABOUT SECTION
 
 export const AboutSection = styled.div`
   display: flex;
@@ -206,7 +206,7 @@ export const AboutCard = styled.div`
   }
 `;
 
-// PRODUCT SECTION========================================
+// PRODUCT SECTION
 export const ProductSection = styled.div`
   background: linear-gradient(to right, #d8e8bf, #cfaef6);
   margin: 7% 10%;
@@ -264,7 +264,7 @@ export const ProductSection = styled.div`
   }
 `;
 
-// TESTIMONIAL SECTION========================================
+// TESTIMONIAL SECTION
 export const TestimonialSection = styled.div`
   color: #03435f;
   font-size: larger;
@@ -320,7 +320,7 @@ export const TestimonialCard = styled.div`
     margin: 0;
   }
 `;
-// FOOTER SECTION========================================
+// FOOTER SECTION
 
 export const FooterStyle = styled.div`
   margin-top: 5%;
