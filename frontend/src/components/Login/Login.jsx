@@ -7,6 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import React, { useState, useEffect } from "react";
 import { mainAxios } from "../Axios/Axios";
+import { useNavigate } from "react-router-dom";
 
 
 const DivPara = styled.div`
@@ -42,19 +43,31 @@ const BtnContainer = styled.div`
 export const Login = ({ ...props }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
+    const navigate = useNavigate();
     const loginUser = async (email, password) => {
         try {
 
+            const emailRegex = new RegExp(
+                /^[A-Za-z0-9_!#$%&'*+\/=?`{|}~^.-]+@[A-Za-z0-9.-]+$/,
+                "gm"
+            );
+            const isValidEmail = emailRegex.test(email);
+            let res;
             if (email === "" || password === "") {
                 return toast.error("Email or password cannot be empty");
+            } else {
+                if (isValidEmail) {
+                    res = await mainAxios.post("/users/login", {
+                        email: email,
+                        password: password,
+                    });
+                } else {
+                    res = await mainAxios.post("/users/login", {
+                        username: email,
+                        password: password,
+                    });
+                }
             }
-            console.log(email, password)
-            const res = await mainAxios.post("/users/login", {
-                email: email,
-                username: email,
-                password: password,
-            });
 
             localStorage.setItem("email", res.data.User.email);
             localStorage.setItem("token", res.data.token);
@@ -66,6 +79,9 @@ export const Login = ({ ...props }) => {
             localStorage.setItem("id", res.data.User.id);
 
             toast.success(res.data.message);
+            setTimeout(() => {
+                navigate('/dashboard')
+            }, 3000)
         } catch (error) {
             toast.error(error.response.data.message);
         }

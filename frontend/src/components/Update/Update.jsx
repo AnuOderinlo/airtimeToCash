@@ -145,13 +145,13 @@ export const Update = () => {
                 <ToastContainer />
             </div>
             <NavBarDashboard className="container-fluid" setToggleModal={setToggleModal} uploadUrl={uploadUrl} firstname={fakeDetails.firstname} />
-            <div className="login container-fluid">
+            <div className="update container-fluid">
                 <div className="container-fluid backdrop d-none d-md-block">
                 </div>
-                <div className="row login-card mt-3">
-                    <div className=" col-xs-12 col-md-6 login-card-padding">
-                        <div className="login-box">
-                            <div className="login-heading">
+                <div className="row update-card mt-3">
+                    <div className=" col-xs-12 col-md-6 update-card-padding">
+                        <div className="update-box">
+                            <div className="update-heading">
                                 <Logo />
                             </div>
                             <form onSubmit={handleSubmit} className="update-form" >
