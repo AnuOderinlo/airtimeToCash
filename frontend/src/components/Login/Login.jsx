@@ -57,8 +57,6 @@ export const Login = ({ ...props }) => {
                 password: password,
             });
 
-            console.log(res.data);
-
             localStorage.setItem("email", res.data.User.email);
             localStorage.setItem("token", res.data.token);
             localStorage.setItem("firstname", res.data.User.firstname);
@@ -67,12 +65,10 @@ export const Login = ({ ...props }) => {
             localStorage.setItem("phoneNumber", res.data.User.phoneNumber);
             localStorage.setItem("username", res.data.User.username);
             localStorage.setItem("id", res.data.User.id);
-            // console.log(res.data.User);
 
-            // toast.success(res.data.message);
+            toast.success(res.data.message);
         } catch (error) {
-            // toast.error(error.response.data.message);
-            console.log(error);
+            toast.error(error.response.data.message);
         }
     };
 
@@ -83,7 +79,7 @@ export const Login = ({ ...props }) => {
     };
 
     return (
-        // <ToastContainer>
+
         <div className="login">
             <div className="login-card">
                 <div className="login-card-padding">
