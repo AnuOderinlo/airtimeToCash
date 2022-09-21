@@ -3,8 +3,10 @@ import logo from '../../assets/icon/logo2.svg';
 import {useState} from 'react'; 
 import {Wrapper, Nav, Logo,Hamburger,Menu,MenuLinks } from '../../styles/LandingStyles';
 import {Button }from '../utils/Button/Button';
+// import {ButtonStyle} from '../../styles/ButtonStyle'
 import UserProfileNav from './UserProfileNav';
 import { Link } from 'react-router-dom';
+
 export const Navbar=({landing, dashboard})=> {
 
     const [open, setOpen] = useState(false) 
@@ -31,9 +33,5 @@ export const Navbar=({landing, dashboard})=> {
     </Menu>}
     </Nav>
     </Wrapper>
-
   )
 }
-
-
-// activeClassName="active" 

@@ -84,6 +84,11 @@ export const Hero = styled.div`
   flex-wrap: wrap-reverse;
   background-color: rgba(255, 249, 246);
   align-items: center;
+
+  Button{
+    width: 185px;
+  }
+
   @media (max-width: 1024px) {
     & .heroText {
       margin: 4% 0 10% 0;
