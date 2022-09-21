@@ -59,27 +59,15 @@ export const Login = ({ ...props }) => {
         if (isValidEmail) {
           res = await client.post("/login", {
             email: email,
-            // username: email,
             password: password,
           });
         } else {
           res = await client.post("/login", {
-            // email: email,
             username: email,
             password: password,
           });
         }
       }
-      // else if (!isValidEmail) {
-      //   return toast.error("Please provide a valid email", {
-      //     position: toast.POSITION.TOP_CENTER,
-      //   });
-      // }
-      // const res = await client.post("/login", {
-      //   email: email,
-      //   username: email,
-      //   password: password,
-      // });
 
       localStorage.setItem("Email", res.data.User.email);
       localStorage.setItem("Token", res.data.token);
@@ -87,7 +75,6 @@ export const Login = ({ ...props }) => {
       localStorage.setItem("Lastname", res.data.User.lastname);
       localStorage.setItem("avatar", res.data.User.avatar);
       localStorage.setItem("phoneNumber", res.data.User.phoneNumber);
-      // console.log(res.data.User);
 
       toast.success(res.data.message);
     } catch (error) {
@@ -102,7 +89,6 @@ export const Login = ({ ...props }) => {
   };
 
   return (
-    // <ToastContainer>
     <div className="login">
       <div className="login-card">
         <div className="login-card-padding">
@@ -157,6 +143,5 @@ export const Login = ({ ...props }) => {
       </div>
       <ToastContainer />
     </div>
-    // </ToastContainer>
   );
 };
