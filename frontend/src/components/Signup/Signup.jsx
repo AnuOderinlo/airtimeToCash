@@ -9,7 +9,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import { Button } from '../Utils/Button/Button';
 import 'bootstrap/dist/css/bootstrap.css';
-
+import { mainAxios } from '../Axios/Axios';
 
 export const Signup = ({
     ...props
@@ -21,7 +21,7 @@ export const Signup = ({
         email: "",
         phoneNumber: "",
         password: "",
-        confirmpassword: ""
+        confirmPassword: ""
     })
     // handlechange logic remove this comment later
     const handleChange = (e) => {
@@ -36,24 +36,26 @@ export const Signup = ({
             });
         }
         try {
-            const res = await axios.post('http://localhost:4000/users/users', {
+            const res = await mainAxios.post('users/users', {
                 firstname: user.firstname,
                 lastname: user.lastname,
                 username: user.username,
                 email: user.email,
                 phoneNumber: user.phoneNumber,
                 password: user.password,
-                confirm_password: user.confirm_password
-            });
-            // console.log("RESPONSE", res);
-            console.log("TOKEN", res.data.token);
-            toast.success("User created successfully", {
-                position: "top-right",
+                confirmPassword: user.confirmPassword
             });
 
+            console.log("TOKEN", res);
+            if (res.data.status === "Success") {
+                toast.success("User created successfully", {
+                    position: "top-right",
+                });
+            }
 
         } catch (error) {
-            toast.error(error.response.data.message, {
+
+            toast.error(error.response.data.error, {
                 position: "top-right",
             });
         }
@@ -62,14 +64,14 @@ export const Signup = ({
 
     return (
 
-        <div className="login container-fluid">
-            <div className="row login-card mt-3">
-                <div className=" col-xs-12 col-md-8 login-card-padding">
-                    <div className="login-box">
-                        <div className="login-heading">
+        <div className="signup container-fluid">
+            <div className="row signup-card mt-3">
+                <div className=" col-xs-12 col-md-8 signup-card-padding">
+                    <div className="signup-box">
+                        <div className="signup-heading">
                             <Logo />
                         </div>
-                        <a href="/" className='col-md-6 rounded-button btn rounded-pill'>   
+                        <a href="/" className='col-md-6 rounded-button btn rounded-pill'>
                             <IoIosArrowRoundBack /> Go back
                         </a>
 
@@ -79,7 +81,7 @@ export const Signup = ({
                         </div>
                         <form onSubmit={handleSubmit} className="update-form" >
                             <div className="">
-                                <InputField  childDefaultValue={user.firstname} handleChange={handleChange} name="firstname" type="text" childClass="input" label="Firstname" placeholder="Enter your first name" />
+                                <InputField childDefaultValue={user.firstname} handleChange={handleChange} name="firstname" type="text" childClass="input" label="Firstname" placeholder="Enter your first name" />
                             </div>
                             <div className="">
                                 <InputField childDefaultValue={user.lastname} handleChange={handleChange} name="lastname" type="text" childClass="input" label="Lastname" placeholder="Enter your last name" />
@@ -94,18 +96,18 @@ export const Signup = ({
                                 <InputField childDefaultValue={user.phoneNumber} handleChange={handleChange} name="phoneNumber" type="text" childClass="input" label="Phone number" placeholder="Enter your phone number" />
                             </div>
                             <div className="">
-                                 <InputField name="password" type="password" childClass="input" label="Password" childDefaultValue={user.password} handleChange={handleChange} placeholder="Enter your password" />
+                                <InputField name="password" type="password" childClass="input" label="Password" childDefaultValue={user.password} handleChange={handleChange} placeholder="Enter your password" />
                             </div>
                             <div className="">
-                                <InputField name="confirm_password" type="password" childClass="input" label="Confirm Password" childDefaultValue={user.confirmpassword} handleChange={handleChange} placeholder="Confirm password" />
+                                <InputField name="confirmPassword" type="password" childClass="input" label="Confirm Password" childDefaultValue={user.confirmpassword} handleChange={handleChange} placeholder="Confirm password" />
                             </div>
                             <div className="">
                                 <Button type={"submit"} text="Signup" />
                             </div>
                         </form>
                         <div className='sign_container'>
-                             Already have an account?<a href='/login' className='sign_in'> Sign in</a>
-                         </div>
+                            Already have an account?<a href='/login' className='sign_in'> Sign in</a>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -33,3 +33,9 @@
     color: #21334f;
     font-weight: bold;
 }
+
+.button-sm {
+    width: 10%;
+    border-radius: 5px;
+    text-decoration: none;
+}
