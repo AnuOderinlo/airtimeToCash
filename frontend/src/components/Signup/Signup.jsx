@@ -23,6 +23,7 @@ export const Signup = ({
         password: "",
         confirmPassword: ""
     })
+    // handlechange logic remove this comment later
     const handleChange = (e) => {
         setUser({ ...user, [e.target.name]: e.target.value })
         console.log(user);
