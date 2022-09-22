@@ -21,6 +21,7 @@ export const Signup = ({ ...props }) => {
     password: "",
     confirmPassword: "",
   });
+  // handlechange logic remove this comment later
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
     console.log(user);
@@ -67,7 +68,7 @@ export const Signup = ({ ...props }) => {
   return (
     <div className="signup container-fluid">
       <div className="row signup-card mt-3">
-        <div className=" col-xs-12 signup-card-padding">
+        <div className=" col-xs-12 col-md-8 signup-card-padding">
           <div className="signup-box">
             <div className="signup-heading">
               <Logo />
