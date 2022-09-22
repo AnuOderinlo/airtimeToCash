@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import React, { useState, useEffect } from "react";
 import { mainAxios } from "../Axios/Axios";
 import { useNavigate } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.css";
 
 const DivPara = styled.div`
   width: 100%;
