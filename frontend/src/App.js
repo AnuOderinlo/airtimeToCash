@@ -9,7 +9,7 @@ import ResetPassword from './pages/ResetPassword';
 import LandingPage from './pages/LandingPage';
 import { Signup } from './components/Signup/Signup';
 import './App.css';
-import Dashboard from './pages/Dashboard';
+import Dashboard from './components/Dashboard/Dashboard';
 
 function App() {
   return (

@@ -9,17 +9,15 @@ import { Button } from '../Utils/Button/Button';
 import userImage from '../../images/user.svg';
 import './NavBarDashboard.css';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export const NavBarDashboard = ({ setToggleModal, uploadUrl, firstname }) => {
 
-    // const [classToUse, setClassToUse] = useState("")
-
-    // if (firstname) {
-    //     setClassToUse("")
-    // } else {
-    //     setClassToUse("")
-    // }
-
+    const navigate =  useNavigate();
+    
+    const handeClick = () =>{
+        navigate("/update")
+    }
     return (
 
         <Navbar expand="lg">
@@ -46,8 +44,8 @@ export const NavBarDashboard = ({ setToggleModal, uploadUrl, firstname }) => {
                             <Nav.Link className="ms-auto" href="#">
                                 <div className="frame-8591">
                                     <div className="user">
-                                        <div className="user-thumb" onClick={() => setToggleModal(true)}>
-                                            <img src={uploadUrl} alt="" />
+                                        <div className="user-thumb" onClick={handeClick}>
+                                            <img src={uploadUrl} alt="avatar" />
                                         </div>
                                         <div className="user-name">
                                             {firstname}
