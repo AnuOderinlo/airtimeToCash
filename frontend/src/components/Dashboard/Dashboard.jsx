@@ -10,6 +10,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { NavBarDashboard } from '../NavBarDashboard/NavBarDashboard';
 import React from 'react';
 import { mainAxios } from '../Axios/Axios';
+import ManageAccount from '../../pages/ManageAccount'
+import { IoMdArrowBack } from 'react-icons/io'
 
 
 import Modal from 'react-modal';
@@ -78,7 +80,7 @@ const Dashboard = () => {
                                     <LoremIpsum />
                                 </Tab>
                                 <Tab eventKey="manage-bank-account" title="Manage bank account">
-                                    <LoremIpsum />
+                                    <ManageAccount />
                                 </Tab>
                                 <Tab eventKey="transaction-history" title="Transaction history">
                                     <LoremIpsum />

@@ -1,9 +1,9 @@
 import React from 'react'
 import { ButtonStyle } from '../styles/ButtonStyle'
 
-const Button = ({text, clickHandle, flag, radius}) => {
+const Button = ({text, clickHandle, flag, radius, width}) => {
   return (
-    <ButtonStyle flag={flag} type="button" onClick={clickHandle} style={{borderRadius:`${radius}`}}>{text} </ButtonStyle>
+    <ButtonStyle flag={flag} type="button" onClick={clickHandle} style={{borderRadius:`${radius}`, width:`${width}px`}}>{text} </ButtonStyle>
   )
 }
 
