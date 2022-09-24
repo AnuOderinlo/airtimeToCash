@@ -19,7 +19,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 
-import LoremIpsum from './LoremIpsum';
+import TransactionHistory from './TransactionHistory';
 
 const Dashboard = () => {
 
@@ -72,16 +72,16 @@ const Dashboard = () => {
                                 fill
                             >
                                 <Tab eventKey="sell-airtime" title="Sell airtime">
-                                    <LoremIpsum />
+                                    
                                 </Tab>
                                 <Tab eventKey="withdraw-balance" title="Withdraw balance">
-                                    <LoremIpsum />
+                                    
                                 </Tab>
                                 <Tab eventKey="manage-bank-account" title="Manage bank account">
-                                    <LoremIpsum />
+                                   
                                 </Tab>
                                 <Tab eventKey="transaction-history" title="Transaction history">
-                                    <LoremIpsum />
+                                    <TransactionHistory />
                                 </Tab>
                             </Tabs>
                         </div>
