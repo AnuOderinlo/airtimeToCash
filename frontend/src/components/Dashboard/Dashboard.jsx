@@ -6,6 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { NavBarDashboard } from '../NavBarDashboard/NavBarDashboard';
 import React from 'react';
+import ManageAccount from '../../pages/ManageAccount'
 
 import 'bootstrap/dist/css/bootstrap.css';
 import Tab from 'react-bootstrap/Tab';
@@ -61,37 +62,34 @@ const Dashboard = () => {
                                 </div>
                             }
 
-                            <div className="">
-                                <Tabs
-                                    defaultActiveKey="sell-airtime"
-                                    id="dashboard-tabs"
-                                    className="mb-3"
-                                    activeKey={key}
-                                    onSelect={(k) => setKey(k)}
-                                    fill
-                                >
-                                    <Tab eventKey="sell-airtime" title="Sell airtime">
-                                        <LoremIpsum />
-                                    </Tab>
-                                    <Tab eventKey="withdraw-balance" title="Withdraw balance">
-                                        <LoremIpsum />
-                                    </Tab>
-                                    <Tab eventKey="manage-bank-account" title="Manage bank account">
-                                        <LoremIpsum />
-                                    </Tab>
-                                    <Tab eventKey="transaction-history" title="Transaction history">
-                                        <LoremIpsum />
-                                    </Tab>
-                                </Tabs>
-                            </div>
-
+                            <Tabs
+                                defaultActiveKey="sell-airtime"
+                                id="dashboard-tabs"
+                                className="mb-3"
+                                activeKey={key}
+                                onSelect={(k) => setKey(k)}
+                                fill
+                            >
+                                <Tab eventKey="sell-airtime" title="Sell airtime">
+                                    <LoremIpsum />
+                                </Tab>
+                                <Tab eventKey="withdraw-balance" title="Withdraw balance">
+                                    <LoremIpsum />
+                                </Tab>
+                                <Tab eventKey="manage-bank-account" title="Manage bank account">
+                                    <ManageAccount />
+                                </Tab>
+                                <Tab eventKey="transaction-history" title="Transaction history">
+                                    <LoremIpsum />
+                                </Tab>
+                            </Tabs>
                         </div>
 
                     </div>
 
                 </div>
-            </div>
 
+            </div>
         </>
     )
 }
