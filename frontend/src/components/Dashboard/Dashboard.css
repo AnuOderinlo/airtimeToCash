@@ -26,7 +26,8 @@
 
 .dashboard {
     background: transparent;
-    height: 1500px;
+    /* height: 1500px; */
+    height: auto;
 
 }
 

@@ -19,6 +19,7 @@ const InputField = ({
         name={name}
         value={value}
         onChange={changeHandle}
+        disabled
       />
     </Input>
   );
