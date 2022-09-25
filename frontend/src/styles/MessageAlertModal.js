@@ -9,7 +9,8 @@ export const Bg = styled.div`
   font-family: "Inter";
   font-style: normal;
   background: rgba(0, 0, 0, 0.65);
-  margin-top: -950px;
+  /* margin-top: -950px; */
+  margin-top: 0;
   overflow-y: hidden;
 `
 

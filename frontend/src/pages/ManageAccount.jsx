@@ -5,6 +5,8 @@ import { Bg, Container, Form } from '../styles/ManageAccount'
 import MessageAlertModal from '../components/MessageAlertModal'
 import BankAccountList from './BankAccountList'
 import SelectInput from '../components/SelectInput'
+import { addBankFormState, showSuccessModal, viewAccountRecord } from '../atoms/addBankFormState'
+import { useRecoilState } from 'recoil'
 
 const bankList = [
     { "id": "1", "name": "Access Bank" ,"code":"044" },
@@ -35,8 +37,11 @@ const bankList = [
 
 const ManageAccount = () => {
     const [inputs, setInputs] = useState({ bank: '', accountName: '', accountNumber: '' })
-    const [showModal, setShowModal] = useState(false)
-    const [viewAccount, setViewAccount] = useState(false)
+    // const [showModal, setShowModal] = useState(false)
+    // const [viewAccount, setViewAccount] = useState(false)
+    const [viewAccount, setViewAccount] = useRecoilState(viewAccountRecord)
+    const [showModal, setShowModal] = useRecoilState(showSuccessModal)
+    const [addBank, setAddBank] = useRecoilState(addBankFormState);
 
     const handleInput = (e) => {
         e.preventDefault()
@@ -51,12 +56,12 @@ const ManageAccount = () => {
     }
 
     const openModal = () => {
-        setShowModal((prev) => !prev)
+        setShowModal(true)
     }
 
     const handleView = (e) => {
         e.preventDefault()
-        setViewAccount((prev) => !prev)
+        setViewAccount(true)
     }
  
   return (

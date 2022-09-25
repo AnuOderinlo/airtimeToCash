@@ -14,8 +14,11 @@ import Tabs from 'react-bootstrap/Tabs';
 
 import LoremIpsum from './LoremIpsum';
 import DashboardHeader from '../DashboardHeader/DashboardHeader';
+import { viewAccountRecord } from '../../atoms/addBankFormState';
+import { useRecoilState } from 'recoil';
 
 const Dashboard = () => {
+    const [viewAccount, setViewAccount] = useRecoilState(viewAccountRecord)
 
     const userDetails = {
         firstname: localStorage.getItem("firstname"),
@@ -27,6 +30,11 @@ const Dashboard = () => {
     }
 
     const [key, setKey] = useState('sell-airtime');
+
+    const handleGoBack = (e) => {
+        e.preventDefault()
+        setViewAccount(false)
+    }
 
     return (
         <>
@@ -47,7 +55,7 @@ const Dashboard = () => {
                                 (key === "manage-bank-account") &&
                                 <>
                                     <div className='heading-with-arrow container'>
-                                        <img className='float-start' src={BackArrow} />
+                                        <img className='float-start' src={BackArrow} onClick={handleGoBack} />
                                         <div className="mx-auto dashboard-heading-text">
                                             Manage Account
                                         </div>
