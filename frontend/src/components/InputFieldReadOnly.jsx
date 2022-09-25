@@ -19,7 +19,7 @@ const InputField = ({
         name={name}
         value={value}
         onChange={changeHandle}
-        readOnly
+        disabled
       />
     </Input>
   );

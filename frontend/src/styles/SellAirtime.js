@@ -63,8 +63,7 @@ export const Form = styled.div`
     align-items: center;
     font-family: "Inter";
     font-style: normal;
-    margin-bottom: 30px;
-    margin-top: -30px;
+    margin: 30px 0;
 
     h3 {
       font-size: 24px;
@@ -82,10 +81,17 @@ export const Form = styled.div`
       user-select: none;
       cursor: pointer;
     }
+
+    h6 {
+      font-weight: 900;
+    }
   }
 
   @media (max-width: 559px) {
     width: 459px;
+    button {
+      width: 100%;
+    }
   }
 
   @media (max-width: 459px) {
@@ -116,6 +122,9 @@ export const Form = styled.div`
 
   @media (min-width: 768px) {
     width: 500px;
+    button {
+      width: 198px;
+    }
   }
 
   @media (min-width: 992px) {
@@ -131,7 +140,7 @@ export const Form = styled.div`
 export const Container = styled.div`
   /* background: #FFFFFF; */
   /* width: 860px; */
-  height: 527px;
+  height: auto;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -139,7 +148,6 @@ export const Container = styled.div`
   align-items: center;
 
   @media (max-width: 559px) {
-    height: 427px;
-    border: 1px solid green;
+    height: 100%;
   }
 `;

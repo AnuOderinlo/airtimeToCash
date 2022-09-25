@@ -3,6 +3,7 @@ import Button from "../Button";
 import { Bg, Container, Form } from "../../styles/SellAirtime";
 import SelectInput from "../SelectInput";
 import InputField from "../InputField";
+import InputFieldReadOnly from "../InputFieldReadOnly";
 
 const SellAirtime = () => {
   return (
@@ -10,7 +11,7 @@ const SellAirtime = () => {
       <Container>
         <Form>
           <div className="acount-headers">
-            <h3>Sell Airtime</h3>
+            <h6>Sell Airtime</h6>
           </div>
           <form>
             <SelectInput onChangeAction={""} label={"Network"} value={""} />
@@ -18,18 +19,29 @@ const SellAirtime = () => {
               label={"Phone Number"}
               placeholder={"Account name"}
               name={"phoneNumber"}
-              value={""}
-              changeHandle={""}
             />
             <InputField
               label={"Amount to Sell"}
               placeholder={"NGN"}
               name={"amountToSell"}
-              value={""}
-              changeHandle={""}
+            />
+            <InputFieldReadOnly
+              label={"USSD"}
+              placeholder={"NGN"}
+              name={"amountToSell"}
+            />
+            <InputFieldReadOnly
+              label={"Amount to Receive"}
+              placeholder={"NGN"}
+              name={"amountToSell"}
+            />
+            <InputFieldReadOnly
+              label={"Destination Phone Number"}
+              placeholder={"Destination Phone Number"}
+              name={"amountToSell"}
             />
 
-            <Button text={"Add Bank"} radius={0} width={198} clickHandle={""} />
+            <Button text={"Add Bank"} radius={0} clickHandle={""} />
           </form>
         </Form>
       </Container>
