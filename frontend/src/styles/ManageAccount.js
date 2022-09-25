@@ -11,9 +11,10 @@ export const Bg = styled.div`
 
 export const Form = styled.div`
    
-    width: 559px;
+    width: 100%;
     height: auto;
     position: relative;
+    margin-bottom: 16px;
 
     *,
     *::before,
@@ -26,39 +27,7 @@ export const Form = styled.div`
         font-size: 14px;
         font-weight: 400;
         color: #012A4A;
-    }
-
-    select {
-        appearance: none;
-        border: none;
-        padding: 12px 0 12px 16px;
-        margin: 0;
-        width: 100%;
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 12px;
-        cursor: pointer;
-        outline: none;
-
-    }
-
-    select::-ms-expand {
-        display: none;
-    }
-
-    .select {
-        width: 100%;
-        border: 1px solid #D9D9D9;
-        font-size: 16px;
-        cursor: pointer;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        position: relative;
-        margin-top: 8px;
-        margin-bottom: 16px;
-
+        margin-bottom: 8px;
     }
 
     .acount-headers{
@@ -97,6 +66,10 @@ export const Form = styled.div`
 
     @media (max-width: 459px){
         width: 359px;
+
+        Select{
+            /* border: 1px solid green; */
+        }
     }
 
     @media (max-width: 359px){
@@ -149,7 +122,6 @@ export const Container = styled.div`
 
     @media (max-width: 559px){
         height: 427px;
-        border: 1px solid green;
     }
 
 `
