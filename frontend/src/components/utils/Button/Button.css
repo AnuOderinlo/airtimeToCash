@@ -35,7 +35,16 @@
 }
 
 .button-sm {
-    width: 10%;
+    width: 80%;
     border-radius: 5px;
     text-decoration: none;
+}
+
+/*  Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    .button-sm {
+        width: 20%;
+        border-radius: 5px;
+        text-decoration: none;
+    }
 }
