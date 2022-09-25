@@ -35,6 +35,11 @@ const Dashboard = () => {
         setViewAccount(false)
     }
 
+    const handleOptions = (k) => {
+        setViewAccount(false)
+        setKey(k)
+    }
+
     return (
         <>
             <div>
@@ -77,7 +82,7 @@ const Dashboard = () => {
                                 id="dashboard-tabs"
                                 className="mb-3"
                                 activeKey={key}
-                                onSelect={(k) => setKey(k)}
+                                onSelect={(k) => handleOptions(k)}
                                 fill
                             >
                                 <Tab eventKey="sell-airtime" title="Sell airtime">
