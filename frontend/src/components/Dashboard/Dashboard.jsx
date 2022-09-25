@@ -1,12 +1,11 @@
-
-import './Dashboard.css';
-import { useState } from 'react';
-import BackArrow from '../../assets/icon/BackArrow.svg'
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { NavBarDashboard } from '../NavBarDashboard/NavBarDashboard';
-import React from 'react';
-import ManageAccount from '../../pages/ManageAccount'
+import "./Dashboard.css";
+import { useState } from "react";
+import BackArrow from "../../assets/icon/BackArrow.svg";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { NavBarDashboard } from "../NavBarDashboard/NavBarDashboard";
+import React from "react";
+import ManageAccount from "../../pages/ManageAccount";
 
 import 'bootstrap/dist/css/bootstrap.css';
 import Tab from 'react-bootstrap/Tab';
@@ -58,7 +57,7 @@ const Dashboard = () => {
                                         {
                                             viewAccount && <img className='float-start' src={BackArrow} onClick={handleGoBack} />
                                         }
-                                        
+                            
                                         <div className="mx-auto dashboard-heading-text">
                                             Manage Account
                                         </div>
@@ -95,14 +94,11 @@ const Dashboard = () => {
                                 </Tab>
                             </Tabs>
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
         </>
-    )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;

@@ -27,6 +27,8 @@
 .dashboard {
     background: transparent;
     /* height: 1500px; */
+    height: auto;
+
 }
 
 .dashboard-card {
