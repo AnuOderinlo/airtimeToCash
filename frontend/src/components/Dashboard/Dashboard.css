@@ -26,8 +26,7 @@
 
 .dashboard {
     background: transparent;
-    height: 1500px;
-
+    /* height: 1500px; */
 }
 
 .dashboard-card {
@@ -233,7 +232,7 @@
 @media (min-width: 576px) {
     .dashboard {
         background: transparent;
-        height: 1500px;
+        /* height: 1500px; */
 
     }
 }
@@ -242,7 +241,7 @@
 @media (min-width: 768px) {
     .dashboard {
         background: #f5f5f5;
-        height: 1500px;
+        /* height: 1500px; */
 
     }
 }

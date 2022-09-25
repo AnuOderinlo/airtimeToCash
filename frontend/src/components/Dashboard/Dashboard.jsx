@@ -14,7 +14,7 @@ import Tabs from 'react-bootstrap/Tabs';
 
 import LoremIpsum from './LoremIpsum';
 import DashboardHeader from '../DashboardHeader/DashboardHeader';
-import { viewAccountRecord } from '../../atoms/addBankFormState';
+import { viewAccountRecord } from '../../atoms/manageAccountStates';
 import { useRecoilState } from 'recoil';
 
 const Dashboard = () => {
@@ -55,7 +55,10 @@ const Dashboard = () => {
                                 (key === "manage-bank-account") &&
                                 <>
                                     <div className='heading-with-arrow container'>
-                                        <img className='float-start' src={BackArrow} onClick={handleGoBack} />
+                                        {
+                                            viewAccount && <img className='float-start' src={BackArrow} onClick={handleGoBack} />
+                                        }
+                                        
                                         <div className="mx-auto dashboard-heading-text">
                                             Manage Account
                                         </div>

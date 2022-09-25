@@ -1,11 +1,5 @@
 import { atom } from 'recoil';
 
-export const addBankFormState = atom({
-    key: 'addBankFormState',
-    default: true,
-});
-
-
 export const showSuccessModal = atom({
     key: 'showSuccessModal',
     default: false,
