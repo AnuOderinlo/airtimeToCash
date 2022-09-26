@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../Button";
 import { Bg, Container, Form } from "../../styles/SellAirtime";
 import SelectInput from "../SelectInput";
 import InputField from "../InputField";
 import InputFieldReadOnly from "../InputFieldReadOnly";
 
+const bankList = [
+  { id: "1", name: "MTN" },
+  { id: "2", name: "AIRTEL" },
+  { id: "3", name: "GLO" },
+  { id: "4", name: "9mobile" },
+];
+
 const SellAirtime = () => {
+  // const [inputValues, setInputValues] = useState({});
+
   return (
     <Bg>
       <Container>
@@ -14,7 +23,13 @@ const SellAirtime = () => {
             <h6>Sell Airtime</h6>
           </div>
           <form>
-            <SelectInput onChangeAction={""} label={"Network"} value={""} />
+            <SelectInput
+              selectionList={bankList}
+              selectionDefault={"Select network"}
+              onChangeAction={""}
+              label={"Network"}
+              value={""}
+            />
             <InputField
               label={"Phone Number"}
               placeholder={"Account name"}
