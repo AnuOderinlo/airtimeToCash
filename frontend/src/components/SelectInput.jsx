@@ -15,14 +15,26 @@ const SelectInput = ({ onChangeAction, label, selectionList, selectionDefault })
       padding: "0.4rem",
       fontSize: "14px",
       fontFamily: "Inter",
-      "& input": {
-        font: "inherit",
+      "& select": {
+        font: "Inter",
       },
     }),
     placeholder: (styles) => ({
       ...styles,
       // fontWeight: "400",
     }),
+    dropdownIndicator: (provided, state) => {
+      return {
+        ...provided,
+        padding: '0px',
+        paddingLeft: '0px',
+        paddingTop: '0px',
+        paddingRight: '30px',
+        paddingDown: '0px',
+        color: 'black',
+        cursor: 'pointer'
+      };
+    },
   };
 
   return (
