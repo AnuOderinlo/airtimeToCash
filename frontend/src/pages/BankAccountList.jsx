@@ -1,6 +1,9 @@
 import React from 'react'
 import Button from '../components/Button'
 import { Bg, Cards, Container, Form, Scroll } from '../styles/BankAccountList'
+import { useRecoilState } from 'recoil';
+import { viewAccountRecord } from '../atoms/manageAccountStates';
+import { showSuccessModal } from '../atoms/manageAccountStates';
 
 const sampleAccountRecord = [
     {'id': '1', 'bank': 'Access Bank', 'name': 'Oluwaseun Akinruli', 'accountNumber': '3170087553'},
@@ -16,6 +19,14 @@ const sampleAccountRecord = [
 ]
 
 const BankAccountList = () => {
+  const [viewAccount, setViewAccount] = useRecoilState(viewAccountRecord);
+  const [showModal, setShowModal] = useRecoilState(showSuccessModal);
+
+  const handleRemove = () => {
+    setViewAccount(false)
+    showModal(false)
+  }
+
   return (
     <Bg>
         <Container>
@@ -40,7 +51,7 @@ const BankAccountList = () => {
                 }
                 </Scroll>
                 <>
-                    <Button text={'Add New Bank'} radius={0} width={198}/>
+                    <Button text={'Add New Bank'} radius={0} width={198} clickHandle={handleRemove}/>
                 </>
             </Form>
         </Container>
