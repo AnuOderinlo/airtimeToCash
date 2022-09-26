@@ -44,7 +44,7 @@ export const Form = styled.div`
     display: none;
   }
 
-  .select {
+  .select + div {
     width: 100%;
     border: 1px solid #d9d9d9;
     font-size: 16px;
@@ -55,6 +55,7 @@ export const Form = styled.div`
     position: relative;
     margin-top: 8px;
     margin-bottom: 16px;
+    padding: 0;
   }
 
   .acount-headers {
