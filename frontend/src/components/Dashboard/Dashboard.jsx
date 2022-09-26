@@ -19,7 +19,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 
-import TransactionHistory from './TransactionHistory';
+import TransactionHistory from '../TransactionHistory/TransactionHistory';
 
 const Dashboard = () => {
 
