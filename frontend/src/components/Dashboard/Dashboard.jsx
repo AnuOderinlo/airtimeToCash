@@ -13,9 +13,13 @@ import Tabs from "react-bootstrap/Tabs";
 
 import LoremIpsum from "./LoremIpsum";
 import DashboardHeader from "../DashboardHeader/DashboardHeader";
+import { viewAccountRecord } from "../../atoms/manageAccountStates";
+import { useRecoilState } from "recoil";
 import SellAirtime from "../SellAirtime/SellAirtime";
 
 const Dashboard = () => {
+  const [viewAccount, setViewAccount] = useRecoilState(viewAccountRecord);
+
   const userDetails = {
     firstname: localStorage.getItem("firstname"),
     lastname: localStorage.getItem("lastname"),
@@ -26,6 +30,16 @@ const Dashboard = () => {
   };
 
   const [key, setKey] = useState("sell-airtime");
+
+  const handleGoBack = (e) => {
+    e.preventDefault();
+    setViewAccount(false);
+  };
+
+  const handleOptions = (k) => {
+    setViewAccount(false);
+    setKey(k);
+  };
 
   return (
     <>
@@ -48,7 +62,14 @@ const Dashboard = () => {
               {key === "manage-bank-account" && (
                 <>
                   <div className="heading-with-arrow container">
-                    <img className="float-start" src={BackArrow} />
+                    {viewAccount && (
+                      <img
+                        className="float-start"
+                        src={BackArrow}
+                        onClick={handleGoBack}
+                      />
+                    )}
+
                     <div className="mx-auto dashboard-heading-text">
                       Manage Account
                     </div>
@@ -64,7 +85,7 @@ const Dashboard = () => {
                 id="dashboard-tabs"
                 className="mb-3"
                 activeKey={key}
-                onSelect={(k) => setKey(k)}
+                onSelect={(k) => handleOptions(k)}
                 fill
               >
                 <Tab eventKey="sell-airtime" title="Sell airtime">

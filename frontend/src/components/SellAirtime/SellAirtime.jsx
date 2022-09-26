@@ -5,8 +5,15 @@ import SelectInput from "../SelectInput";
 import InputField from "../InputField";
 import InputFieldReadOnly from "../InputFieldReadOnly";
 
+const bankList = [
+  { id: "1", name: "MTN" },
+  { id: "2", name: "AIRTEL" },
+  { id: "3", name: "GLO" },
+  { id: "4", name: "9mobile" },
+];
+
 const SellAirtime = () => {
-  const [inputValues, setInputValues] = useState({});
+  // const [inputValues, setInputValues] = useState({});
 
   return (
     <Bg>
@@ -17,8 +24,8 @@ const SellAirtime = () => {
           </div>
           <form>
             <SelectInput
-              // selectionList={networkList}
-              // selectionDefault={"Select network"}
+              selectionList={bankList}
+              selectionDefault={"Select network"}
               onChangeAction={""}
               label={"Network"}
               value={""}

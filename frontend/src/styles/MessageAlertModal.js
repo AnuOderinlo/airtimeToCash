@@ -4,13 +4,12 @@ export const Bg = styled.div`
   position: fixed;
   display: flex;
   align-items: center;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   font-family: "Inter";
   font-style: normal;
   background: rgba(0, 0, 0, 0.65);
-  margin-top: -950px;
-  overflow-y: hidden;
+  top: 0;
 `
 
 export const Container = styled.div`
@@ -63,72 +62,4 @@ export const Container = styled.div`
     background: rgba(226, 0, 16, 0.15);
   }
 
-
-  /* @media (max-width: 559px){
-        margin: auto;
-        margin-bottom: 8px;
-        width: 490px;
-
-        h5{
-            font-size: 12px;
-        }
-
-        button{
-            font-size: 12px;
-        }
-    }
-
-    @media (max-width: 490px){
-        width: 359px;
-    }
-
-    @media (max-width: 359px){
-        width: 259px;
-        
-
-        .acount-headers h3{
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        .acount-headers h4{
-            font-size: 12px;
-            font-weight: 400;
-        }
-       
-    }
-
-    @media (max-width: 300px){
-        width: 200px;
-        text-align: center;
-
-        .account-record{
-            display: block;
-        }
-
-        .account-record h5{
-            margin: auto;
-            width: 100px;
-        }
-
-        .acount-headers h3{
-            font-size: 8px;
-            font-weight: 600;
-        }
-
-        .acount-headers h4{
-            font-size: 8px;
-            font-weight: 400;
-        }
-
-        button{
-            margin-top: 5px;
-            border-radius: 10px;
-        }
-    }
-
-    @media (max-width: 259px){
-        width: 159px;
-        
-    } */
 `
