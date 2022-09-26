@@ -11,11 +11,12 @@ import "bootstrap/dist/css/bootstrap.css";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 
-import LoremIpsum from "./LoremIpsum";
+// import LoremIpsum from "./LoremIpsum";
 import DashboardHeader from "../DashboardHeader/DashboardHeader";
 import { viewAccountRecord } from "../../atoms/manageAccountStates";
 import { useRecoilState } from "recoil";
 import SellAirtime from "../SellAirtime/SellAirtime";
+import TransactionHistory from "../TransactionHistory/TransactionHistory";
 
 const Dashboard = () => {
   const [viewAccount, setViewAccount] = useRecoilState(viewAccountRecord);
@@ -92,13 +93,13 @@ const Dashboard = () => {
                   <SellAirtime />
                 </Tab>
                 <Tab eventKey="withdraw-balance" title="Withdraw balance">
-                  <LoremIpsum />
+                  {/* <LoremIpsum /> */}
                 </Tab>
                 <Tab eventKey="manage-bank-account" title="Manage bank account">
                   <ManageAccount />
                 </Tab>
                 <Tab eventKey="transaction-history" title="Transaction history">
-                  <LoremIpsum />
+                  <TransactionHistory />
                 </Tab>
               </Tabs>
             </div>
