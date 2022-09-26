@@ -13,9 +13,9 @@ import { useNavigate } from 'react-router-dom';
 
 export const NavBarDashboard = ({ setToggleModal, uploadUrl, firstname }) => {
 
-    const navigate =  useNavigate();
-    
-    const handeClick = () =>{
+    const navigate = useNavigate();
+
+    const handeClick = () => {
         navigate("/update")
     }
     return (
@@ -41,7 +41,7 @@ export const NavBarDashboard = ({ setToggleModal, uploadUrl, firstname }) => {
 
 
                         {firstname &&
-                            <Nav.Link className="ms-auto" href="#">
+                            <Nav.Link className="margin-user" href="#">
                                 <div className="frame-8591">
                                     <div className="user">
                                         <div className="user-thumb" onClick={handeClick}>

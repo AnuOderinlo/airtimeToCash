@@ -26,7 +26,8 @@
 
 .dashboard {
     background: transparent;
-    height: 1500px;
+    /* height: 1500px; */
+    height: auto;
 
 }
 
@@ -64,7 +65,8 @@
     position: relative;
     align-items: center;
 }
-.dashboard-heading-text{
+
+.dashboard-heading-text {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
@@ -117,81 +119,81 @@
 
 .wallet-section,
 .wallet-section * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .wallet-section {
-  background: #de3d6d;
-  border-radius: 24px;
-  padding: 24px 24px 24px 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  position: relative;
-  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.08);
+    background: #de3d6d;
+    border-radius: 24px;
+    padding: 24px 24px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.08);
 }
 
 .wallet-card {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  align-items: center;
-  justify-content: flex-start;
-  flex-shrink: 0;
-  position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    position: relative;
 }
 
 .wallet-details {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  align-items: center;
-  justify-content: flex-start;
-  flex-shrink: 0;
-  position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    position: relative;
 }
 
 .wallet-balance {
-  color: #ffffff;
-  text-align: left;
-  font: 400 16px 'Inter';
-  position: relative;
+    color: #ffffff;
+    text-align: left;
+    font: 400 16px 'Inter';
+    position: relative;
 }
 
 .wallet-balance-amount {
-  color: #ffffff;
-  text-align: left;
-  font: 700 32px 'Inter';
-  position: relative;
+    color: #ffffff;
+    text-align: left;
+    font: 700 32px 'Inter';
+    position: relative;
 }
 
 .account-status {
-  background: rgba(0, 0, 0, 0.05);
-  border-radius: 100px;
-  border: solid rgba(0, 0, 0, 0.04);
-  border-width: 1px;
-  opacity: 0.800000011920929;
-  padding: 8px 10px 8px 8px;
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  position: relative;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 100px;
+    border: solid rgba(0, 0, 0, 0.04);
+    border-width: 1px;
+    opacity: 0.800000011920929;
+    padding: 8px 10px 8px 8px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
 }
 
 .account-is-active {
-  color: #ffffff;
-  text-align: left;
-  font: 400 10px 'Inter';
-  position: relative;
+    color: #ffffff;
+    text-align: left;
+    font: 400 10px 'Inter';
+    position: relative;
 }
 
-.nav-tabs .nav-link{
+.nav-tabs .nav-link {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -213,31 +215,50 @@
 }
 
 .nav-tabs .nav-link.active {
-    border-bottom: 1px solid #DE3D6D;;
+    border-bottom: 1px solid #DE3D6D;
+    ;
 }
+
+.nav-tabs {
+    display: flex;
+    flex-direction: column;
+}
+
+.heading-with-arrow {
+    display: flex;
+    flex-direction: row;
+}
+
+
 /*  Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
     .dashboard {
         background: transparent;
-        height: 1500px;
-    
+        /* height: 1500px; */
+
     }
- }
+}
 
 /*  Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
     .dashboard {
         background: #f5f5f5;
-        height: 1500px;
-    
+        /* height: 1500px; */
+
     }
- }
+}
 
 /*  Large devices (desktops, 992px and up) */
-@media (min-width: 992px) { }
+@media (min-width: 992px) {
+    .nav-tabs {
+        display: flex;
+        flex-direction: row;
+    }
 
- /* X-Large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) { }
+}
 
- /* XX-Large devices (larger desktops, 1400px and up) */
-@media (min-width: 1400px) { }
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {}
