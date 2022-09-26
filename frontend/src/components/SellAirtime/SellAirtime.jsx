@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../Button";
 import { Bg, Container, Form } from "../../styles/SellAirtime";
 import SelectInput from "../SelectInput";
@@ -6,6 +6,8 @@ import InputField from "../InputField";
 import InputFieldReadOnly from "../InputFieldReadOnly";
 
 const SellAirtime = () => {
+  const [inputValues, setInputValues] = useState({});
+
   return (
     <Bg>
       <Container>
@@ -14,7 +16,13 @@ const SellAirtime = () => {
             <h6>Sell Airtime</h6>
           </div>
           <form>
-            <SelectInput onChangeAction={""} label={"Network"} value={""} />
+            <SelectInput
+              // selectionList={networkList}
+              // selectionDefault={"Select network"}
+              onChangeAction={""}
+              label={"Network"}
+              value={""}
+            />
             <InputField
               label={"Phone Number"}
               placeholder={"Account name"}
