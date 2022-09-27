@@ -123,7 +123,8 @@
 /*  Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
     .margin-user {
-        margin-left: auto !important;
+        right: 0px;
+        position: absolute;
     }
 
 }

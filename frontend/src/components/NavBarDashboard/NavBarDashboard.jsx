@@ -17,7 +17,7 @@ import './NavBarDashboard.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export const NavBarDashboard = ({ setToggleModal, uploadUrl, firstname }) => {
+export const NavBarDashboard = ({ setToggleModal, uploadUrl, firstname, route }) => {
 
     const navigate = useNavigate();
 
@@ -33,18 +33,21 @@ export const NavBarDashboard = ({ setToggleModal, uploadUrl, firstname }) => {
                 <Navbar.Collapse id="basic-navbar-nav">
 
                     <Nav className="mx-auto nav-right-items mr-6 col-md-12">
-                        {!firstname &&
+                        {(!firstname || route === "/") &&
                             <>
+
                                 <Nav.Link className="navlink-active flex-item" href="/">Home</Nav.Link>
                                 <Nav.Link className="flex-item" href="/about"><span>About Us</span></Nav.Link>
                                 <Nav.Link className="flex-item" href="/products">Products</Nav.Link>
                                 <Nav.Link className="flex-item" href="/contact">Contact Us</Nav.Link>
-                                <a href="/login" className="button-sm flex-item float-right">
-                                    <Button type="button" text="Login" />
-                                </a>
+                                {
+                                    !firstname &&
+                                    <a href="/login" className="button-sm flex-item float-right">
+                                        <Button type="button" text="Login" />
+                                    </a>
+                                }
                             </>
                         }
-
 
                         {firstname &&
                             <Nav.Link className="margin-user" href="#">

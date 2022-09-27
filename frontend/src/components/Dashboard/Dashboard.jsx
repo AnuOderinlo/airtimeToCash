@@ -55,7 +55,7 @@ const Dashboard = () => {
             <div className="dashboard container-fluid p-0">
                 <div className="container-fluid backdrop d-none d-md-block"></div>
                 <div className="row dashboard-card mt-3">
-                    <div className="col-md-9 dashboard-card-padding p-md-5">
+                    <div className="col-md-9 col-lg-7 dashboard-card-padding p-md-5">
                         <div className="dashboard-box col-12">
                             {(key === "sell-airtime" || key === "withdraw-balance") && (
                                 <DashboardHeader />
