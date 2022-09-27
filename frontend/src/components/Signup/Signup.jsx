@@ -78,7 +78,7 @@ export const Signup = ({ ...props }) => {
             </a>
 
             <div className=" frame9">
-              <ToastContainer />
+              {/* <ToastContainer /> */}
               <span>Create an account</span>
             </div>
             <form onSubmit={handleSubmit} className="update-form">

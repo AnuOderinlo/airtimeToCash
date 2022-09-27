@@ -41,7 +41,7 @@ const ResetPassword = () => {
 
   return (
     <Bg>
-    <ToastContainer />
+    {/* <ToastContainer /> */}
     <Container>
       <div className='logo'>
         <svg width="32" height="56" viewBox="0 0 32 56" fill="none" xmlns="http://www.w3.org/2000/svg">
