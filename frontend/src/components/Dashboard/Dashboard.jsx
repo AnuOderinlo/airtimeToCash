@@ -39,6 +39,7 @@ const Dashboard = () => {
     };
 
     const handleOptions = (k) => {
+        // toast.dismiss();
         setViewAccount(false);
         setKey(k);
     };
@@ -46,7 +47,7 @@ const Dashboard = () => {
     return (
         <>
             <div>
-                <ToastContainer />
+                {/* <ToastContainer /> */}
             </div>
             <NavBarDashboard
                 className="container-fluid"

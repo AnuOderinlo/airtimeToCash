@@ -4,6 +4,7 @@ import { Bg, Cards, Container, Form, Scroll } from '../styles/BankAccountList'
 import { useRecoilState } from 'recoil';
 import { viewAccountRecord } from '../atoms/manageAccountStates';
 import { showSuccessModal } from '../atoms/manageAccountStates';
+import { toast } from "react-toastify";
 import axios from '../api/axios';
 
 const BankAccountList = () => {
@@ -40,7 +41,7 @@ const BankAccountList = () => {
     }
   }
 
-  const handleRemove = () => {
+  const handleLogin = () => {
     setViewAccount(false)
     showModal(false)
   }
@@ -67,6 +68,7 @@ const BankAccountList = () => {
                                     <h5>{account.accountName}</h5>
                                 </div>
                                 <button onClick={() => {
+                                    // toast.dismiss();
                                     handleRemoveAccount(account.id)
                                 }}>Remove</button>
                             </div>
@@ -75,7 +77,7 @@ const BankAccountList = () => {
                 }
                 </Scroll>
                 <>
-                    <Button text={'Add New Bank'} radius={0} width={198} clickHandle={handleRemove}/>
+                    <Button text={'Add New Bank'} radius={0} width={198} clickHandle={handleLogin}/>
                 </>
             </Form>
         </Container>

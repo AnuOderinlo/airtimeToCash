@@ -142,7 +142,7 @@ export const Update = () => {
     return (
         <>
             <div>
-                <ToastContainer />
+                {/* <ToastContainer /> */}
             </div>
             <NavBarDashboard className="container-fluid" setToggleModal={setToggleModal} uploadUrl={uploadUrl} firstname={fakeDetails.firstname} />
             <div className="update">

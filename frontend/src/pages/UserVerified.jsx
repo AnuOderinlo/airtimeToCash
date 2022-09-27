@@ -41,7 +41,7 @@ const UserVerified = () => {
 
   return (
     <Bg>
-      <ToastContainer />
+      {/* <ToastContainer /> */}
       <Container>
         <MdOutlineMarkEmailRead size={'100px'} color={'#03435F'} />
         <p className='v-header'>Successfully Verified</p>
