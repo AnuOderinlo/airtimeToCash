@@ -39,7 +39,6 @@ const Dashboard = () => {
     };
 
     const handleOptions = (k) => {
-        // toast.dismiss();
         setViewAccount(false);
         setKey(k);
     };

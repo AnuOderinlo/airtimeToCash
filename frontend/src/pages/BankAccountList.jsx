@@ -68,7 +68,6 @@ const BankAccountList = () => {
                                     <h5>{account.accountName}</h5>
                                 </div>
                                 <button onClick={() => {
-                                    // toast.dismiss();
                                     handleRemoveAccount(account.id)
                                 }}>Remove</button>
                             </div>
