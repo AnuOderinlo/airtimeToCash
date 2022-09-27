@@ -24,6 +24,7 @@ function App() {
         <Route path='/verification' element={<EmailVerification />} />
         <Route path='/users/verify/:token' element={<UserVerified />} />
         <Route path='/users/change-password/:id' element={<ResetPassword />} />
+        
       </Routes>
     </BrowserRouter>
   );
