@@ -17,6 +17,7 @@ import { viewAccountRecord } from "../../atoms/manageAccountStates";
 import { useRecoilState } from "recoil";
 import SellAirtime from "../SellAirtime/SellAirtime";
 import TransactionHistory from "../TransactionHistory/TransactionHistory";
+import WithdrawAct from "../WithdrawalBoard/WithdrawAct";
 
 const Dashboard = () => {
     const [viewAccount, setViewAccount] = useRecoilState(viewAccountRecord);
@@ -93,7 +94,7 @@ const Dashboard = () => {
                                     <SellAirtime />
                                 </Tab>
                                 <Tab eventKey="withdraw-balance" title="Withdraw balance">
-                                    {/* <LoremIpsum /> */}
+                                    <WithdrawAct />
                                 </Tab>
                                 <Tab eventKey="manage-bank-account" title="Manage bank account">
                                     <ManageAccount />
