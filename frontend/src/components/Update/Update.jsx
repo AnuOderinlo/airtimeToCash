@@ -91,8 +91,8 @@ export const Update = () => {
                             avatar: data.secure_url
                         }).then(res => {
                             if (res.data.status === "Success") {
-                                toastSuccessMessage('Successfully updated!');
                                 setToggleModal(false)
+                                toastSuccessMessage('Successfully updated!');
                             } else {
                                 toastErrorMessage('Update Failed!');
                             }

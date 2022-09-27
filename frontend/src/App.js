@@ -22,7 +22,8 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path='/forgot-password' element={<ForgotPassword />} />
         <Route path='/verification' element={<EmailVerification />} />
-        <Route path='/users/verify/:token' element={<UserVerified />} />
+        <Route path='/users/registered' element={<UserVerified content="register" />} />
+        <Route path='/users/verify/:token' element={<UserVerified content="verify" />} />
         <Route path='/users/change-password/:id' element={<ResetPassword />} />
         
       </Routes>

@@ -10,8 +10,12 @@ import { useState } from "react";
 import { Button } from "../Utils/Button/Button";
 import "bootstrap/dist/css/bootstrap.css";
 import { mainAxios } from "../Axios/Axios";
+import { useNavigate } from "react-router-dom";
 
 export const Signup = ({ ...props }) => {
+
+  const navigate = useNavigate();
+
   const [user, setUser] = useState({
     firstname: "",
     lastname: "",
@@ -52,9 +56,19 @@ export const Signup = ({ ...props }) => {
         confirmPassword: user.confirmPassword,
       });
 
-      console.log("TOKEN", res);
+      console.log("TOKEN");
+
       if (res.data.status === "Success") {
         toast.success("User created successfully", {
+          position: "top-right",
+          autoClose: false
+        });
+
+        setTimeout(() => {
+          navigate("/users/registered")
+        }, 3000)
+      } else {
+        toast.error(res.response.data.message, {
           position: "top-right",
         });
       }
