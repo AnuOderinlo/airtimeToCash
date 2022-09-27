@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import { useSpring, animated } from 'react-spring'
 import { VscPassFilled } from 'react-icons/vsc'
 import { Bg, Container } from '../styles/MessageAlertModal'
-import icon from '../assets/icon/PassIcon.svg'
+import icon from '../assets/images/Successfully_Done.png'
 
 const MessageAlertModal = ({showModal, setShowModal}) => {
     const modalRef = useRef()
@@ -27,7 +27,7 @@ const MessageAlertModal = ({showModal, setShowModal}) => {
 
   return (
       <>
-        { showModal ?
+        { showModal &&
             <Bg ref={modalRef} onClick={close}>
                 {/* <animated.div style={animation}> */}
                     <Container>
@@ -37,9 +37,9 @@ const MessageAlertModal = ({showModal, setShowModal}) => {
                         <h4>Bank Account Successful</h4>
                         <h5>Your bank account has been added successfully.</h5>
                         <button onClick={closeModal}>Done</button>
-                    </Container>
+                    </Container> 
                 {/* </animated.div>  */}
-            </Bg> : ''
+            </Bg>
         }
     </>
   )
