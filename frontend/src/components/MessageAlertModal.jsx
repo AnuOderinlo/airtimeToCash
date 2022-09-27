@@ -3,8 +3,11 @@ import { useSpring, animated } from 'react-spring'
 import { VscPassFilled } from 'react-icons/vsc'
 import { Bg, Container } from '../styles/MessageAlertModal'
 import icon from '../assets/images/Successfully_Done.png'
+import { useRecoilState } from 'recoil'
+import { viewAccountRecord } from '../atoms/manageAccountStates'
 
 const MessageAlertModal = ({showModal, setShowModal}) => {
+    const [viewAccount, setViewAccount] = useRecoilState(viewAccountRecord);
     const modalRef = useRef()
     
     const animation = useSpring({
@@ -16,6 +19,7 @@ const MessageAlertModal = ({showModal, setShowModal}) => {
     })
 
     const closeModal = () => {
+        setViewAccount(true)
         setShowModal((prev) => !prev)
     }
 

@@ -10,3 +10,9 @@ export const viewAccountRecord = atom({
     key: 'viewAccountRecord',
     default: false,
 });
+
+
+export const buttonDisplay = atom({
+    key: 'buttonDisplay',
+    default: false,
+});

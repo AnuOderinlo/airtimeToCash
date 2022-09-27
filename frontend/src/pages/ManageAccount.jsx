@@ -9,6 +9,8 @@ import { showSuccessModal, viewAccountRecord } from "../atoms/manageAccountState
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/ReactToastify.css";
 import { useRecoilState } from "recoil";
+import { buttonDisplay } from '../atoms/manageAccountStates'
+import axios from "../api/axios";
 
 // const bankList = [
 //   { id: "1", name: "Access Bank", code: "044" },
@@ -42,17 +44,15 @@ const ManageAccount = () => {
     // const [viewAccount, setViewAccount] = useState(false)
     const [viewAccount, setViewAccount] = useRecoilState(viewAccountRecord);
     const [showModal, setShowModal] = useRecoilState(showSuccessModal);
+    const [btnDisplay, setBtnDisplay] = useRecoilState(buttonDisplay)
     const [bankList, setBankList] = useState([])
+    const token = localStorage.getItem('token')
 
     const getBankLists = async () => {
       const response = await fetch('https://api.paystack.co/bank');
       const data = await response.json();
       setBankList(data.data);
     }
-
-    useEffect(() => {
-      getBankLists()
-    }, [])
 
     const handleInput = (e) => {
         e.preventDefault()
@@ -62,30 +62,57 @@ const ManageAccount = () => {
     };
 
     const handleSelect = (e) => {
-        setInputs({ ...inputs, bank: e.value });
+      setInputs({ ...inputs, bankName: e.value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
       e.preventDefault()
-        console.log(inputs);
+      e.stopPropagation()
 
-        if ( !inputs.bank || (!inputs.accountName || inputs.accountName === '') || (!inputs.accountNumber || inputs.accountNumber === '') ) {
-            toast.error("Invalid Input!");
-            return;
-        }
+    try {
+        const response = await axios.post(`/account/create`, inputs, {
+          headers: {
+            contenType: 'application/json',
+            Authorization: `Bearer ${token}`
+          }
+        })
+        
+        if (response.status === 201) {
+          setInputs({ bankName: '', accountName: '', accountNumber: '' })
+          toast.success(response.data.message);
+          openModal()
 
-        openModal();
-        setInputs({ bank: '', accountName: '', accountNumber: '' })
-    };
+          setTimeout(() => {
+            setShowModal(false);
+            setViewAccount(true);
+          }, 4000)
+        } 
+    } catch (e) {
+      toast.error(e.response.data.message);
+    }
+  }
 
     const openModal = () => {
-        setShowModal(true);
+      setShowModal(true);
+      clearTimeout();
     };
 
     const handleView = (e) => {
         e.preventDefault();
         setViewAccount(true);
     };
+
+    useEffect(() => {
+      getBankLists()
+    }, [])
+
+    useEffect(() => {
+      if(!inputs.bankName || (!inputs.accountName || inputs.accountName === '') || (!inputs.accountNumber || inputs.accountNumber === '')){
+        setBtnDisplay(true)
+      }else{
+        setBtnDisplay(false)
+      }
+    },[inputs])
 
   return (
     <>
@@ -103,7 +130,7 @@ const ManageAccount = () => {
                 <InputField label={"Account Name"} placeholder={"Account name"} name={"accountName"} value={inputs.accountName || ""} changeHandle={handleInput} required />
                 <InputField label={"Account Number"} placeholder={"Account number"} name={"accountNumber"} value={inputs.accountNumber || ""} changeHandle={handleInput} required />
 
-                <Button text={"Add Bank"} radius={0} width={198} clickHandle={handleSubmit} />
+                <Button text={"Add Bank"} radius={0} width={198} clickHandle={handleSubmit} btnState={btnDisplay}/>
               </form>
             </Form>
             {
