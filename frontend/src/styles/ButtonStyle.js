@@ -27,6 +27,10 @@ export const ButtonStyle = styled.button`
         background: linear-gradient(90.99deg, #DE3D6D 40.72%, #F5844C 90.65%);
     }
 
+    :disabled{
+        background: #dddddd;
+    }
+
     ${props => props.flag && css`
         padding: 8px 16px 10px;
         /* width: 136px; */
