@@ -6,19 +6,6 @@ import { viewAccountRecord } from '../atoms/manageAccountStates';
 import { showSuccessModal } from '../atoms/manageAccountStates';
 import axios from '../api/axios';
 
-// const sampleAccountRecord = [
-//     {'id': '1', 'bank': 'Access Bank', 'name': 'Oluwaseun Akinruli', 'accountNumber': '3170087553'},
-//     {'id': '2', 'bank': 'First Bank', 'name': 'Temitope Adejolu', 'accountNumber': '2170087453'},
-//     {'id': '3', 'bank': 'Wema Bank', 'name': 'Anuoluwapo Oderinde', 'accountNumber': '3170327553'},
-//     {'id': '4', 'bank': 'Union Bank', 'name': 'Chidi Okeke', 'accountNumber': '0170087253'},
-//     {'id': '5', 'bank': 'Stanbic IBTC', 'name': 'John Oluwole', 'accountNumber': '1170387553'},
-//     {'id': '6', 'bank': 'Kuda Bank', 'name': 'Obianuju Onuegbu', 'accountNumber': '3070087593'},
-//     {'id': '7', 'bank': 'Wema Bank', 'name': 'Anuoluwapo Oderinde', 'accountNumber': '3170327553'},
-//     {'id': '8', 'bank': 'Union Bank', 'name': 'Chidi Okeke', 'accountNumber': '0170087253'},
-//     {'id': '9', 'bank': 'Stanbic IBTC', 'name': 'John Oluwole', 'accountNumber': '1170387553'},
-//     {'id': '10', 'bank': 'Kuda Bank', 'name': 'Obianuju Onuegbu', 'accountNumber': '3070087593'}
-// ]
-
 const BankAccountList = () => {
   const [viewAccount, setViewAccount] = useRecoilState(viewAccountRecord);
   const [showModal, setShowModal] = useRecoilState(showSuccessModal);
