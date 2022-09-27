@@ -3,7 +3,7 @@ import React from 'react'
 function DashboardHeader() {
     return (
         <>
-            <div className="dashboard-heading-text">
+            <div className="mx-auto dashboard-heading-text">
                 Dashboard
             </div>
             <div class="wallet-section col-12">

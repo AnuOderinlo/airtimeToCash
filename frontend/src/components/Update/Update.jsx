@@ -145,7 +145,7 @@ export const Update = () => {
                 <ToastContainer />
             </div>
             <NavBarDashboard className="container-fluid" setToggleModal={setToggleModal} uploadUrl={uploadUrl} firstname={fakeDetails.firstname} />
-            <div className="update container-fluid">
+            <div className="update">
                 <div className="container-fluid backdrop d-none d-md-block">
                 </div>
                 <div className="row update-card mt-3">
