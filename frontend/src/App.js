@@ -10,9 +10,13 @@ import LandingPage from './pages/LandingPage';
 import { Signup } from './components/Signup/Signup';
 import './App.css';
 import Dashboard from './components/Dashboard/Dashboard';
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/ReactToastify.css";
 
 function App() {
   return (
+  <>
+  <ToastContainer />
     <BrowserRouter>
       <Routes>
         <Route exact path="/" element={<LandingPage />} />
@@ -28,6 +32,7 @@ function App() {
         
       </Routes>
     </BrowserRouter>
+    </>
   );
 }
 
