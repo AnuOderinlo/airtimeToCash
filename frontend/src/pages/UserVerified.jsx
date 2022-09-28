@@ -7,7 +7,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import 'react-toastify/ReactToastify.css'
 import { mainAxios } from '../components/Axios/Axios'
 
-const UserVerified = () => {
+const UserVerified = ({ content }) => {
   const userEmail = JSON.parse(localStorage.getItem('userEmail'))
 
   const navigate = useNavigate()
@@ -44,8 +44,21 @@ const UserVerified = () => {
       {/* <ToastContainer /> */}
       <Container>
         <MdOutlineMarkEmailRead size={'100px'} color={'#03435F'} />
-        <p className='v-header'>Successfully Verified</p>
-        <p className='v-message'>You have successfully verfied your email</p>
+        {
+          content === "verify" &&
+          <>
+            <p className='v-header'>Successfully Verified</p>
+            <p className='v-message'>You have successfully verfied your email</p>
+          </>
+        }
+        {
+          content === "register" &&
+          <>
+            <p className='v-header'>Successfully Registered</p>
+            <p className='v-message'>Please check your email for verification</p>
+          </>
+        }
+
         <Button text={'Back to Login'} radius={0} clickHandle={handleCancel} />
 
       </Container>

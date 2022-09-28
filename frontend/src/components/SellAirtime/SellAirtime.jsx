@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "../Button";
 import { Bg, Container, Form } from "../../styles/SellAirtime";
 import SelectInput from "../SelectInput";
@@ -17,6 +17,7 @@ const networkList = [
 const SellAirtime = () => {
   const initialValues = { phoneNumber: "", amountToSell: "" };
   const [inputValues, setInputValues] = useState(initialValues);
+  const [btnActive, setBtnActive] = useState(true);
 
   const handleErrorMessage = (msg) => {
     return toast.error(msg);
@@ -71,6 +72,18 @@ const SellAirtime = () => {
     handleErrorValidation();
   };
 
+  useEffect(() => {
+    if (
+      inputValues.phoneNumber === "" ||
+      inputValues.amountToSell === "" ||
+      inputValues.network === ""
+    ) {
+      setBtnActive(true);
+    } else {
+      setBtnActive(false);
+    }
+  }, [inputValues]);
+
   return (
     <Bg>
       <Container>
@@ -119,6 +132,7 @@ const SellAirtime = () => {
               text={"Sell Airtime"}
               radius={0}
               clickHandle={handleSubmit}
+              btnState={btnActive}
             />
           </form>
         </Form>
