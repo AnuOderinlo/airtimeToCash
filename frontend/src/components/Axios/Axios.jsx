@@ -1,5 +1,5 @@
 import axios from 'axios';
-const token = localStorage.getItem("tokenStore")
+const token = localStorage.getItem("token")
 const port = process.env.REACT_APP_SERVER_PORT;
 
 const mainAxios = axios.create({

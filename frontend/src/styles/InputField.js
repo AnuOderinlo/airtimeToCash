@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Input = styled.div`
     text-align: left;
 
-    input[type=text], select {
+    input[type=text], input[type=password],input[type=number] select {
         font-family: Inter;
         font-style: normal;
         font-weight: 400;
