@@ -94,7 +94,7 @@ const Dashboard = () => {
                                     <SellAirtime />
                                 </Tab>
                                 <Tab eventKey="withdraw-balance" title="Withdraw balance">
-                                    <WithdrawAct />
+                                    <WithdrawAct key={key}/>
                                 </Tab>
                                 <Tab eventKey="manage-bank-account" title="Manage bank account">
                                     <ManageAccount />

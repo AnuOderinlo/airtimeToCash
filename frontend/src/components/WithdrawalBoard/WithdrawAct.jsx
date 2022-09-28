@@ -1,21 +1,75 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "../Button";
 import { Bg, Container, Form } from "../../styles/WithdrawAccount";
 import SelectInput from "../SelectInput";
 import InputField from "../InputField";
+import { toast } from "react-toastify";
 import InputFieldReadOnly from "../InputFieldReadOnly";
+import { mainAxios } from "../Axios/Axios";
 
-const bankList = [
-  { id: "1", name: "Fixed deposit account" },
-  { id: "2", name: "Current account" },
-  { id: "3", name: "Joint account" },
-  { id: "4", name: "Corporate account" },
-  { id: "5", name: "Domiciliary account" },
-];
 
-const WithdrawAct= () => {
-  // const [inputValues, setInputValues] = useState({});
+const WithdrawAct= ({key}) => {
+  const initialValues = {amount: "", password: ""}
+  const [inputValues, setInputValues] = useState(initialValues);
+  const [bankList, setBankList] = useState([])
+  const [accName , setAccName] = useState("");
+  const [accNumber , setAccNumber] = useState("");
+  const bankOptions = []
 
+
+  const getBankLists = async () => {
+    const userID = localStorage.getItem("id")
+    const response = await mainAxios.get(`/account/getuseraccount/${userID}`);
+
+
+    for(let i=0; i<response.data.data.length; i++){
+      bankOptions[i] = { id: i, name: `${response.data.data[i].accountName} - ${response.data.data[i].bankName} - ${response.data.data[i].accountNumber}` }
+    }
+    setBankList([...bankOptions]);
+  }
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setInputValues({ ...inputValues, [name]: value });
+  };
+
+  const handleSelectChange = (data) => {
+    setAccName(data.value.split('-')[0].trim())
+    setAccNumber(data.value.split('-')[2].trim())
+  }
+
+  useEffect(() => {
+    getBankLists()
+  }, [key])
+
+  const handleErrorMessage = (msg) => {
+    return toast.error(msg);
+  };
+ 
+
+  const handleErrorValidation = () => {
+    if (
+
+      inputValues.accName === "" ||
+      inputValues.amount === "" ||
+      inputValues.password === "" ) 
+      {
+      handleErrorMessage("Field(s) can not be empty");
+    } else if(!Number(inputValues.amount)){
+      handleErrorMessage("amount should be a number");
+    }
+
+  }
+
+  const handleSubmit = (e) => {
+    /***
+     *Consume API here
+     */
+     handleErrorValidation()
+  };
+
+  
   return (
     <Bg>
       <Container>
@@ -25,9 +79,9 @@ const WithdrawAct= () => {
           </div>
           <form>
             <SelectInput
-              selectionList={bankList}
+              selectionList={bankList.length > 0 ? bankList : [{}]}
               selectionDefault={"Select account"}
-              onChangeAction={""}
+              onChangeAction={handleSelectChange}
               label={"Select Account"}
               value={""}
             />
@@ -35,23 +89,31 @@ const WithdrawAct= () => {
               label={"Account Name"}
               placeholder={"BabatundeOla"}
               name={"Account name"}
+              value = {accName}
             />
             <InputFieldReadOnly
-              label={"Account NUmber"}
+              label={"Account Number"}
               placeholder={"2987665533"}
               name={"Account number"}
+              value = {accNumber}
             />
              <InputField
               label={"Amount"}
               placeholder={"NGN"}
               name={"amount"}
+              value={inputValues.amount || ""}
+              changeHandle={handleChange}
             />
              <InputField
               label={"Password"}
               placeholder={"password"}
               name={"password"}
+              type={"password"}
+              required
+              value={inputValues.password || ""}
+              changeHandle={handleChange}
             />
-            <Button text={"Withdraw"} radius={0} clickHandle={""} />
+            <Button text={"Withdraw"} radius={0} clickHandle={handleSubmit} />
           </form>
         </Form>
       </Container>
