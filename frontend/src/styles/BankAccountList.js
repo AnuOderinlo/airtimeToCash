@@ -10,12 +10,11 @@ export const Container = styled.div`
     margin: auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
 `
 
 export const Form = styled.div`
-    width: 567px;
+    /* width: 567px; */
     display: flex;
     flex-direction: column;
 
@@ -40,7 +39,7 @@ export const Form = styled.div`
     }
 
     @media (max-width: 559px){
-        width: 490px; 
+        /* width: 490px; */
         
         .acount-headers h3{
             font-size: 18px;
@@ -49,13 +48,13 @@ export const Form = styled.div`
     }
 
     @media (max-width: 490px){
-        width: 359px;
+       /* width: 359px; */
     }
 
     @media (max-width: 370px){
-        margin: auto;
+        /*margin: auto;*/
         margin-bottom: 8px;
-        width: 300px;
+        /* width: 300px; */
 
         h5{
             font-size: 10px;
@@ -67,9 +66,9 @@ export const Form = styled.div`
     }
 
     @media (max-width: 300px){
-        margin: auto;
+        /*margin: auto;*/
         align-items: center;
-        width: 200px;
+        /* width: 200px; */
 
         h5{
             font-size: 8px;
@@ -138,7 +137,7 @@ export const Cards = styled.div`
     @media (max-width: 559px){
         margin: auto;
         margin-bottom: 8px;
-        width: 490px;
+        /* width: 490px; */
 
         h5{
             font-size: 12px;
@@ -150,11 +149,11 @@ export const Cards = styled.div`
     }
 
     @media (max-width: 490px){
-        width: 359px;
+        /* width: 359px; */
     }
 
     @media (max-width: 359px){
-        width: 259px;
+        /* width: 259px; */
         
 
         .acount-headers h3{
@@ -170,7 +169,7 @@ export const Cards = styled.div`
     }
 
     @media (max-width: 300px){
-        width: 200px;
+        /* width: 200px; */
         text-align: center;
 
         .account-record{
@@ -199,7 +198,7 @@ export const Cards = styled.div`
     }
 
     @media (max-width: 259px){
-        width: 159px;
+       /* width: 159px; */
         
     }
 

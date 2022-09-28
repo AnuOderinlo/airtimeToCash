@@ -27,7 +27,7 @@ export const NavBarDashboard = ({ setToggleModal, uploadUrl, firstname, route })
     return (
 
         <Navbar expand="lg">
-            <Container>
+            <Container className="col-md-10">
                 <Navbar.Brand className="" href="/"><img src={Logo} /></Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">

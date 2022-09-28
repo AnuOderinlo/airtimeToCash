@@ -60,12 +60,12 @@ export const Form = styled.div`
 
 
     @media (max-width: 559px){
-        width: 459px;
+        /* width: 459px; */
         
     }
 
     @media (max-width: 459px){
-        width: 359px;
+        /* width: 359px; */
 
         Select{
             /* border: 1px solid green; */
@@ -73,7 +73,7 @@ export const Form = styled.div`
     }
 
     @media (max-width: 359px){
-        width: 259px;
+        // width: 259px;
 
         .acount-headers h3{
             font-size: 16px;
@@ -87,16 +87,16 @@ export const Form = styled.div`
     }
 
     @media (max-width: 259px){
-        width: 159px;
+        /* width: 159px; */
     }
 
 
     @media (min-width: 576px) {
-        width: 400px;
+        /* width: 400px; */
     }
 
     @media (min-width: 768px) {
-        width: 500px;
+        /*width: 500px;*/
     }
 
     @media (min-width: 992px) { }
