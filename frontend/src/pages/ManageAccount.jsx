@@ -6,7 +6,7 @@ import MessageAlertModal from "../components/MessageAlertModal";
 import BankAccountList from "./BankAccountList";
 import SelectInput from "../components/SelectInput";
 import { showSuccessModal, viewAccountRecord } from "../atoms/manageAccountStates";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/ReactToastify.css";
 import { useRecoilState } from "recoil";
 import { buttonDisplay } from '../atoms/manageAccountStates'

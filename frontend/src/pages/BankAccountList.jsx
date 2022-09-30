@@ -4,7 +4,6 @@ import { Bg, Cards, Container, Form, Scroll } from '../styles/BankAccountList'
 import { useRecoilState } from 'recoil';
 import { bankID, viewAccountRecord } from '../atoms/manageAccountStates';
 import { showSuccessModal } from '../atoms/manageAccountStates';
-import { toast } from "react-toastify";
 import axios from '../api/axios';
 import DeleteAccountModal from '../components/DeleteAccountModal';
 
@@ -42,7 +41,6 @@ const BankAccountList = () => {
 
   const handleNewBank = () => {
     setViewAccount(false)
-    showModal(false)
   }
 
   useEffect(() => {
