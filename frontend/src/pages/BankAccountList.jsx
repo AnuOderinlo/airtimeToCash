@@ -2,15 +2,17 @@ import React, { useState, useEffect } from 'react'
 import Button from '../components/Button'
 import { Bg, Cards, Container, Form, Scroll } from '../styles/BankAccountList'
 import { useRecoilState } from 'recoil';
-import { viewAccountRecord } from '../atoms/manageAccountStates';
+import { bankID, viewAccountRecord } from '../atoms/manageAccountStates';
 import { showSuccessModal } from '../atoms/manageAccountStates';
 import { toast } from "react-toastify";
 import axios from '../api/axios';
+import DeleteAccountModal from '../components/DeleteAccountModal';
 
 const BankAccountList = () => {
   const [viewAccount, setViewAccount] = useRecoilState(viewAccountRecord);
   const [showModal, setShowModal] = useRecoilState(showSuccessModal);
   const [bankAccountList, setBankAccountList] = useState([])
+  const [deleteBank, setDeleteBank] = useRecoilState(bankID)
 
   const userID = localStorage.getItem('id')
   const token = localStorage.getItem('token')
@@ -29,19 +31,16 @@ const BankAccountList = () => {
     }
   }
 
-  const handleRemoveAccount = async (value) => {
-    const response = await axios.delete(`/account/deleteaccount/${value}`, {
-        headers: {
-            contenType: 'application/json',
-            Authorization: `Bearer ${token}`
-        }
-    })
-    if(response.status === 200){
-        fetchBankRecord()
-    }
+  const handleRefresh = () => {
+    fetchBankRecord()
   }
 
-  const handleLogin = () => {
+  const handleRemoveAccount = (value) => {
+        setShowModal(true);
+        setDeleteBank(value)
+    }
+
+  const handleNewBank = () => {
     setViewAccount(false)
     showModal(false)
   }
@@ -51,36 +50,41 @@ const BankAccountList = () => {
   }, [])
 
   return (
-    <Bg>
-        <Container>
-            <Form>
-                <div className='acount-headers'>
-                    <h3>Bank Accounts</h3>
-                </div>
-                <Scroll>
-                {
-                    bankAccountList.map((account) => (
-                        <Cards key={account.id}>
-                            <div className='account-record'>
-                                <div className='details'>
-                                    <h5>{account.bankName}</h5>
-                                    <h5>{account.accountNumber}</h5>
-                                    <h5>{account.accountName}</h5>
+    <>
+        <Bg>
+            <Container>
+                <Form>
+                    <div className='acount-headers'>
+                        <h3>Bank Accounts</h3>
+                    </div>
+                    <Scroll>
+                    { bankAccountList.length > 0 ?
+                        bankAccountList.map((account) => (
+                            <Cards key={account.id}>
+                                <div className='account-record'>
+                                    <div className='details'>
+                                        <h5>{account.bankName}</h5>
+                                        <h5>{account.accountNumber}</h5>
+                                        <h5>{account.accountName}</h5>
+                                    </div>
+                                    <button onClick={() => {
+                                        handleRemoveAccount(account.id)
+                                    }}>Remove</button>
                                 </div>
-                                <button onClick={() => {
-                                    handleRemoveAccount(account.id)
-                                }}>Remove</button>
-                            </div>
-                        </Cards>
-                    ))
-                }
-                </Scroll>
-                <>
-                    <Button text={'Add New Bank'} radius={0} width={198} clickHandle={handleLogin}/>
-                </>
-            </Form>
-        </Container>
-    </Bg>
+                            </Cards>
+                        )) : ( <small className='no-record'> Oops! No account record found. 😢 </small>)
+                    }
+                    </Scroll>
+                    <>
+                        <Button text={'Add New Bank'} radius={0} width={198} clickHandle={handleNewBank}/>
+                    </>
+                </Form>
+            </Container>
+            {
+                showModal && ( <DeleteAccountModal showModal={showModal} setShowModal={setShowModal} pgReload={handleRefresh}/>)
+            }
+        </Bg>
+    </>
   )
 }
 
