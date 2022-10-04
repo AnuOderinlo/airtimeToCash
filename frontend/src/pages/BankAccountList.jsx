@@ -30,14 +30,16 @@ const BankAccountList = () => {
     }
   }
 
-  const handleRefresh = () => {
-    fetchBankRecord()
+  const handleRefresh = async () => {
+    // fetchBankRecord()
+    setBankAccountList((bank) => bank.filter((val) => val.id !== deleteBank ))
   }
 
   const handleRemoveAccount = (value) => {
         setShowModal(true);
         setDeleteBank(value)
     }
+    
 
   const handleNewBank = () => {
     setViewAccount(false)
