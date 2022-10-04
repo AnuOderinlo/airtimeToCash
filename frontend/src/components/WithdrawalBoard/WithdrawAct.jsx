@@ -8,7 +8,7 @@ import InputFieldReadOnly from "../InputFieldReadOnly";
 import { mainAxios } from "../Axios/Axios";
 
 
-const WithdrawAct= ({key}) => {
+const WithdrawAct= ({setKey}) => {
   const initialValues = {amount: "", password: ""}
   const [inputValues, setInputValues] = useState(initialValues);
   const [bankList, setBankList] = useState([])
@@ -41,7 +41,11 @@ const WithdrawAct= ({key}) => {
 
   useEffect(() => {
     getBankLists()
-  }, [key])
+  }, [])
+
+  useEffect(() => {
+    getBankLists()
+  }, [setKey])
 
   const handleErrorMessage = (msg) => {
     return toast.error(msg);

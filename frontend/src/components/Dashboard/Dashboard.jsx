@@ -1,7 +1,6 @@
 import "./Dashboard.css";
 import { useState } from "react";
 import BackArrow from "../../assets/icon/BackArrow.svg";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { NavBarDashboard } from "../NavBarDashboard/NavBarDashboard";
 import React from "react";
@@ -69,6 +68,7 @@ const Dashboard = () => {
                                                 className="float-start"
                                                 src={BackArrow}
                                                 onClick={handleGoBack}
+                                                alt={'Arrow back icon'}
                                             />
                                         )}
 
@@ -94,7 +94,7 @@ const Dashboard = () => {
                                     <SellAirtime />
                                 </Tab>
                                 <Tab eventKey="withdraw-balance" title="Withdraw balance">
-                                    <WithdrawAct key={key}/>
+                                    <WithdrawAct setKey={key}/>
                                 </Tab>
                                 <Tab eventKey="manage-bank-account" title="Manage bank account">
                                     <ManageAccount />
