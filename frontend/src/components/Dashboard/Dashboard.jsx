@@ -1,7 +1,6 @@
 import "./Dashboard.css";
 import { useState } from "react";
 import BackArrow from "../../assets/icon/BackArrow.svg";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { NavBarDashboard } from "../NavBarDashboard/NavBarDashboard";
 import React from "react";
@@ -18,6 +17,7 @@ import { useRecoilState } from "recoil";
 import SellAirtime from "../SellAirtime/SellAirtime";
 import TransactionHistory from "../TransactionHistory/TransactionHistory";
 import WithdrawAct from "../WithdrawalBoard/WithdrawAct";
+import WithdrawalHistory from "../WithdrawalHistory/WithdrawalHistory";
 
 const Dashboard = () => {
   const [viewAccount, setViewAccount] = useRecoilState(viewAccountRecord);
@@ -56,7 +56,7 @@ const Dashboard = () => {
         <div className="row dashboard-card mt-3">
           <div className="col-md-7 col-lg-5 dashboard-card-padding p-md-5">
             <div className="dashboard-box col-12">
-              {(key === "transfer-airtime" || key === "withdraw-balance") && (
+              {(key === "sell-airtime" || key === "withdraw-balance") && (
                 <DashboardHeader />
               )}
               {key === "manage-bank-account" && (
@@ -67,6 +67,7 @@ const Dashboard = () => {
                         className="float-start"
                         src={BackArrow}
                         onClick={handleGoBack}
+                        alt={"Arrow back icon"}
                       />
                     )}
 
@@ -83,24 +84,27 @@ const Dashboard = () => {
               )}
 
               <Tabs
-                defaultActiveKey="transfer-airtime"
+                defaultActiveKey="sell-airtime"
                 id="dashboard-tabs"
                 className="mb-3"
                 activeKey={key}
                 onSelect={(k) => handleOptions(k)}
                 fill
               >
-                <Tab eventKey="transfer-airtime" title="Transfer airtime">
+                <Tab eventKey="sell-airtime" title="Sell airtime">
                   <SellAirtime />
                 </Tab>
                 <Tab eventKey="withdraw-balance" title="Withdraw balance">
-                  <WithdrawAct key={key} />
+                  <WithdrawAct setKey={key} />
                 </Tab>
                 <Tab eventKey="manage-bank-account" title="Manage bank account">
                   <ManageAccount />
                 </Tab>
                 <Tab eventKey="transaction-history" title="Transaction history">
                   <TransactionHistory />
+                </Tab>
+                <Tab eventKey="withdrawal-history" title="Withdrawal History">
+                  <WithdrawalHistory />
                 </Tab>
               </Tabs>
             </div>
