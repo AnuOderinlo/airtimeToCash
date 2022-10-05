@@ -38,6 +38,7 @@ export const Form = styled.div`
     font-size: 12px;
     cursor: pointer;
     outline: none;
+    cursor: pointer;
   }
 
   select::-ms-expand {
@@ -114,7 +115,7 @@ export const Form = styled.div`
   }
 
   @media (max-width: 259px) {
-   /* width: 159px; */
+    /* width: 159px; */
   }
 
   @media (min-width: 576px) {
@@ -122,7 +123,7 @@ export const Form = styled.div`
   }
 
   @media (min-width: 768px) {
-   /* width: 500px; */
+    /* width: 500px; */
     button {
       width: 198px;
     }
