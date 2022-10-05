@@ -3,20 +3,22 @@ import styled from 'styled-components'
 export const Bg = styled.div`
   font-family: 'Inter';
   font-style: normal;
-   /* overflow: hidden; */
 `
 
 export const Container = styled.div`
-    margin: auto;
+    /* margin: auto; */
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
 `
 
 export const Form = styled.div`
-    /* width: 567px; */
-    display: flex;
     flex-direction: column;
+
+    .no-record{
+        color: #bebebe;
+        font-size: 18px;
+    }
 
     .acount-headers{
         display: flex;
