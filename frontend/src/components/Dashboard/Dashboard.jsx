@@ -18,9 +18,13 @@ import { useRecoilState } from "recoil";
 import SellAirtime from "../SellAirtime/SellAirtime";
 import TransactionHistory from "../TransactionHistory/TransactionHistory";
 import WithdrawAct from "../WithdrawalBoard/WithdrawAct";
+import WithdrawalHistory from "../WithdrawalHistory/WithdrawalHistory";
+
+
 
 const Dashboard = () => {
     const [viewAccount, setViewAccount] = useRecoilState(viewAccountRecord);
+
 
     const userDetails = {
         firstname: localStorage.getItem("firstname"),
@@ -102,6 +106,10 @@ const Dashboard = () => {
                                 <Tab eventKey="transaction-history" title="Transaction history">
                                     <TransactionHistory />
                                 </Tab>
+                                <Tab eventKey="withdrawal-history" title="Withdrawal History">
+                                    <WithdrawalHistory />
+                                </Tab>
+                               
                             </Tabs>
                         </div>
                     </div>
