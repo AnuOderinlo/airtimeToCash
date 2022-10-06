@@ -8,6 +8,7 @@ const InputField = ({
   name,
   value,
   changeHandle,
+  clickHandle,
 }) => {
   return (
     <Input>
@@ -19,7 +20,8 @@ const InputField = ({
         name={name}
         value={value}
         onChange={changeHandle}
-        disabled
+        onClick={clickHandle}
+        readOnly
       />
     </Input>
   );

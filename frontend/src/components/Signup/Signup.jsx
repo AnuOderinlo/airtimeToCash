@@ -13,7 +13,6 @@ import { mainAxios } from "../Axios/Axios";
 import { useNavigate } from "react-router-dom";
 
 export const Signup = ({ ...props }) => {
-
   const navigate = useNavigate();
 
   const [user, setUser] = useState({
@@ -61,18 +60,19 @@ export const Signup = ({ ...props }) => {
       if (res.data.status === "Success") {
         toast.success("User created successfully", {
           position: "top-right",
-          autoClose: false
+          autoClose: false,
         });
 
         setTimeout(() => {
-          navigate("/users/registered")
-        }, 3000)
+          navigate("/users/registered");
+        }, 3000);
       } else {
         toast.error(res.response.data.message, {
           position: "top-right",
         });
       }
     } catch (error) {
+      console.log(error);
       toast.error(error.response.data.error, {
         position: "top-right",
       });
