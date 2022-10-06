@@ -10,18 +10,28 @@ import { mainAxios } from "../Axios/Axios";
 import Swal from "sweetalert2";
 
 const networkList = [
-  { id: "1", name: "MTN", ussd: "*505*number.MTN#", number: "07060000001" },
+  {
+    id: "1",
+    name: "MTN",
+    ussd: "*777*NUMBER*amount*pin#",
+    number: "07060000001",
+  },
   {
     id: "2",
     name: "AIRTEL",
-    ussd: "*505*number.Airtel#",
+    ussd: "*432*NUMBER*AMOUNT#",
     number: "08026000001",
   },
-  { id: "3", name: "GLO", ussd: "*505*number.GLO#", number: "08050000001" },
+  {
+    id: "3",
+    name: "GLO",
+    ussd: "*131*NUMBER*amount* pin#",
+    number: "08050000001",
+  },
   {
     id: "4",
     name: "9mobile",
-    ussd: "*505*number.9mobile#",
+    ussd: "*223*PIN*Amount*NUMBER#",
     number: "08090000001",
   },
 ];
@@ -87,7 +97,6 @@ const SellAirtime = () => {
   };
 
   const handleSelect = (e) => {
-    // console.log(inputValues);
     networkList.forEach((el) => {
       if (e.value === el.name) {
         setNotEditable({ ussd: el.ussd, number: el.number });
@@ -98,7 +107,6 @@ const SellAirtime = () => {
   };
 
   const handleSubmit = async (e) => {
-    console.log(inputValues);
     /***
      *Consume API here
      */
@@ -114,7 +122,6 @@ const SellAirtime = () => {
           "Your wallet would be credited soon",
           "success"
         );
-        console.log("Running API");
       }
     } catch (error) {
       Swal.fire({
