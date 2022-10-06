@@ -33,7 +33,6 @@ function App() {
           <Route path='/users/registered' element={<UserVerified content="register" />} />
           <Route path='/users/verify/:token' element={<UserVerified content="verify" />} />
           <Route path='/users/change-password/:id' element={<ResetPassword />} />
-
         </Routes>
       </BrowserRouter>
     </>

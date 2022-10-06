@@ -61,7 +61,6 @@ export const Signup = ({ ...props }) => {
       if (res.data.status === "Success") {
         toast.success("User created successfully", {
           position: "top-right",
-          autoClose: false
         });
 
         setTimeout(() => {
