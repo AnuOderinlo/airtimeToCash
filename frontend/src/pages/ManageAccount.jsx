@@ -6,7 +6,7 @@ import MessageAlertModal from "../components/MessageAlertModal";
 import BankAccountList from "./BankAccountList";
 import SelectInput from "../components/SelectInput";
 import { showSuccessModal, viewAccountRecord } from "../atoms/manageAccountStates";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/ReactToastify.css";
 import { useRecoilState } from "recoil";
 import { buttonDisplay } from '../atoms/manageAccountStates'
@@ -42,28 +42,23 @@ const ManageAccount = () => {
       e.preventDefault()
       e.stopPropagation()
 
-    try {
-        const response = await axios.post(`/account/create`, inputs, {
-          headers: {
-            contenType: 'application/json',
-            Authorization: `Bearer ${token}`
-          }
-        })
-        
-        if (response.status === 201) {
-          toast.success(response.data.message);
-          setInputs({ bankName: '', accountName: '', accountNumber: '' })
-          openModal()
-
-          setTimeout(() => {
-            setShowModal(false);
-            setViewAccount(true);
-          }, 4000)
-        } 
-    } catch (e) {
-      toast.error(e.response.data.message);
+      try {
+          const response = await axios.post(`/account/create`, inputs, {
+            headers: {
+              contenType: 'application/json',
+              Authorization: `Bearer ${token}`
+            }
+          })
+          
+          if (response.status === 201) {
+            toast.success(response.data.message);
+            setInputs({ bankName: '', accountName: '', accountNumber: '' })
+            openModal()
+          } 
+      } catch (e) {
+        toast.error(e.response.data.message);
+      }
     }
-  }
 
     const openModal = () => {
       setShowModal(true);

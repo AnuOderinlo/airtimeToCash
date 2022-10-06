@@ -3,8 +3,12 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import { Form } from "../styles/ManageAccount";
 import Select from "react-select";
 
-const SelectInput = ({ onChangeAction, label, selectionList, selectionDefault }) => {
-
+const SelectInput = ({
+  onChangeAction,
+  label,
+  selectionList,
+  selectionDefault,
+}) => {
   const selectOptions = selectionList.map((elem) => {
     return { value: elem.name, label: elem.name };
   });
@@ -26,13 +30,13 @@ const SelectInput = ({ onChangeAction, label, selectionList, selectionDefault })
     dropdownIndicator: (provided, state) => {
       return {
         ...provided,
-        padding: '0px',
-        paddingLeft: '0px',
-        paddingTop: '0px',
-        paddingRight: '30px',
-        paddingDown: '0px',
-        color: 'black',
-        cursor: 'pointer'
+        padding: "0px",
+        paddingLeft: "0px",
+        paddingTop: "0px",
+        paddingRight: "30px",
+        paddingDown: "0px",
+        color: "black",
+        cursor: "pointer",
       };
     },
   };
@@ -58,7 +62,14 @@ const SelectInput = ({ onChangeAction, label, selectionList, selectionDefault })
         {label}
       </label>
       <div className="select">
-        <Select defaultValue={selectionDefault} onChange={onChangeAction} options={selectOptions} styles={colorStyles} placeholder={selectionDefault} components={{ IndicatorSeparator:() => null }}/>
+        <Select
+          defaultValue={selectionDefault}
+          onChange={onChangeAction}
+          options={selectOptions}
+          styles={colorStyles}
+          placeholder={selectionDefault}
+          components={{ IndicatorSeparator: () => null }}
+        />
       </div>
     </Form>
   );

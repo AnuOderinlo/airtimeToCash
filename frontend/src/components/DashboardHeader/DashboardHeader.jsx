@@ -6,18 +6,18 @@ function DashboardHeader() {
             <div className="mx-auto dashboard-heading-text">
                 Dashboard
             </div>
-            <div class="wallet-section col-12">
-                <div class="wallet-card">
-                    <div class="wallet-details">
-                        <div class="wallet-balance">
+            <div className="wallet-section col-12">
+                <div className="wallet-card">
+                    <div className="wallet-details">
+                        <div className="wallet-balance">
                             Wallet balance
                         </div>
-                        <div class="wallet-balance-amount">
+                        <div className="wallet-balance-amount">
                             N21,350.00
                         </div>
                     </div>
-                    <div class="account-status">
-                        <div class="account-is-active">
+                    <div className="account-status">
+                        <div className="account-is-active">
                             Account is active
                         </div>
                     </div>
