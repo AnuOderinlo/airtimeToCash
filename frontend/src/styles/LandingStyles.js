@@ -18,6 +18,7 @@ export const Nav = styled.div`
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
   padding: 0 10%;
 `;
+
 export const Hamburger = styled.div`
   display: none;
   flex-direction: column;
@@ -33,6 +34,7 @@ export const Hamburger = styled.div`
     display: flex;
   }
 `;
+
 export const Menu = styled.div`
   width: 50%;
   display: flex;
@@ -216,6 +218,11 @@ export const ProductSection = styled.div`
   flex-wrap: wrap;
   color: #03435f;
   justify-content: space-between;
+
+  @media (max-width:280px){
+    width: auto;
+    margin:7%  0;
+  }
   & .productDescription {
     width: 40%;
     margin: 8% 8% 8% 10%;
@@ -331,6 +338,9 @@ export const FooterStyle = styled.div`
   text-align: center;
   color: #fff;
   font-weight: lighter;
+  & .footer-logo{
+    width: 10rem;
+  }
   & .footerMenu {
     display: flex;
     gap: 25px;
@@ -348,7 +358,7 @@ export const LowerFooter = styled.div`
   padding-top: 2%;
   & .socials-wrapper {
     display: flex;
-    width: 15em;
+    width: 10rem;
     gap: 20px;
     justify-content: end;
   }
