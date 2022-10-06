@@ -2,6 +2,12 @@ import React, { useEffect, useState } from 'react'
 import axios from '../../api/axios';
 import {Withdrawal, WithdrawalWrapper } from './WithdrawalHistoryStyled';
 
+import TimeAgo from 'react-timeago'
+import englishStrings from 'react-timeago/lib/language-strings/en'
+import buildFormatter from 'react-timeago/lib/formatters/buildFormatter'
+
+const formatter = buildFormatter(englishStrings)
+
 function WithdrawalHistory() {
   const [withdrawal, setWithdrawal] = useState([])
 
@@ -24,9 +30,9 @@ function WithdrawalHistory() {
     fetchBankRecord()
   }, [])
 
-  useEffect(() => {
-    fetchBankRecord()
-  }, [withdrawal])
+  // useEffect(() => {
+  //   fetchBankRecord()
+  // }, [withdrawal])
 
   const regex = /([0-9]{4}-[0-9]{2}-[0-9]{2})?.([:0-9]+)/;
 
@@ -34,62 +40,23 @@ function WithdrawalHistory() {
   <WithdrawalWrapper>
     {
       withdrawal.map((withdraw) => (
-        <Withdrawal> 
-            <div>
-              <p><b>Today,</b>{withdraw.updatedAt.match(regex)[2]}</p> 
-              <p>Withdraw Fund</p> 
-              <p>{withdraw.updatedAt.split('T')[0]}</p>
-            </div>          
-            
-            <div className='status'>
-              <label className='label'>{withdraw.status === false ? 'Failed' : 'Success'}</label>
-              <p>{withdraw.amount}</p>
-            </div>
-        </Withdrawal>
+        <div key={withdraw.id}>
+          <Withdrawal> 
+              <div>
+                {/* <p><b>Today,</b>{}</p>  */}
+                <b><TimeAgo date={`${withdraw.updatedAt.match(regex)}`} formatter={formatter}/></b>
+                <p>Withdraw Fund</p> 
+                <p>{withdraw.updatedAt.split('T')[0]}</p>
+              </div>          
+              
+              <div className='status'>
+                <label>{withdraw.status === false ? (<p className='label-red'>Failed</p>) : (<p className='label-green'>Success</p>)}</label>
+                <p>{withdraw.amount}</p>
+              </div>
+          </Withdrawal>
+        </div>
       ))
     }
-    
-    
-    {/* <Withdrawal> 
-      <div>
-        <p><b>Today,</b> 10:15AM</p> 
-        <p>Withdraw fund</p> 
-        <p>25/5/2022</p></div>          
-        
-        <div className='status'>
-          <label className='label'>Received</label>
-          <p>N5,000</p>
-        </div>
-    </Withdrawal>
-
-
-    <Withdrawal> 
-      <div>
-        <p><b>Today,</b> 10:15AM</p> 
-        <p>Withdraw fund</p> 
-        <p>25/5/2022</p></div>          
-        
-        <div className='status'>
-          <label className='label'>Received</label>
-          <p>N5,000</p>
-        </div>
-    </Withdrawal>
-    
-
-    <Withdrawal> 
-      <div>
-        <p><b>Today,</b> 10:15AM</p> 
-        <p>Withdraw fund</p> 
-        <p>25/5/2022</p></div>          
-        
-        <div className='status'>
-          <label className='label'>Received</label>
-          <p>N5,000</p>
-        </div>
-    </Withdrawal> */}
-
-
-    
   </WithdrawalWrapper>
   )
 }
