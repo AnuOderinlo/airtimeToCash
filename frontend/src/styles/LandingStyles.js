@@ -224,6 +224,7 @@ export const ProductSection = styled.div`
       font-weight: 600;
       line-height: 56px;
       margin: 0 0 3% 0;
+
     }
     & p {
       font-weight: lighter;
@@ -253,6 +254,7 @@ export const ProductSection = styled.div`
       line-height: 46px;
       text-align: center;
       padding: 20px 0;
+      font-size: 20px;
       }
     }
     & .productImage {

@@ -31,7 +31,7 @@ const Dashboard = () => {
     avatar: localStorage.getItem("avatar"),
   };
 
-  const [key, setKey] = useState("transfer-airtime");
+  const [key, setKey] = useState("sell-airtime");
 
   const handleGoBack = (e) => {
     e.preventDefault();
