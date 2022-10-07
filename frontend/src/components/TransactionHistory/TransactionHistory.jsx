@@ -20,6 +20,7 @@ function TransactionHistory() {
 
   useEffect(() => {
     getTransactions();
+    console.log(transactions);
   }, []);
 
   return (
