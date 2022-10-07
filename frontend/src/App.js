@@ -40,7 +40,7 @@ function App() {
           </Route>
 
           <Route element = {<AdminRoutes/>}>
-            <Route path='/admin-2' element={<AdminDashboard2 />} />
+            <Route path='/admin-dashboard' element={<AdminDashboard2 />} />
           </Route>
 
           

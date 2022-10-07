@@ -3,16 +3,9 @@ import Nav from 'react-bootstrap/Nav';
 import Row from 'react-bootstrap/Row';
 import Tab from 'react-bootstrap/Tab';
 import { NavBarDashboard } from '../NavBarDashboard/NavBarDashboard'
-// import { PendingTransactionsTable } from './Table/foldDE/PendingTransactionsTable'
-// import { ProcessedTransactionsTable } from './Table/foldDE/ProcessedTransactionsTable'
-// import { WithdrawalsTable } from './Table/foldDE/WithdrawalsTable'
-// import {sideTab} from './styles/sidebarTabs'
 import overviewIcon from './images/OverviewLogo.svg'
 import transactionArrows from './images/TransactionArrows.svg'
-// import processed from './images/processed.svg'
-// import withdrawals from './images/withdrawals.svg'
 import OverviewTable2 from './Table/OverviewTable2';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 import './styles/sidebarTabs.css'
