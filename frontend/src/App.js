@@ -36,7 +36,7 @@ function App() {
           <Route path='/forgot-password' element={<ForgotPassword />} />
           <Route path='/verification' element={<EmailVerification />} />
           {/* <Route path='/admin-dashboard' element={<AdminDashboard />} /> */}
-          <Route path='/admin-2' element={<AdminDashboard2 />} />
+          <Route path='/admin' element={<AdminDashboard2 />} />
           <Route path='/MenuDefault' element={<MenuDefault />} />
           {/* <Route path='/OptionModal' element={<OptionModal/>} /> */}
           {/* <Route path='/BasicTable' element={<OverviewTable/>} /> */}
