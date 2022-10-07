@@ -75,6 +75,7 @@ export const Login = ({ ...props }) => {
       localStorage.setItem("phoneNumber", res.data.User.phoneNumber);
       localStorage.setItem("username", res.data.User.username);
       localStorage.setItem("id", res.data.User.id);
+      localStorage.setItem("role", res.data.User.role);
 
       toast.success(res.data.message);
       setTimeout(() => {
