@@ -15,6 +15,7 @@ import "react-toastify/ReactToastify.css";
 
 
 import MessageAlertModal from './components/MessageAlertModal'
+import NotFound from './components/Pagenotfound';
 
 function App() {
   return (
@@ -33,6 +34,8 @@ function App() {
           <Route path='/users/registered' element={<UserVerified content="register" />} />
           <Route path='/users/verify/:token' element={<UserVerified content="verify" />} />
           <Route path='/users/change-password/:id' element={<ResetPassword />} />
+          
+          <Route path="*" element={<NotFound/>} />
 
         </Routes>
       </BrowserRouter>

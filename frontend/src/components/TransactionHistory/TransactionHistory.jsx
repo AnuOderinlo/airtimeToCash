@@ -1,8 +1,31 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import {Transaction, TransactionWrapper } from './TransactionHistoryStyle';
+import { mainAxios } from "../Axios/Axios";
 
 function TransactionHistory() {
+  let [transactions, setTransactions] =useState([]);
+
+  const getTransactions = async() => {
+    try {
+      const res = await mainAxios.get("/transactions?status=All-Transactions");
+      setTransactions(res.data.data);
+      console.log(res.data);                  
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  
+
+  useEffect(() => {
+    getTransactions()
+  }, []);
+
+  console.log(transactions);
+
+  console.log("Is it")
+  
   return (
+    
   <TransactionWrapper>
     
 
