@@ -10,6 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { NavBarDashboard } from '../NavBarDashboard/NavBarDashboard';
 import React from 'react';
 import { mainAxios } from '../Axios/Axios';
+import { useNavigate } from 'react-router-dom'
 
 
 import Modal from 'react-modal';
@@ -21,6 +22,8 @@ export const Update = () => {
 
     const url = process.env.REACT_APP_CLOUDINARY_URL;
     const preset = process.env.REACT_APP_UPLOAD_PRESET;
+
+    const navigate = useNavigate()
 
     const fakeDetails = {
         firstname: localStorage.getItem("firstname"),
@@ -128,11 +131,17 @@ export const Update = () => {
                 });
                 if (res.data.status === "Success") {
                     toastSuccessMessage('Successfully updated!');
-                    setToggleModal(false)
+                    // setToggleModal(false)
+
+                    setTimeout(()=> {
+                        navigate('/dashboard')
+                    }, 2000)
+
                 } else {
                     toastErrorMessage('Update failed!');
                 }
             }
+            
         } catch (err) {
             toastErrorMessage(err.response.data.Message);
             console.log(err)

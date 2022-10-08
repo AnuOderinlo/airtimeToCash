@@ -10,11 +10,10 @@ import "bootstrap/dist/css/bootstrap.css";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 
-// import LoremIpsum from "./LoremIpsum";
 import DashboardHeader from "../DashboardHeader/DashboardHeader";
 import { viewAccountRecord } from "../../atoms/manageAccountStates";
 import { useRecoilState } from "recoil";
-import SellAirtime from "../SellAirtime/SellAirtime";
+import TransferAirtime from "../TransferAirtime/TransferAirtime";
 import TransactionHistory from "../TransactionHistory/TransactionHistory";
 import WithdrawAct from "../WithdrawalBoard/WithdrawAct";
 import WithdrawalHistory from "../WithdrawalHistory/WithdrawalHistory";
@@ -45,7 +44,7 @@ const Dashboard = () => {
 
   return (
     <>
-      <div>{/* <ToastContainer /> */}</div>
+     
       <NavBarDashboard
         className="container-fluid"
         uploadUrl={userDetails.avatar}
@@ -56,7 +55,7 @@ const Dashboard = () => {
         <div className="row dashboard-card mt-3">
           <div className="col-md-7 col-lg-5 dashboard-card-padding p-md-5">
             <div className="dashboard-box col-12">
-              {(key === "sell-airtime" || key === "withdraw-balance") && (
+              {(key === "transfer-airtime" || key === "withdraw-balance") && (
                 <DashboardHeader />
               )}
               {key === "manage-bank-account" && (
@@ -84,15 +83,15 @@ const Dashboard = () => {
               )}
 
               <Tabs
-                defaultActiveKey="sell-airtime"
+                defaultActiveKey="transfer-airtime"
                 id="dashboard-tabs"
                 className="mb-3"
                 activeKey={key}
                 onSelect={(k) => handleOptions(k)}
                 fill
               >
-                <Tab eventKey="sell-airtime" title="Sell airtime">
-                  <SellAirtime />
+                <Tab eventKey="transfer-airtime" title="Transfer airtime">
+                  <TransferAirtime />
                 </Tab>
                 <Tab eventKey="withdraw-balance" title="Withdraw balance">
                   <WithdrawAct setKey={key} />

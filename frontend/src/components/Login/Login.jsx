@@ -75,10 +75,15 @@ export const Login = ({ ...props }) => {
       localStorage.setItem("phoneNumber", res.data.User.phoneNumber);
       localStorage.setItem("username", res.data.User.username);
       localStorage.setItem("id", res.data.User.id);
+      localStorage.setItem("role", res.data.User.role);
 
       toast.success(res.data.message);
       setTimeout(() => {
-        navigate("/dashboard");
+        if(res.data.User.role === 'user'){
+          navigate("/dashboard")
+        } else if(res.data.User.role === 'admin'){
+          navigate("/admin-dashboard")
+        }
       }, 3000);
     } catch (error) {
       toast.error(error.response.data.message);

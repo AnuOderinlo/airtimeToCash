@@ -30,7 +30,7 @@ export const NavBarDashboard = ({ setToggleModal, uploadUrl, firstname, route })
             <Container className="col-md-10">
                 <Navbar.Brand className="" href="/"><img src={Logo} /></Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
+                <Navbar.Collapse className="offset-md-2" id="basic-navbar-nav">
 
                     <Nav className="mx-auto nav-right-items mr-6 col-md-12">
                         {(!firstname || route === "/") &&

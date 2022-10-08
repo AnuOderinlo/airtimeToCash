@@ -8,12 +8,12 @@ import InputFieldReadOnly from "../InputFieldReadOnly";
 import { mainAxios } from "../Axios/Axios";
 
 
-const WithdrawAct= ({setKey}) => {
-  const initialValues = {amount: "", password: ""}
+const WithdrawAct = ({ setKey }) => {
+  const initialValues = { amount: "", password: "" }
   const [inputValues, setInputValues] = useState(initialValues);
   const [bankList, setBankList] = useState([])
-  const [accName , setAccName] = useState("");
-  const [accNumber , setAccNumber] = useState("");
+  const [accName, setAccName] = useState("");
+  const [accNumber, setAccNumber] = useState("");
   const bankOptions = []
 
 
@@ -22,7 +22,7 @@ const WithdrawAct= ({setKey}) => {
     const response = await mainAxios.get(`/account/getuseraccount/${userID}`);
 
 
-    for(let i=0; i<response.data.data.length; i++){
+    for (let i = 0; i < response.data.data.length; i++) {
       bankOptions[i] = { id: i, name: `${response.data.data[i].accountName} - ${response.data.data[i].bankName} - ${response.data.data[i].accountNumber}` }
     }
     setBankList([...bankOptions]);
@@ -41,26 +41,21 @@ const WithdrawAct= ({setKey}) => {
 
   useEffect(() => {
     getBankLists()
-  }, [])
-
-  useEffect(() => {
-    getBankLists()
   }, [setKey])
 
   const handleErrorMessage = (msg) => {
     return toast.error(msg);
   };
- 
+
 
   const handleErrorValidation = () => {
     if (
 
       inputValues.accName === "" ||
       inputValues.amount === "" ||
-      inputValues.password === "" ) 
-      {
+      inputValues.password === "") {
       handleErrorMessage("Field(s) can not be empty");
-    } else if(!Number(inputValues.amount)){
+    } else if (!Number(inputValues.amount)) {
       handleErrorMessage("amount should be a number");
     }
 
@@ -70,10 +65,10 @@ const WithdrawAct= ({setKey}) => {
     /***
      *Consume API here
      */
-     handleErrorValidation()
+    handleErrorValidation()
   };
 
-  
+
   return (
     <Bg>
       <Container>
@@ -93,22 +88,22 @@ const WithdrawAct= ({setKey}) => {
               label={"Account Name"}
               placeholder={"BabatundeOla"}
               name={"Account name"}
-              value = {accName}
+              value={accName}
             />
             <InputFieldReadOnly
               label={"Account Number"}
               placeholder={"2987665533"}
               name={"Account number"}
-              value = {accNumber}
+              value={accNumber}
             />
-             <InputField
+            <InputField
               label={"Amount"}
               placeholder={"NGN"}
               name={"amount"}
               value={inputValues.amount || ""}
               changeHandle={handleChange}
             />
-             <InputField
+            <InputField
               label={"Password"}
               placeholder={"password"}
               name={"password"}
