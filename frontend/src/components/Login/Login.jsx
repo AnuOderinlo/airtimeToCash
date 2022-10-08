@@ -79,7 +79,11 @@ export const Login = ({ ...props }) => {
 
       toast.success(res.data.message);
       setTimeout(() => {
-        navigate("/dashboard");
+        if(res.data.User.role === 'user'){
+          navigate("/dashboard")
+        } else if(res.data.User.role === 'admin'){
+          navigate("/admin-dashboard")
+        }
       }, 3000);
     } catch (error) {
       toast.error(error.response.data.message);

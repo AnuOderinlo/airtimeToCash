@@ -41,7 +41,7 @@ function App() {
             <Route path='/users/change-password/:id' element={<ResetPassword />} />
           </Route>
 
-          <Route element={<AdminRoutes />}>
+          <Route element = {<AdminRoutes/>}>
             <Route path='/admin-dashboard' element={<AdminDashboard2 />} />
           </Route>
 

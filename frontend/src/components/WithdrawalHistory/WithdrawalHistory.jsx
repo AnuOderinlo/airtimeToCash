@@ -47,7 +47,7 @@ function WithdrawalHistory() {
 
               <div className='status'>
                 <label>{withdraw.status === false ? (<p className='label-red'>Failed</p>) : (<p className='label-green'>Success</p>)}</label>
-                <p>{withdraw.amount}</p>
+                <p>{Number(withdraw.amount).toLocaleString('en-US')}</p>
               </div>
             </Withdrawal>
           </div>
