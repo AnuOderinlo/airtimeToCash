@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from '../../api/axios';
-import {Withdrawal, WithdrawalWrapper } from './WithdrawalHistoryStyled';
+import { Withdrawal, WithdrawalWrapper } from './WithdrawalHistoryStyled';
 
 import TimeAgo from 'react-timeago'
 import englishStrings from 'react-timeago/lib/language-strings/en'
@@ -15,13 +15,13 @@ function WithdrawalHistory() {
 
   const fetchBankRecord = async () => {
     const response = await axios.get(`/withdrawal/getUserWithdrawal`, {
-        headers: {
-            contenType: 'application/json',
-            Authorization: `Bearer ${token}`
-        }
+      headers: {
+        contenType: 'application/json',
+        Authorization: `Bearer ${token}`
+      }
     })
 
-    if(response.status === 200){
+    if (response.status === 200) {
       setWithdrawal(response.data.withdrawals.rows)
     }
   }
@@ -30,34 +30,30 @@ function WithdrawalHistory() {
     fetchBankRecord()
   }, [])
 
-  // useEffect(() => {
-  //   fetchBankRecord()
-  // }, [withdrawal])
-
   const regex = /([0-9]{4}-[0-9]{2}-[0-9]{2})?.([:0-9]+)/;
 
   return (
-  <WithdrawalWrapper>
-    {
-      withdrawal.map((withdraw) => (
-        <div key={withdraw.id}>
-          <Withdrawal> 
+    <WithdrawalWrapper>
+      {
+        withdrawal.map((withdraw) => (
+          <div key={withdraw.id}>
+            <Withdrawal>
               <div>
                 {/* <p><b>Today,</b>{}</p>  */}
-                <b><TimeAgo date={`${withdraw.updatedAt.match(regex)}`} formatter={formatter}/></b>
-                <p>Withdraw Fund</p> 
+                <b><TimeAgo date={`${withdraw.updatedAt.match(regex)}`} formatter={formatter} /></b>
+                <p>Withdraw Fund</p>
                 <p>{withdraw.updatedAt.split('T')[0]}</p>
-              </div>          
-              
+              </div>
+
               <div className='status'>
                 <label>{withdraw.status === false ? (<p className='label-red'>Failed</p>) : (<p className='label-green'>Success</p>)}</label>
                 <p>{Number(withdraw.amount).toLocaleString('en-US')}</p>
               </div>
-          </Withdrawal>
-        </div>
-      ))
-    }
-  </WithdrawalWrapper>
+            </Withdrawal>
+          </div>
+        ))
+      }
+    </WithdrawalWrapper>
   )
 }
 

@@ -28,11 +28,13 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path='/verification' element={<EmailVerification />} />
+          <Route path='/users/verify/:token' element={<UserVerified content="verify" />} />
+          <Route path='/users/change-password/:id' element={<ResetPassword />} />
           <Route path='/users/registered' element={<UserVerified content="register" />} />
           <Route path='/users/verify/:token' element={<UserVerified content="verify" />} />
-          <Route path='/*' element = {<ErrorPage/>}/>
 
-          <Route element = {<UserRoutes/>}>
+
+          <Route element={<UserRoutes />}>
             <Route path="/update" element={<Update />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path='/forgot-password' element={<ForgotPassword />} />
@@ -43,7 +45,7 @@ function App() {
             <Route path='/admin-dashboard' element={<AdminDashboard2 />} />
           </Route>
 
-          
+
         </Routes>
       </BrowserRouter>
     </>
