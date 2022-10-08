@@ -24,9 +24,9 @@ const OverviewTable2 = ({ type }) => {
     const getTransactions = async () => {
         let route = "";
         if (type === "all") {
-            route = '/transactions/all'
+            route = '/transactions?status=All-Transactions'
         } else if (type === "pending") {
-            route = '/transactions/pending'
+            route = '/transactions?status=Pending-Transactions'
         }
         const res = await mainAxios.get(route);
         console.log(res.data.transaction);
