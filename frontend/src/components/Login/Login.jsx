@@ -82,8 +82,8 @@ export const Login = ({ ...props }) => {
         navigate("/dashboard");
       }, 3000);
     } catch (error) {
-      toast.error(error.response.data.message);
       console.log(error);
+      toast.error(error.response.data.message);
     }
   };
 
