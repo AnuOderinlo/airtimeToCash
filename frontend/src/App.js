@@ -17,6 +17,9 @@ import ErrorPage from './pages/ErrorPage';
 import AdminRoutes from './routes/AdminRoutes';
 
 
+import MessageAlertModal from './components/MessageAlertModal'
+import NotFound from './components/Pagenotfound';
+
 function App() {
   return (
     <>
@@ -29,10 +32,9 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path='/verification' element={<EmailVerification />} />
           <Route path='/users/registered' element={<UserVerified content="register" />} />
-          <Route path='/users/verify/:token' element={<UserVerified content="verify" />} />
-          <Route path='/*' element = {<ErrorPage/>}/>
+          <Route path="*" element={<NotFound/>} />
 
-          <Route element = {<UserRoutes/>}>
+          <Route element={<UserRoutes />}>
             <Route path="/update" element={<Update />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path='/forgot-password' element={<ForgotPassword />} />
@@ -40,10 +42,10 @@ function App() {
           </Route>
 
           <Route element = {<AdminRoutes/>}>
-            <Route path='/admin-2' element={<AdminDashboard2 />} />
+            <Route path='/admin-dashboard' element={<AdminDashboard2 />} />
           </Route>
 
-          
+
         </Routes>
       </BrowserRouter>
     </>

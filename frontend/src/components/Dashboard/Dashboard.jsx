@@ -10,7 +10,6 @@ import "bootstrap/dist/css/bootstrap.css";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 
-// import LoremIpsum from "./LoremIpsum";
 import DashboardHeader from "../DashboardHeader/DashboardHeader";
 import { viewAccountRecord } from "../../atoms/manageAccountStates";
 import { useRecoilState } from "recoil";
@@ -45,7 +44,7 @@ const Dashboard = () => {
 
   return (
     <>
-      <div>{/* <ToastContainer /> */}</div>
+     
       <NavBarDashboard
         className="container-fluid"
         uploadUrl={userDetails.avatar}
