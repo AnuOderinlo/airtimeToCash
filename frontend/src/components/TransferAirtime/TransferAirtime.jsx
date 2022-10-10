@@ -9,32 +9,32 @@ import "react-toastify/dist/ReactToastify.css";
 import { mainAxios } from "../Axios/Axios";
 import Swal from "sweetalert2";
 
-const networkList = [
-  {
-    id: "1",
-    name: "MTN",
-    ussd: "*777*NUMBER*amount*pin#",
-    number: "07060000001",
-  },
-  {
-    id: "2",
-    name: "AIRTEL",
-    ussd: "*432*NUMBER*AMOUNT#",
-    number: "08026000001",
-  },
-  {
-    id: "3",
-    name: "GLO",
-    ussd: "*131*NUMBER*amount* pin#",
-    number: "08050000001",
-  },
-  {
-    id: "4",
-    name: "9mobile",
-    ussd: "*223*PIN*Amount*NUMBER#",
-    number: "08090000001",
-  },
-];
+// const networkList = [
+//   {
+//     id: "1",
+//     name: "MTN",
+//     ussd: "*777*NUMBER*amount*pin#",
+//     number: "07060000001",
+//   },
+//   {
+//     id: "2",
+//     name: "AIRTEL",
+//     ussd: "*432*NUMBER*AMOUNT#",
+//     number: "08026000001",
+//   },
+//   {
+//     id: "3",
+//     name: "GLO",
+//     ussd: "*131*NUMBER*amount* pin#",
+//     number: "08050000001",
+//   },
+//   {
+//     id: "4",
+//     name: "9mobile",
+//     ussd: "*223*PIN*Amount*NUMBER#",
+//     number: "08090000001",
+//   },
+// ];
 
 const SellAirtime = () => {
   let initialValues = { phoneNumber: "", amount: "" };
@@ -42,6 +42,33 @@ const SellAirtime = () => {
   const [inputValues, setInputValues] = useState(initialValues);
   const [btnActive, setBtnActive] = useState(true);
   const [nonEditable, setNotEditable] = useState(initialNonEditableValues);
+
+  const networkList = [
+    {
+      id: "1",
+      name: "MTN",
+      ussd: `*777*${inputValues.phoneNumber}*${inputValues.amount}*pin#`,
+      number: "07060000001",
+    },
+    {
+      id: "2",
+      name: "AIRTEL",
+      ussd: `*432*${inputValues.phoneNumber}*${inputValues.amount}#`,
+      number: "08026000001",
+    },
+    {
+      id: "3",
+      name: "GLO",
+      ussd: `*131*${inputValues.phoneNumber}*${inputValues.amount}* pin#`,
+      number: "08050000001",
+    },
+    {
+      id: "4",
+      name: "9mobile",
+      ussd: `*223*PIN*${inputValues.amount}*${inputValues.phoneNumber}#`,
+      number: "08090000001",
+    },
+  ];
 
   const handleErrorMessage = (msg) => {
     return toast.error(msg);
@@ -94,6 +121,13 @@ const SellAirtime = () => {
     const { name, value } = e.target;
 
     setInputValues({ ...inputValues, [name]: value });
+    // console.log(inputValues.amount, inputValues.phoneNumber);
+    networkList.forEach((el) => {
+      if (e.value === el.name) {
+        setNotEditable({ ussd: el.ussd, number: el.number });
+        console.log(el.ussd, el.number);
+      }
+    });
   };
 
   const handleSelect = (e) => {
