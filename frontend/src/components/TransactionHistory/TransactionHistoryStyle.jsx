@@ -21,6 +21,22 @@ justify-content:space-between;
     border-radius:100px;
 
 }
+& .label-green{
+    color:#34A853;
+    background-color:#34A8531A;
+    padding:5px 8px;
+    margin-bottom: 5px;
+    border-radius:100px;
+
+}
+& .label-red{
+    color:red;
+    background-color:#FBCEB1;
+    padding:5px 8px;
+    margin-bottom: 5px;
+    border-radius:100px;
+
+}
 
 & .status{
     display:flex;
