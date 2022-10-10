@@ -31,7 +31,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path='/verification' element={<EmailVerification />} />
-          <Route path='/users/registered' element={<UserVerified content="register" />} />
+          <Route path='/users/verify/:token' element={<UserVerified content="register" />} />
           <Route path="*" element={<NotFound/>} />
 
           <Route element={<UserRoutes />}>

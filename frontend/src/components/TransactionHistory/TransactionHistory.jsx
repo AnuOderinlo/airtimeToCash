@@ -41,31 +41,33 @@ function TransactionHistory() {
 
   return (
     <TransactionWrapper>
-      {transactions.map((transaction) => {
-        return (
-          <div key={transaction.id}>
-            <Transaction>
-              <div>
-                <p>
-                  <b>
-                    <TimeAgo
-                      date={`${transaction.updatedAt.match(regex)}`}
-                      formatter={formatter}
-                    />
-                  </b>
-                </p>
-                <p>Withdraw fund</p>
-                <p>{transaction.updatedAt.split("T")[0]}</p>
-              </div>
+      { transactions.length > 0 ?
+        transactions.map((transaction) => {
+          return (
+            <div key={transaction.id}>
+              <Transaction>
+                <div>
+                  <p>
+                    <b>
+                      <TimeAgo
+                        date={`${transaction.updatedAt.match(regex)}`}
+                        formatter={formatter}
+                      />
+                    </b>
+                  </p>
+                  <p>Withdraw fund</p>
+                  <p>{transaction.updatedAt.split("T")[0]}</p>
+                </div>
 
-              <div className="status">
-                <label className="label">Received</label>
-                <p>{transaction.amount.toLocaleString()}</p>
-              </div>
-            </Transaction>
-          </div>
-        );
-      })}
+                <div className="status">
+                  <label>{transaction.status === false ? (<p className='label-red'>Pending</p>) : (<p className='label-green'>Success</p>)}</label>
+                  <p>{transaction.amount.toLocaleString()}</p>
+                </div>
+              </Transaction>
+            </div>
+          );
+        }) : <p style={{color:'gray'}}> No transaction record available 😒 </p>
+      }
     </TransactionWrapper>
   );
 }
