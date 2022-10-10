@@ -30,11 +30,15 @@ function WithdrawalHistory() {
     fetchBankRecord()
   }, [])
 
+  // useEffect(() => {
+  //   fetchBankRecord()
+  // }, [withdrawal])
+
   const regex = /([0-9]{4}-[0-9]{2}-[0-9]{2})?.([:0-9]+)/;
 
   return (
     <WithdrawalWrapper>
-      {
+      { withdrawal.length > 0 ?
         withdrawal.map((withdraw) => (
           <div key={withdraw.id}>
             <Withdrawal>
@@ -51,8 +55,8 @@ function WithdrawalHistory() {
               </div>
             </Withdrawal>
           </div>
-        ))
-      }
+        )) : <p style={{color:'gray'}}> No withdrawal record available 😒 </p>
+      } 
     </WithdrawalWrapper>
   )
 }
