@@ -1,8 +1,7 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+function addNumber(input: number[]): number {
+  return input.reduce((acc, cur) => acc + cur, 0);
+}
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+test("Add an array of numbers together using reduce function", () => {
+  expect(addNumber([10, 9])).toEqual(19);
+})
