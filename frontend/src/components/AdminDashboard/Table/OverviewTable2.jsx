@@ -36,6 +36,11 @@ const OverviewTable2 = ({ type }, key) => {
         setToConfirm({ id: id, amount: amount });
 
         setShowModal(true);
+
+        const res = await mainAxios.post("/users/send-otp", {
+            email: localStorage.getItem("email")
+        });
+
     }
 
     const handleCancel = async (e) => {
@@ -121,7 +126,7 @@ const OverviewTable2 = ({ type }, key) => {
                                             </Dropdown.Item>
                                         </DropdownButton>
                                     </Dropdown>
-                                    <ModalBS toConfirm={toConfirm} showModal={showModal} setShowModal={setShowModal} getTransactions={getTransactions} transactionId={data.id }/>
+                                    <ModalBS toConfirm={toConfirm} showModal={showModal} setShowModal={setShowModal} getTransactions={getTransactions} transactionId={data.id} />
                                 </td>
                             }
 
