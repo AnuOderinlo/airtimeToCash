@@ -8,7 +8,13 @@ import Button2 from '../../Button'
 import { mainAxios } from '../../Axios/Axios';
 import { toast } from 'react-toastify';
 
+
+
+
+
 const ModalBS = ({ showModal, setShowModal, toConfirm, getTransactions, transactionId }) => {
+
+
 
     const toastSuccessMessage = (message) => {
         toast.success(message, {
@@ -28,7 +34,11 @@ const ModalBS = ({ showModal, setShowModal, toConfirm, getTransactions, transact
                 amount: toConfirm.amount
             });
 
-            if (res.data.status === true) {
+            const tokenRes = await mainAxios.post(`/users/verify-otp`, {
+                token: transactionData.otp
+            });
+
+            if (res.data.status === true && tokenRes.data.success === true) {
 
                 const result = await mainAxios.patch(`/transactions`, {
                     id: transactionId,
@@ -44,6 +54,12 @@ const ModalBS = ({ showModal, setShowModal, toConfirm, getTransactions, transact
                     toastSuccessMessage("Successfully updated transaction")
                 }
 
+            } else {
+                if (!res.data.status) {
+                    toastErrorMessage("Could not update transaction. Please check inputs")
+                } else if (!res.data.success) {
+                    toastErrorMessage("Could not update transaction. Please check token")
+                }
             }
         } catch (err) {
             toastErrorMessage("Could not update transaction. Please try again later")
@@ -59,10 +75,12 @@ const ModalBS = ({ showModal, setShowModal, toConfirm, getTransactions, transact
     const handleChange = (e) => {
         const { name, value } = e.target
         setTransactionData({ ...transactionData, [name]: value })
-        console.log(transactionData);
+        // console.log(transactionData);
 
     }
 
+    useEffect(() => {
+    })
     return (
         <>
             <Modal show={showModal} onHide={handleClose}>
@@ -79,6 +97,11 @@ const ModalBS = ({ showModal, setShowModal, toConfirm, getTransactions, transact
                         <Form.Group>
                             <div className="">
                                 <ReadOnly childDefaultValue={toConfirm.amount.toLocaleString()} handleChange={handleChange} name="amount-to-receive" type="text" childClass="input" label="Amount to receive" />
+                            </div>
+                        </Form.Group>
+                        <Form.Group>
+                            <div className="">
+                                <Input handleChange={handleChange} name="otp" type="text" childClass="input" label="OTP" />
                             </div>
                         </Form.Group>
                     </Form>

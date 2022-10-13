@@ -116,9 +116,10 @@ const SellAirtime = () => {
      *Consume API here
      */
     const validate = handleErrorValidation();
+  
     try {
       if (validate) {
-        const res = await mainAxios.post("transactions", inputValues);
+        const res = await mainAxios.post("transactions", { network:inputValues.network, phoneNumber: inputValues.phoneNumber, amount: inputValues.amount});
         setInputValues({ phoneNumber: "", amount: "", pin: "" });
         setNotEditable({ ussd: "USSD code", number: "070*********" });
 
