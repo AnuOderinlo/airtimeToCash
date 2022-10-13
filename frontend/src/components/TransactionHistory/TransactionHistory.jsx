@@ -41,20 +41,20 @@ function TransactionHistory() {
   return (
     <Container>
       <TransactionWrapper>
-        { transactions.length > 0 ?
+        {transactions.length > 0 ?
           transactions.map((transaction) => {
             return (
               <div key={transaction.id}>
                 <Transaction>
                   <div>
                     <p>
-                      <p><b>
+                      <b>
                         <TimeAgo
                           date={`${transaction.updatedAt.match(regex)}`}
                           formatter={formatter}
                         /></b>
-                        {`${', '} ${transaction.updatedAt.slice(11, 16)}${Number(transaction.updatedAt.slice(11, 13)) > 12 ? 'PM' : 'AM'}`}
-                      </p>
+                      {`${', '} ${transaction.updatedAt.slice(11, 16)}${Number(transaction.updatedAt.slice(11, 13)) > 12 ? 'PM' : 'AM'}`}
+
                     </p>
                     <p>Withdraw fund</p>
                     <p>{transaction.updatedAt.split("T")[0]}</p>
@@ -67,7 +67,7 @@ function TransactionHistory() {
                 </Transaction>
               </div>
             );
-          }) : <p style={{color:'gray'}}> No transaction record available 😒 </p>
+          }) : <p style={{ color: 'gray' }}> No transaction record available 😒 </p>
         }
       </TransactionWrapper>
     </Container>
